@@ -1,0 +1,11 @@
+sets:
+  - name: GameMusic
+    parsers: [vgmdb]
+    scanMode: directories
+    sourceDir: /media/music/Game Music/Mp3/#gamemp3s
+    cacheDir: /media/music/Game Music/Mp3/#gamemp3s/.cache
+    output:
+       - dest: /media/music/Game Music/Mp3/Artists
+         groupBy: artists
+       - dest: /media/music/Game Music/Mp3/Series
+         groupBy: franchise
