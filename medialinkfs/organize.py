@@ -153,15 +153,24 @@ def cleanup_extra_toc(path, recurse_levels = 1):
 	nametoc = os.path.join(path,'.toc')
 	namedone = os.path.join(path,'.toc.done')
 	nameold = os.path.join(path,'.toc.old')
+	nameextra = os.path.join(path,'.toc.extra')
 	if not os.path.isfile(nametoc):
 		return
+	extra_contents = []
+	try:
+		extra = open(nameextra, 'r')
+		extra_contents = [x.strip() for x in extra.readlines() if x.strip()!='']
+		extra.close()
+	except:
+		pass
 	with open(nametoc, 'r') as toc:
 		proper_contents = [x.strip() for x in toc.readlines() if x.strip()!='']
 		for name in os.listdir(path):
 			if name[:4] == '.toc':
 				continue
 			subpath = os.path.join(path,name)
-			if name not in proper_contents:
+			if name not in proper_contents and \
+			   name not in extra_contents:
 				if not os.path.islink(subpath) and \
 				   os.path.isdir(subpath):
 					logger.debug("Removing extra dir %s"%(subpath,))
