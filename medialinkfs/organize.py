@@ -82,6 +82,9 @@ def do_output(options, settings, metadata):
 			with open(os.path.join(dest, '.toc'), 'a') as toc:
 				toc.write("%s\n"%(value,))
 			destpath = os.path.join(valueDir, metadata['name'])
+			if os.path.islink(destpath) and \
+			   os.readlink(destpath) != metadata['path']:
+				os.unlink(destpath)
 			if not os.path.islink(destpath):
 				os.symlink(metadata['path'], destpath)
 			with open(os.path.join(valueDir, '.toc'), 'a') as toc:
