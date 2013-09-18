@@ -36,6 +36,7 @@ def get_metadata(path):
 	return data
 
 def search_for_album(name):
+	name = squash(name)
 	url = API_BASE+"search/albums/"+urllib.parse.quote(name)+"?format=json"
 	logger.debug("Searching for album at %s"%(url,))
 	resource = urllib.request.urlopen(url)
@@ -45,6 +46,9 @@ def search_for_album(name):
 	results = data['results']['albums']
 	result = find_match(name, results)
 	return result
+
+def squash(s):
+	return re.sub(notislettermatcher, ' ', s.lower())
 
 def find_match(name, results):
 	best = 0
@@ -59,11 +63,9 @@ def find_match(name, results):
 
 def score_best_match(name, matches):
 	best = 0
-	name = name.lower()
-	name = re.sub(notislettermatcher, ' ', name)
+	name = squash(name)
 	for match in matches:
-		match = match.lower()
-		match = re.sub(notislettermatcher, ' ', match)
+		match = squash(match)
 		s = difflib.SequenceMatcher(None, name.strip(), match.strip())
 		best = max(best, s.ratio())
 	return best
