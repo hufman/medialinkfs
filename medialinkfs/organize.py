@@ -126,10 +126,10 @@ def load_progress(settings):
 	return []
 
 def start_progress(settings):
-	failed = os.path.join(settings['cacheDir', 'failed.log')
+	failed = os.path.join(settings['cacheDir'], 'failed.log')
 	if os.path.isfile(failed):
 		os.unlink(failed)
-	unknown = os.path.join(settings['cacheDir', 'unknown.log')
+	unknown = os.path.join(settings['cacheDir'], 'unknown.log')
 	if os.path.isfile(unknown):
 		os.unlink(unknown)
 
@@ -145,6 +145,7 @@ def finish_progress(settings):
 		os.unlink(progress_filename)
 
 def cleanup_extra_output(settings):
+	logger.info("Cleaning up old files")
 	for output in settings['output']:
 		cleanup_extra_toc(output['dest'], recurse_levels=1)
 
@@ -161,9 +162,12 @@ def cleanup_extra_toc(path, recurse_levels = 1):
 				continue
 			subpath = os.path.join(path,name)
 			if name not in proper_contents:
-				if os.path.isdir(subpath):
+				if not os.path.islink(subpath) and \
+				   os.path.isdir(subpath):
+					logger.debug("Removing extra dir %s"%(subpath,))
 					shutil.rmtree(subpath, ignore_errors=True)
 				else:
+					logger.debug("Removing extra file %s"%(subpath,))
 					os.unlink(subpath)
 			else:
 				if os.path.isdir(subpath) and recurse_levels > 0:
