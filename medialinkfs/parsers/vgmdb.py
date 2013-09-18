@@ -1,4 +1,4 @@
-API_BASE = 'http://hufman.dyndns.org/vgmdb/'
+API_BASE = 'http://vgmdb.info/'
 MATCH_THRESHOLD = 0.7
 
 import os.path
