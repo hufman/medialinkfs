@@ -139,7 +139,8 @@ def add_progress(settings, name):
 		progress_file.write("%s\n"%(name,))
 
 def finish_progress(settings):
-	cleanup_extra_output(settings)
+	if 'noclean' not in settings:
+		cleanup_extra_output(settings)
 	progress_filename = os.path.join(settings['cacheDir'], 'progress')
 	if os.path.isfile(progress_filename):
 		os.unlink(progress_filename)
@@ -182,13 +183,20 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 			if subpath not in extra_paths and \
 			   name not in proper_contents and \
 			   name not in extra_contents:
-				if not os.path.islink(subpath) and \
-				   os.path.isdir(subpath):
-					logger.debug("Removing extra dir %s"%(subpath,))
-					shutil.rmtree(subpath, ignore_errors=True)
+				if 'fakeclean' not in settings:
+					if not os.path.islink(subpath) and \
+					   os.path.isdir(subpath):
+						logger.debug("Removing extra dir %s"%(subpath,))
+						shutil.rmtree(subpath, ignore_errors=True)
+					else:
+						logger.debug("Removing extra file %s"%(subpath,))
+						os.unlink(subpath)
 				else:
-					logger.debug("Removing extra file %s"%(subpath,))
-					os.unlink(subpath)
+					if not os.path.islink(subpath) and \
+					   os.path.isdir(subpath):
+						logger.debug("Would remove extra dir %s"%(subpath,))
+					else:
+						logger.debug("Would remove extra file %s"%(subpath,))
 			else:
 				if os.path.isdir(subpath) and recurse_levels > 0:
 					cleanup_extra_toc(settings, subpath, recurse_levels - 1)
