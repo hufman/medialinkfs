@@ -2,10 +2,21 @@ sets:
   - name: GameMusic
     parsers: [vgmdb]
     scanMode: directories
-    sourceDir: /media/music/Game Music/Mp3/#gamemp3s
-    cacheDir: /media/music/Game Music/Mp3/#gamemp3s/.cache
+    sourceDir: /media/music/Game Music/Mp3/Albums
+    cacheDir: /media/music/Game Music/Mp3/Albums/.cache
     output:
        - dest: /media/music/Game Music/Mp3/Artists
          groupBy: artists
        - dest: /media/music/Game Music/Mp3/Series
          groupBy: franchise
+  - name: TV
+#    fakeclean: true
+    parsers: [omdbapi]
+    scanMode: directories
+    sourceDir: /media/video/tv/All
+    cacheDir: /media/video/tv/.cache
+    output:
+      - dest: /media/video/tv/
+        groupBy: genres
+      - dest: /media/video/tv/Actors
+        groupBy: actors
