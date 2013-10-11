@@ -147,15 +147,17 @@ def finish_progress(settings):
 def cleanup_extra_output(settings):
 	logger.info("Cleaning up old files")
 	for output in settings['output']:
-		cleanup_extra_toc(output['dest'], recurse_levels=1)
+		cleanup_extra_toc(settings, output['dest'], recurse_levels=1)
 
-def cleanup_extra_toc(path, recurse_levels = 1):
+def cleanup_extra_toc(settings, path, recurse_levels = 1):
 	nametoc = os.path.join(path,'.toc')
 	namedone = os.path.join(path,'.toc.done')
 	nameold = os.path.join(path,'.toc.old')
 	nameextra = os.path.join(path,'.toc.extra')
 	if not os.path.isfile(nametoc):
 		return
+
+	# any other elements that are manually excepted
 	extra_contents = []
 	try:
 		extra = open(nameextra, 'r')
@@ -163,13 +165,22 @@ def cleanup_extra_toc(path, recurse_levels = 1):
 		extra.close()
 	except:
 		pass
+
+	# any other directories we need, and should not delete
+	extra_paths = []
+	extra_paths.append(settings['sourceDir'])
+	extra_paths.append(settings['cacheDir'])
+	extra_paths.extend([o['dest'] for o in settings['output']])
+
+	# start deleting stuff
 	with open(nametoc, 'r') as toc:
 		proper_contents = [x.strip() for x in toc.readlines() if x.strip()!='']
 		for name in os.listdir(path):
 			if name[:4] == '.toc':
 				continue
 			subpath = os.path.join(path,name)
-			if name not in proper_contents and \
+			if subpath not in extra_paths and \
+			   name not in proper_contents and \
 			   name not in extra_contents:
 				if not os.path.islink(subpath) and \
 				   os.path.isdir(subpath):
@@ -180,7 +191,7 @@ def cleanup_extra_toc(path, recurse_levels = 1):
 					os.unlink(subpath)
 			else:
 				if os.path.isdir(subpath) and recurse_levels > 0:
-					cleanup_extra_toc(subpath, recurse_levels - 1)
+					cleanup_extra_toc(settings, subpath, recurse_levels - 1)
 				else:
 					pass
 	if os.path.isfile(nameold):
