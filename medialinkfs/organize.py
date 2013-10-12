@@ -198,7 +198,7 @@ def add_progress(settings, name):
 		progress_file.write("%s\n"%(name,))
 
 def finish_progress(settings):
-	if 'noclean' not in settings:
+	if not ('noclean' in settings and settings['noclean']):
 		cleanup_extra_output(settings)
 	progress_filename = os.path.join(settings['cacheDir'], 'progress')
 	if os.path.isfile(progress_filename):
@@ -243,7 +243,8 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 			if subpath not in extra_paths and \
 			   name not in proper_contents and \
 			   name not in extra_contents:
-				if 'fakeclean' not in settings:
+				if not ('fakeclean' in settings and
+				        settings['fakeclean']):
 					if not os.path.islink(subpath) and \
 					   os.path.isdir(subpath):
 						logger.debug("Removing extra dir %s"%(subpath,))
