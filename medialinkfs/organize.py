@@ -7,6 +7,13 @@ import logging
 import sys
 import traceback
 import shutil
+import hashlib
+import json
+
+try:
+	import simplejson as json
+except:
+	pass
 
 logger = logging.getLogger(__name__)
 
@@ -45,7 +52,17 @@ def organize_item(options, settings, name):
 def load_item_metadata(options, settings, name):
 	logger.debug("Loading metadata for %s"%(name,))
 	path = os.path.join(settings['sourceDir'], name)
-	metadata = {"name":name, "path":path}
+	metadata = {}
+	if not ('ignore_cache' in options and options['ignore_cache']):
+		metadata = load_cached_metadata(settings, name)
+	if 'name' in metadata:	# valid cached data
+		if 'preferCachedData' in settings and \
+		   settings['preferCachedData']:
+			logger.debug("Preferring cached data for %s"%(name,))
+			return metadata
+		else:
+			logger.debug("Loaded cached data for %s"%(name,))
+	metadata.update({"name":name, "path":path})
 	for parser_name in settings['parsers']:
 		parser = load_parser(parser_name)
 		try:
@@ -59,8 +76,48 @@ def load_item_metadata(options, settings, name):
 			log_crashed_parser(settings['cacheDir'], parser_name, name)
 			continue
 		metadata.update(new_metadata)
+	save_cached_metadata(settings, metadata)
 	return metadata
 
+# Cache system
+def get_cache_key(name):
+	h = hashlib.new('md5')
+	h.update(name.encode('utf-8'))
+	return h.hexdigest()
+
+def get_cache_path(settings, name):
+	cache_key = get_cache_key(name)
+	cache_dir = settings['cacheDir']
+	cache_path = "%s/.cache-%s"%(cache_dir, cache_key)
+	return cache_path
+
+def load_cached_metadata(settings, name):
+	""" Loads up any previously cached dat
+	Returns {} if no data could be loaded
+	"""
+	cache_path = get_cache_path(settings, name)
+	try:
+		with open(cache_path) as reading:
+			data = reading.read()
+			return json.loads(data)
+	except:
+		if os.path.isfile(cache_path):
+			msg = "Failed to open cache file for %s (%s): %s" % \
+			      (name, cache_path, traceback.format_exc())
+			logger.warning(msg)
+		return {}
+
+def save_cached_metadata(settings, data):
+	cache_path = get_cache_path(settings, data['name'])
+	try:
+		with open(cache_path, 'w') as writing:
+			writing.write(json.dumps(data))
+	except:
+		msg = "Failed to save cache file for %s (%s): %s" % \
+		      (data['name'], cache_path, traceback.format_exc())
+		logger.warning(msg)
+
+# Actual organizing
 def do_output(options, settings, metadata):
 	for group in settings['output']:
 		dest = group['dest']
@@ -91,6 +148,7 @@ def do_output(options, settings, metadata):
 			with open(os.path.join(valueDir, '.toc'), 'a') as toc:
 				toc.write("%s\n"%(metadata['name'],))
 
+# Preparation
 def prepare_for_organization(settings):
 	for parser_name in settings['parsers']:
 		parser = load_parser(parser_name)
@@ -118,6 +176,7 @@ def generate_omitted_dirs(settings):
 	dirs.extend([o['dest'] for o in settings['output']])
 	return dirs
 
+# Progress tracking
 def load_progress(settings):
 	progress_filename = os.path.join(settings['cacheDir'], 'progress')
 	if os.path.isfile(progress_filename):
@@ -145,6 +204,7 @@ def finish_progress(settings):
 	if os.path.isfile(progress_filename):
 		os.unlink(progress_filename)
 
+# Finishing up and cleaning
 def cleanup_extra_output(settings):
 	logger.info("Cleaning up old files")
 	for output in settings['output']:
@@ -208,6 +268,7 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 		os.rename(namedone, nameold)
 	os.rename(nametoc, namedone)
 
+# Logging
 def log_unknown_item(cache_dir, parser_name, item_name):
 	logger.warning("%s couldn't locate %s"%(parser_name, item_name))
 	with open(os.path.join(cache_dir, "unknown.log"), 'a') as log:
