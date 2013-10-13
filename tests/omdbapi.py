@@ -27,3 +27,8 @@ class TestOMDBAPI(unittest.TestCase):
 		self.assertEqual('Gary Owens', res['actors'][1])
 		self.assertEqual('Charles A. Nichols', res['directors'][0])
 		self.assertEqual('Animation', res['genres'][0])
+
+	def test_startrek(self):
+		res = omdbapi.get_metadata("/Star Trek (1966)")
+		self.assertNotEqual(None, res)
+		self.assertEqual(1966, res['year'])
