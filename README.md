@@ -28,13 +28,22 @@ Useful Features
 Plugins
 -------
 
+* mymovieapi
+
+  Looks up information about a collection of TV of movies, and discovers the following information. mymovieapi returns a complete list of actors, but has a limit of 2500 item lookups per day.
+
+  * genres
+  * actors
+  * year
+  * rated
+
 * omdbapi
 
   Looks up information about a collection of TV or movies, and discovers the following information:
 
   * genres
   * writers
-  * directories
+  * directors
   * actors
   * rated
   * year
