@@ -5,7 +5,7 @@ import shutil
 import unittest
 
 import logging
-#logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG, filename='tests.log')
 
 import medialinkfs
 import medialinkfs.organize
@@ -15,6 +15,7 @@ base = os.path.dirname(__file__)
 
 class TestDummy(unittest.TestCase):
 	def setUp(self):
+		logging.debug("Initializing unittest %s"%(self.id(),))
 		dummy.data = {"test": {
 		  "actors": ["Sir George"]
 		}}

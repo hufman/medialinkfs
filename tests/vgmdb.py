@@ -5,7 +5,7 @@ import shutil
 import unittest
 
 import logging
-#logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG, filename='tests.log')
 
 import medialinkfs.parsers.vgmdb as vgmdb
 
@@ -13,7 +13,7 @@ base = os.path.dirname(__file__)
 
 class TestVGMDB(unittest.TestCase):
 	def setUp(self):
-		pass
+		logging.debug("Initializing unittest %s"%(self.id(),))
 
 	def test_album(self):
 		res = vgmdb.get_metadata("/Yuzo Koshiro Arrange Collection")

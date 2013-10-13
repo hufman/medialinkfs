@@ -3,6 +3,8 @@ dir=`dirname $0`
 oldpwd="$PWD"
 failed=0
 cd "$dir"
+
+[ -e tests.log ] && rm tests.log
 for i in tests/*.py; do
 	testname=`basename $i .py`
 	echo "$testname" | grep "^_" > /dev/null && continue

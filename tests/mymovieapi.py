@@ -5,7 +5,7 @@ import shutil
 import unittest
 
 import logging
-#logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG, filename='tests.log')
 
 import medialinkfs.parsers.mymovieapi as mymovieapi
 
@@ -13,7 +13,7 @@ base = os.path.dirname(__file__)
 
 class TestMYMOVIEAPI(unittest.TestCase):
 	def setUp(self):
-		pass
+		logging.debug("Initializing unittest %s"%(self.id(),))
 
 	def test_dynomutt(self):
 		res = mymovieapi.get_metadata("/Dynomutt Dog Wonder")
