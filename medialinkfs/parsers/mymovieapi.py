@@ -8,6 +8,7 @@ import json
 import logging
 import re
 import difflib
+import time
 
 logger = logging.getLogger(__name__)
 
@@ -53,6 +54,7 @@ def search_title(name, year=None):
 		url += "&yg=1&year="+year
 	logger.debug("Searching from %s"%url)
 	resource = urllib.request.urlopen(url)
+	time.sleep(2)	# api rate limit
 	raw_data = resource.read()
 	text_data = raw_data.decode('utf-8')
 	data = json.loads(text_data)
