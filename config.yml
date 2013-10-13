@@ -11,10 +11,11 @@ sets:
          groupBy: franchise
   - name: TV
 #    fakeclean: true
-    parsers: [omdbapi]
+    parsers: [omdbapi,mymovieapi]
     scanMode: directories
     sourceDir: /media/video/tv/All
     cacheDir: /media/video/tv/.cache
+    preferCachedData: true
     output:
       - dest: /media/video/tv/
         groupBy: genres
