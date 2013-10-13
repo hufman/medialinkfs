@@ -48,7 +48,7 @@ class TestDummy(unittest.TestCase):
 		del dummy.data['test']['actors']
 		medialinkfs.organize.organize_set({}, self.settings)
 
-		# empty result
+		# empty result, logs a message saying that it can't find it
 		del dummy.data['test']
 		medialinkfs.organize.organize_set({}, self.settings)
 
@@ -150,3 +150,32 @@ class TestDummy(unittest.TestCase):
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Harry")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Harry", "test")))
+
+	def test_dummy_deepmerge(self):
+		# does it create the link
+		os.rmdir(os.path.join(self.settings['sourceDir'], 'test'))
+		os.mkdir(os.path.join(self.settings['sourceDir'], 'Dynomutt Dog Wonder'))
+		dummy.data['Dynomutt Dog Wonder'] = {}
+		dummy.data['Dynomutt Dog Wonder']['actors'] = ['Sir George']
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "Dynomutt Dog Wonder")))
+
+		# Now, change the dummy data from Sir George to Sir Phil
+		# Then, add in another parser
+		# It should ignore the cached data about Sir George because the new parser data
+		# However, it should merge the two actors sections
+		dummy.data['Dynomutt Dog Wonder']['actors'][0] = 'Sir Phil'
+		self.settings['parsers'].append('omdbapi')
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Frank Welker")))
+
+		# Try it the other way
+		shutil.rmtree(self.settings['cacheDir'])
+		self.settings['parsers'] = ['omdbapi', 'dummy']
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Frank Welker")))
