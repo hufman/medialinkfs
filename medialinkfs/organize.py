@@ -1,5 +1,6 @@
 from .config import import_config
 from .parsers import load_parser
+from .deepmerge import deep_merge
 from . import errors
 import os
 import os.path
@@ -52,22 +53,21 @@ def organize_item(options, settings, name):
 def load_item_metadata(options, settings, name):
 	logger.debug("Loading metadata for %s"%(name,))
 	path = os.path.join(settings['sourceDir'], name)
-	metadata = {}
 	if not ('ignore_cache' in options and options['ignore_cache']):
-		metadata = load_cached_metadata(settings, name)
-	if 'name' in metadata:	# valid cached data
+		cached_metadata = load_cached_metadata(settings, name)
+	if 'name' in cached_metadata:	# valid cached data
 		if 'preferCachedData' in settings and \
 		   settings['preferCachedData']:
 			logger.debug("Preferring cached data for %s"%(name,))
-			return metadata
+			return cached_metadata
 		else:
 			logger.debug("Loaded cached data for %s"%(name,))
-	metadata.update({"name":name, "path":path})
+	new_metadata = {"name":name, "path":path}
 	for parser_name in settings['parsers']:
 		parser = load_parser(parser_name)
 		try:
-			new_metadata = parser.get_metadata(path)
-			if new_metadata == None:
+			item_metadata = parser.get_metadata(path)
+			if item_metadata == None:
 				log_unknown_item(settings['cacheDir'], parser_name, name)
 				continue
 		except KeyboardInterrupt:
@@ -75,7 +75,10 @@ def load_item_metadata(options, settings, name):
 		except:
 			log_crashed_parser(settings['cacheDir'], parser_name, name)
 			continue
-		metadata.update(new_metadata)
+		deep_merge(new_metadata, item_metadata)
+	
+	metadata = cached_metadata
+	metadata.update(new_metadata)
 	save_cached_metadata(settings, metadata)
 	return metadata
 
