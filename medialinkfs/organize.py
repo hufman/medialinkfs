@@ -10,6 +10,7 @@ import traceback
 import shutil
 import hashlib
 import json
+import glob
 
 try:
 	import simplejson as json
@@ -213,6 +214,49 @@ def cleanup_extra_output(settings):
 	for output in settings['output']:
 		cleanup_extra_toc(settings, output['dest'], recurse_levels=1)
 
+def safe_delete_dir(path):
+	# Extra files that we are allowed to delete
+	allowed_deletions_patterns = ['.toc.*']
+	allowed_deletions = []
+	for pattern in allowed_deletions_patterns:
+		found_deletions = glob.glob(os.path.join(path, pattern))
+		trimmed_deletions = [x[len(path)+1:] for x in found_deletions]
+		allowed_deletions.extend(trimmed_deletions)
+
+	# load up the list of extra things that we should not delete
+	nameextra = os.path.join(path,'.toc.extra')
+	extra_contents = []
+	try:
+		with open(nameextra) as extra:
+			extra_contents = [x.strip() for x in extra.readlines()
+			                  if x.strip()!='']
+	except:
+		pass
+
+	# start unlinking things
+	for name in os.listdir(path):
+		if name in extra_contents:
+			continue
+		spath = os.path.join(path, name)
+		try:
+			if not os.path.islink(spath) and \
+			   os.path.isdir(spath):
+				safe_delete_dir(spath)
+			if not os.path.islink(spath) and \
+			   os.path.isfile(spath):
+				if name in allowed_deletions:
+					os.unlink(spath)
+			if os.path.islink(spath):
+				os.unlink(spath)
+		except:
+			raise
+			msg = "An error happened while safely cleaning %s: %s" % \
+			      (spath, traceback.format_exc())
+			logger.warning(msg)
+
+	if len(os.listdir(path)) == 0:
+		os.rmdir(path)
+
 def cleanup_extra_toc(settings, path, recurse_levels = 1):
 	nametoc = os.path.join(path,'.toc')
 	namedone = os.path.join(path,'.toc.done')
@@ -253,16 +297,20 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 				if not os.path.islink(subpath) and \
 				   os.path.isdir(subpath):
 					logger.debug("Removing extra dir %s"%(subpath,))
-					shutil.rmtree(subpath, ignore_errors=True)
+					safe_delete_dir(subpath)
 				elif os.path.islink(subpath):
 					logger.debug("Removing extra link %s"%(subpath,))
 					os.unlink(subpath)
+				else:
+					logger.debug("Not removing extra file %s"%(subpath,))
 			else:
 				if not os.path.islink(subpath) and \
 				   os.path.isdir(subpath):
 					logger.debug("Would remove extra dir %s"%(subpath,))
 				elif os.path.islink(subpath):
 					logger.debug("Would remove extra file %s"%(subpath,))
+				else:
+					logger.debug("Would not remove extra file %s"%(subpath,))
 		else:
 			if os.path.isdir(subpath) and recurse_levels > 0:
 				cleanup_extra_toc(settings, subpath, recurse_levels - 1)

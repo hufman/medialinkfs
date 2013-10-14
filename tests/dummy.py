@@ -180,3 +180,46 @@ class TestDummy(unittest.TestCase):
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Frank Welker")))
+
+	def test_dummy_dontdelete_extra(self):
+		# does it create the link
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+
+		# create the extra bits
+		george = os.path.join(self.tmpdir, 'Actors', 'Sir George')
+		os.symlink(os.path.join(self.settings['sourceDir'], 'test'),\
+		        os.path.join(george, 'test.extra'))
+		with open(os.path.join(george, '.toc.extra'), 'w') as extra:
+			extra.write("test.extra\n")
+
+		# run the organization again, make sure it didn't delete our extra
+		shutil.rmtree(self.settings['cacheDir'])
+		dummy.data['test']['actors'][0] = 'Sir Phil'
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertFalse(os.path.islink(os.path.join(george, 'test')))
+		self.assertTrue(os.path.islink(os.path.join(george, 'test.extra')))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", 'test')))
+
+	def test_dummy_dontdelete_file(self):
+		# does it create the link
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+
+		# make a real file
+		with open(os.path.join(self.tmpdir, "Actors", "Sir George", "file"), 'w') as output:
+			output.write("test file\n")
+
+		# run the organization again, make sure it doesn't delete our file
+		shutil.rmtree(self.settings['cacheDir'])
+		dummy.data['test']['actors'][0] = 'Sir Phil'
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", 'test')))
+		self.assertTrue(os.path.isfile(os.path.join(self.tmpdir, "Actors", "Sir George", 'file')))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", 'test')))
