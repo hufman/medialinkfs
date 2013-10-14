@@ -224,9 +224,9 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 	# any other elements that are manually excepted
 	extra_contents = []
 	try:
-		extra = open(nameextra, 'r')
-		extra_contents = [x.strip() for x in extra.readlines() if x.strip()!='']
-		extra.close()
+		with open(nameextra, 'r') as extra:
+			extra_contents = [x.strip() for x in extra.readlines()
+			                  if x.strip()!='']
 	except:
 		pass
 
@@ -236,36 +236,38 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 	extra_paths.append(settings['cacheDir'])
 	extra_paths.extend([o['dest'] for o in settings['output']])
 
-	# start deleting stuff
+	# load the list of proper files in this dir
 	with open(nametoc, 'r') as toc:
 		proper_contents = [x.strip() for x in toc.readlines() if x.strip()!='']
-		for name in os.listdir(path):
-			if name[:4] == '.toc':
-				continue
-			subpath = os.path.join(path,name)
-			if subpath not in extra_paths and \
-			   name not in proper_contents and \
-			   name not in extra_contents:
-				if not ('fakeclean' in settings and
-				        settings['fakeclean']):
-					if not os.path.islink(subpath) and \
-					   os.path.isdir(subpath):
-						logger.debug("Removing extra dir %s"%(subpath,))
-						shutil.rmtree(subpath, ignore_errors=True)
-					else:
-						logger.debug("Removing extra file %s"%(subpath,))
-						os.unlink(subpath)
-				else:
-					if not os.path.islink(subpath) and \
-					   os.path.isdir(subpath):
-						logger.debug("Would remove extra dir %s"%(subpath,))
-					else:
-						logger.debug("Would remove extra file %s"%(subpath,))
+
+	# start deleting stuff
+	for name in os.listdir(path):
+		if name[:4] == '.toc':
+			continue
+		subpath = os.path.join(path,name)
+		if subpath not in extra_paths and \
+		   name not in proper_contents and \
+		   name not in extra_contents:
+			if not ('fakeclean' in settings and
+				settings['fakeclean']):
+				if not os.path.islink(subpath) and \
+				   os.path.isdir(subpath):
+					logger.debug("Removing extra dir %s"%(subpath,))
+					shutil.rmtree(subpath, ignore_errors=True)
+				elif os.path.islink(subpath):
+					logger.debug("Removing extra link %s"%(subpath,))
+					os.unlink(subpath)
 			else:
-				if os.path.isdir(subpath) and recurse_levels > 0:
-					cleanup_extra_toc(settings, subpath, recurse_levels - 1)
-				else:
-					pass
+				if not os.path.islink(subpath) and \
+				   os.path.isdir(subpath):
+					logger.debug("Would remove extra dir %s"%(subpath,))
+				elif os.path.islink(subpath):
+					logger.debug("Would remove extra file %s"%(subpath,))
+		else:
+			if os.path.isdir(subpath) and recurse_levels > 0:
+				cleanup_extra_toc(settings, subpath, recurse_levels - 1)
+			else:
+				pass
 	if os.path.isfile(nameold):
 		os.unlink(nameold)
 	if os.path.isfile(namedone):
