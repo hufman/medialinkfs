@@ -105,6 +105,15 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test")))
 
+	def test_dummy_nocachedir(self):
+		# does it create the link
+		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "All", ".cache")))
+		del self.settings['cacheDir']
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "All", ".cache")))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+
 	def test_dummy_noclean(self):
 		# does it create the link
 		medialinkfs.organize.organize_set({}, self.settings)

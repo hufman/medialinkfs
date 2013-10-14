@@ -160,6 +160,8 @@ def prepare_for_organization(settings):
 			raise errors.MissingParser("Set %s can't load parser %s"%(settings['name'], parser_name))
 	if not os.path.isdir(settings['sourceDir']):
 		raise errors.MissingSourceDir("Set %s has an invalid sourceDir %s"%(settings['name'], settings['sourceDir']))
+	if 'cacheDir' not in settings:
+		settings['cacheDir'] = os.path.join(settings['sourceDir'], '.cache')
 	prepare_cache_dir(settings['cacheDir'])
 
 	if 'output' in settings:
