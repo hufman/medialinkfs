@@ -1,0 +1,5 @@
+# Required to read the config file
+PyYAML
+
+# Optional performance boost for the cache
+simplejson
