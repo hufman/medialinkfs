@@ -140,7 +140,7 @@ def do_output(options, settings, metadata):
 			valueDir = os.path.join(dest, value)
 			if not os.path.isdir(valueDir):
 				os.mkdir(valueDir)
-			with open(os.path.join(dest, '.toc'), 'a') as toc:
+			with open(os.path.join(dest, '.toc-%s'%(settings['name'],)), 'a') as toc:
 				toc.write("%s\n"%(value,))
 			destpath = os.path.join(valueDir, metadata['name'])
 			link = os.path.relpath(metadata['path'], valueDir)
@@ -149,7 +149,7 @@ def do_output(options, settings, metadata):
 				os.unlink(destpath)
 			if not os.path.islink(destpath):
 				os.symlink(link, destpath)
-			with open(os.path.join(valueDir, '.toc'), 'a') as toc:
+			with open(os.path.join(valueDir, '.toc-%s'%(settings['name'],)), 'a') as toc:
 				toc.write("%s\n"%(metadata['name'],))
 
 # Preparation
@@ -258,12 +258,18 @@ def safe_delete_dir(path):
 		os.rmdir(path)
 
 def cleanup_extra_toc(settings, path, recurse_levels = 1):
-	nametoc = os.path.join(path,'.toc')
-	namedone = os.path.join(path,'.toc.done')
-	nameold = os.path.join(path,'.toc.old')
+	nametoc = os.path.join(path,'.toc-%s'%(settings['name'],))
+	namedone = os.path.join(path,'.toc.done-%s'%(settings['name'],))
+	nameold = os.path.join(path,'.toc.old-%s'%(settings['name'],))
 	nameextra = os.path.join(path,'.toc.extra')
 	if not os.path.isfile(nametoc):
 		return
+
+	# move around the old toc
+	if os.path.isfile(nameold):
+		os.unlink(nameold)
+	if os.path.isfile(namedone):
+		os.rename(namedone, nameold)
 
 	# any other elements that are manually excepted
 	extra_contents = []
@@ -281,8 +287,12 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 	extra_paths.extend([o['dest'] for o in settings['output']])
 
 	# load the list of proper files in this dir
+	proper_contents = []
+	for alttoc in glob.glob(os.path.join(path, '.toc.done*')):
+		with open(alttoc, 'r') as toc:
+			proper_contents.extend([x.strip() for x in toc.readlines() if x.strip()!=''])
 	with open(nametoc, 'r') as toc:
-		proper_contents = [x.strip() for x in toc.readlines() if x.strip()!='']
+		proper_contents.extend([x.strip() for x in toc.readlines() if x.strip()!=''])
 
 	# start deleting stuff
 	for name in os.listdir(path):
@@ -316,10 +326,8 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 				cleanup_extra_toc(settings, subpath, recurse_levels - 1)
 			else:
 				pass
-	if os.path.isfile(nameold):
-		os.unlink(nameold)
-	if os.path.isfile(namedone):
-		os.rename(namedone, nameold)
+
+	# declare this toc done
 	os.rename(nametoc, namedone)
 
 # Logging
