@@ -223,3 +223,43 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.isfile(os.path.join(self.tmpdir, "Actors", "Sir George", 'file')))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", 'test')))
+
+	def test_dummy_multiset(self):
+		# does it create the link
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+
+		newtmp = tempfile.mkdtemp()
+		try:
+			settings = {
+				"name": "test2",
+				"parsers": ["dummy"],
+				"scanMode": "directories",
+				"sourceDir": os.path.join(newtmp),
+				"cacheDir": os.path.join(newtmp, ".cache"),
+				"output": [{
+					"dest": os.path.join(self.tmpdir, "Actors"),
+					"groupBy": "actors"
+				}]
+			}
+			os.mkdir(os.path.join(newtmp, 'test2'))
+			dummy.data['test2'] = {'actors':['Sir George']}
+
+			# try it
+			medialinkfs.organize.organize_set({}, settings)
+			self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+			self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+			self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")))
+
+			# try it with the old .toc.done file
+			os.rename(os.path.join(self.tmpdir, "Actors", "Sir George", ".toc.done-test"), \
+			          os.path.join(self.tmpdir, "Actors", "Sir George", ".toc.done"))
+			shutil.rmtree(settings['cacheDir'])
+			medialinkfs.organize.organize_set({}, settings)
+			self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+			self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+			self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")))
+
+		finally:
+			shutil.rmtree(newtmp)
