@@ -1,4 +1,4 @@
-MediaLinkFS
+MediaLinkFS  [![Build Status](https://api.travis-ci.org/hufman/medialinkfs.png)](https://travis-ci.org/hufman/medialinkfs)
 ===========
 
 This is a project that collects metadata about media items and creates symlinks to tag each item in multiple collections, for example Artist or Genre. This managed set of symlinks replicates some of the functionality of a media library application, while allowing any program to browse the library.
