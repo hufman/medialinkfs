@@ -12,6 +12,9 @@ sets:
   - name: TV
 #    fakeclean: true
     parsers: [omdbapi,mymovieapi]
+    parser_options:
+      mymovieapi:
+        type: tv series
     scanMode: directories
     sourceDir: /media/video/tv/All
     cacheDir: /media/video/tv/.cache
@@ -19,5 +22,34 @@ sets:
     output:
       - dest: /media/video/tv/
         groupBy: genres
-      - dest: /media/video/tv/Actors
+      - dest: /media/video/Actors
+        groupBy: actors
+
+
+  - name: MoviesHD
+    fakeclean: true
+    parsers: [omdbapi,mymovieapi]
+    parser_options:
+      mymovieapi:
+        type: movie
+    scanMode: directories
+    sourceDir: /media/video/moviesHD
+    cacheDir: /media/video/moviesHD/.cache
+    preferCachedData: true
+    output:
+      - dest: /media/video/Actors
+        groupBy: actors
+
+  - name: Movies
+#    fakeclean: true
+    parsers: [omdbapi,mymovieapi]
+    parser_options:
+      mymovieapi:
+        type: movie
+    scanMode: directories
+    sourceDir: /media/video/movies
+    cacheDir: /media/video/movies/.cache
+    preferCachedData: true
+    output:
+      - dest: /media/video/Actors
         groupBy: actors
