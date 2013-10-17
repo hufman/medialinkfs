@@ -99,7 +99,9 @@ At the root of the YAML document is a single item, sets. This is a list of set c
 - parsers: A list of parser modules to use when loading metadata for these items
 - parser\_options: A mapping of parser modules to any custom options specific to that parser module
 - scanMode: The method used to find media items in this collection, which must be one of the following:
+  - toplevel - Use any file or directory directly underneath the sourceDir
   - directories - Use any directories directly underneath the sourceDir
+  - files - Use any files directly underneath the sourceDir
 - sourceDir: The full path to the media directory
 - cacheDir: The full path to the directory where MediaLinkFS should store any temporary state specific to this set. Defaults to the .cache directory directly under sourceDir
 - noclean: Don't delete any extra files from the output directories
