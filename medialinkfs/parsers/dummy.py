@@ -8,6 +8,8 @@ import os.path
 def get_metadata(path, settings={}):
 	name = os.path.basename(path)
 	if name in data:
-		return data[name]
+		ret = dict(data[name])
+		ret.update(settings)
+		return ret
 	else:
 		return None

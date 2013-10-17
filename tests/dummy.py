@@ -272,3 +272,14 @@ class TestDummy(unittest.TestCase):
 
 		finally:
 			shutil.rmtree(newtmp)
+
+	def test_dummy_parser_settings(self):
+		# does it create the link
+		self.settings['parser_settings'] = {
+		  'dummy': {'should_exist':'True'},
+		  'fake': {'should_exist':'False'}
+		}
+		self.settings['output'][0]['groupBy'] = 'should_exist'
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "True")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "True", "test")))

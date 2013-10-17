@@ -30,3 +30,15 @@ class TestMYMOVIEAPI(unittest.TestCase):
 		res = mymovieapi.get_metadata("/Star Trek (1966)")
 		self.assertNotEqual(None, res)
 		self.assertEqual(1966, res['year'])
+
+	def test_startrek_tv(self):
+		options = {"type": "tv series"}
+		res = mymovieapi.get_metadata("/Star Trek", options)
+		self.assertNotEqual(None, res)
+		self.assertEqual(1966, res['year'])
+
+	def test_startrek_movie(self):
+		options = {"type": "movie"}
+		res = mymovieapi.get_metadata("/Star Trek", options)
+		self.assertNotEqual(None, res)
+		self.assertEqual(2009, res['year'])
