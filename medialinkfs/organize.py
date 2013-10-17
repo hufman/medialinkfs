@@ -37,12 +37,20 @@ def organize_set(options, settings):
 	omitted_dirs = generate_omitted_dirs(settings)
 	files = os.listdir(settings['sourceDir'])
 	files = sorted(files)
-	if settings['scanMode'] == 'directories':
+	if settings['scanMode'] in ['directories', 'files', 'toplevel']:
 		for name in files:
 			if name in processed_files:
 				continue
-			if os.path.join(settings['sourceDir'], name) in omitted_dirs:
+			path = os.path.join(settings['sourceDir'], name)
+			if path in omitted_dirs:
 				continue
+			if settings['scanMode'] != 'toplevel':
+				if settings['scanMode'] == 'directories' and \
+				   not os.path.isdir(path):
+					continue
+				if settings['scanMode'] == 'files' and \
+				   not os.path.isfile(path):
+					continue
 			organize_item(options, settings, name)
 			add_progress(settings, name)
 	finish_progress(settings)
