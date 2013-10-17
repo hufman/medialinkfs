@@ -15,7 +15,7 @@ splitter = re.compile('\s*,\s*')
 yearfinder = re.compile('\(([12][0-9]{3})(-[12][0-9]{3})?\)')
 notislettermatcher = re.compile('[^\w¢]', re.UNICODE)
 MATCH_THRESHOLD = 0.8
-def get_metadata(path):
+def get_metadata(path, settings={}):
 	name = os.path.basename(path)
 	yearfound = yearfinder.search(name)
 	year = None

@@ -66,8 +66,13 @@ def load_item_metadata(options, settings, name):
 	new_metadata = {"name":name, "path":path}
 	for parser_name in settings['parsers']:
 		parser = load_parser(parser_name)
+		if 'parser_settings' in settings and \
+		   parser_name in settings['parser_settings']:
+			parser_settings = settings['parser_settings'][parser_name]
+		else:
+			parser_settings = {}
 		try:
-			item_metadata = parser.get_metadata(path)
+			item_metadata = parser.get_metadata(path, parser_settings)
 			if item_metadata == None:
 				log_unknown_item(settings['cacheDir'], parser_name, name)
 				continue
@@ -100,10 +105,21 @@ def load_cached_metadata(settings, name):
 	Returns {} if no data could be loaded
 	"""
 	cache_path = get_cache_path(settings, name)
+	if 'parser_options' in settings:
+		parser_options = json.dumps(settings['parser_options'])
+	else:
+		parser_options = None
 	try:
 		with open(cache_path) as reading:
 			data = reading.read()
-			return json.loads(data)
+			parsed_data = json.loads(data)
+			# check that th cache's parser_options are the same
+			if 'parser_options' in parsed_data and \
+			   parsed_data['parser_options'] != parser_options:
+				return {}
+			if 'parser_options' in parsed_data:
+				del parsed_data['parser_options']
+			return parsed_data
 	except:
 		if os.path.isfile(cache_path):
 			msg = "Failed to open cache file for %s (%s): %s" % \
@@ -113,6 +129,8 @@ def load_cached_metadata(settings, name):
 
 def save_cached_metadata(settings, data):
 	cache_path = get_cache_path(settings, data['name'])
+	if 'parser_options' in settings:
+		data['parser_options'] = settings['parser_options']
 	try:
 		with open(cache_path, 'w') as writing:
 			writing.write(json.dumps(data))
