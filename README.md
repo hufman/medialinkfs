@@ -57,6 +57,14 @@ Plugins
   * year
   * rated
 
+  The mymovieapi plugin supports a parser option of type, which must be one of the following. It defaults to searching for any type.
+
+  * movie
+  * tv movie
+  * tv servies
+  * video
+  * video game
+
 * omdbapi
 
   Looks up information about a collection of TV or movies, and discovers the following information:
@@ -89,6 +97,7 @@ At the root of the YAML document is a single item, sets. This is a list of set c
 
 - name: The name of this set, used in logging and in state retention
 - parsers: A list of parser modules to use when loading metadata for these items
+- parser\_options: A mapping of parser modules to any custom options specific to that parser module
 - scanMode: The method used to find media items in this collection, which must be one of the following:
   - directories - Use any directories directly underneath the sourceDir
 - sourceDir: The full path to the media directory
