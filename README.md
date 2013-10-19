@@ -48,6 +48,22 @@ Installation
 Plugins
 -------
 
+* id3
+
+  Parses out ID3 tags from mp3s, and gets the following information. If it is told to scan a directory, it will parse the directory as an album, collecting information recursively about the contained files. The plural items, like artists, may be useful for mix albums or directories.
+
+  * album
+  * album\_artist
+  * artist
+  * composer
+  * genre
+  * title
+  * track\_total
+  * date
+  * albums
+  * artists
+  * composers
+
 * mymovieapi
 
   Looks up information about a collection of TV of movies, and discovers the following information. mymovieapi returns a complete list of actors, but has a limit of 2500 item lookups per day.
