@@ -14,7 +14,8 @@ logger = logging.getLogger(__name__)
 
 islettermatcher = re.compile('[A-Za-z0-9]')
 notislettermatcher = re.compile('[^A-Za-z0-9]')
-def get_metadata(path, settings={}):
+def get_metadata(metadata, settings={}):
+	path = metadata['path']
 	name = os.path.basename(path)
 	logger.debug("Loading metadata for %s"%name)
 	result = search_for_album(name)

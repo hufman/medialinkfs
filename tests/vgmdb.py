@@ -16,7 +16,7 @@ class TestVGMDB(unittest.TestCase):
 		logging.debug("Initializing unittest %s"%(self.id(),))
 
 	def test_album(self):
-		res = vgmdb.get_metadata("/Yuzo Koshiro Arrange Collection")
+		res = vgmdb.get_metadata({"path":"/Yuzo Koshiro Arrange Collection"})
 		self.assertNotEqual(None, res)
 		self.assertEqual(1, len(res['artists']))
 		self.assertEqual(1, len(res['composers']))
@@ -27,7 +27,7 @@ class TestVGMDB(unittest.TestCase):
 		self.assertEqual('Yuji Takase', res['performers'][0])
 
 	def test_album_series(self):
-		res = vgmdb.get_metadata("/Gyakuten Saiban 4 Original Soundtrack")
+		res = vgmdb.get_metadata({"path":"/Gyakuten Saiban 4 Original Soundtrack"})
 		self.assertNotEqual(None, res)
 		self.assertEqual(4, len(res['artists']))
 		self.assertEqual(4, len(res['composers']))

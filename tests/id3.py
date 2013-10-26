@@ -23,7 +23,7 @@ class TestID3(unittest.TestCase):
 		src = os.path.join(base, 'testfiles_id3', '23.synthetic.empty-extended-header.lossy.id3')
 		dst = os.path.join(self.tmpdir, 'All', '23.mp3')
 		shutil.copyfile(src, dst)
-		res = id3.get_metadata(dst)
+		res = id3.get_metadata({"path":dst})
 
 		self.assertNotEqual(None, res)
 		self.assertEqual(1, len(res['artists']))
@@ -42,7 +42,7 @@ class TestID3(unittest.TestCase):
 		dst = os.path.join(self.tmpdir, 'All', 'nest', 'test.mp3')
 		shutil.copyfile(src, dst)
 
-		res = id3.get_metadata(os.path.join(self.tmpdir, 'All', 'nest'))
+		res = id3.get_metadata({"path":os.path.join(self.tmpdir, 'All', 'nest')})
 		self.assertNotEqual(None, res)
 		self.assertEqual(2, len(res['artists']))
 		self.assertFalse('composers' in res)

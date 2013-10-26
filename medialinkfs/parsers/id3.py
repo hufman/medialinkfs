@@ -10,7 +10,8 @@ from medialinkfs.deepmerge import deep_merge
 
 logger = logging.getLogger(__name__)
 
-def get_metadata(path, settings={}):
+def get_metadata(metadata, settings={}):
+	path = metadata['path']
 	name = os.path.basename(path)
 	logger.debug("Loading metadata for %s"%name)
 

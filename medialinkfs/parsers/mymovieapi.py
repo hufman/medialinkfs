@@ -19,7 +19,8 @@ MATCH_THRESHOLD = 0.8
 
 _last_time = 0	# enforce a sleep of 2 seconds between calls
 
-def get_metadata(path, settings={}):
+def get_metadata(metadata, settings={}):
+	path = metadata['path']
 	name = os.path.basename(path)
 	yearfound = yearfinder.search(name)
 	year = None

@@ -5,7 +5,8 @@ data = {}
 
 import os.path
 
-def get_metadata(path, settings={}):
+def get_metadata(metadata, settings={}):
+	path = metadata['path']
 	name = os.path.basename(path)
 	if name in data:
 		ret = dict(data[name])

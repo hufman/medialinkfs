@@ -39,7 +39,7 @@ class TestDummy(unittest.TestCase):
 		shutil.rmtree(self.tmpdir)
 
 	def test_dummy(self):
-		res = dummy.get_metadata("/test")
+		res = dummy.get_metadata({"path":"/test"})
 		self.assertNotEqual(None, res)
 		self.assertEqual(1, len(res['actors']))
 		self.assertEqual("Sir George", res['actors'][0])

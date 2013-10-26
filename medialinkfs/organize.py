@@ -80,7 +80,7 @@ def load_item_metadata(options, settings, name):
 		else:
 			parser_settings = {}
 		try:
-			item_metadata = parser.get_metadata(path, parser_settings)
+			item_metadata = parser.get_metadata(dict(new_metadata), parser_settings)
 			if item_metadata == None:
 				log_unknown_item(settings['cacheDir'], parser_name, name)
 				continue

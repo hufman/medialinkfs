@@ -16,7 +16,7 @@ class TestMYMOVIEAPI(unittest.TestCase):
 		logging.debug("Initializing unittest %s"%(self.id(),))
 
 	def test_dynomutt(self):
-		res = mymovieapi.get_metadata("/Dynomutt Dog Wonder")
+		res = mymovieapi.get_metadata({"path":"/Dynomutt Dog Wonder"})
 		self.assertNotEqual(None, res)
 		res['actors'] = sorted(res['actors'])
 		res['genres'] = sorted(res['genres'])
@@ -27,18 +27,18 @@ class TestMYMOVIEAPI(unittest.TestCase):
 		self.assertEqual('Animation', res['genres'][0])
 
 	def test_startrek(self):
-		res = mymovieapi.get_metadata("/Star Trek (1966)")
+		res = mymovieapi.get_metadata({"path":"/Star Trek (1966)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual(1966, res['year'])
 
 	def test_startrek_tv(self):
 		options = {"type": "tv series"}
-		res = mymovieapi.get_metadata("/Star Trek", options)
+		res = mymovieapi.get_metadata({"path":"/Star Trek"}, options)
 		self.assertNotEqual(None, res)
 		self.assertEqual(1966, res['year'])
 
 	def test_startrek_movie(self):
 		options = {"type": "movie"}
-		res = mymovieapi.get_metadata("/Star Trek", options)
+		res = mymovieapi.get_metadata({"path":"/Star Trek"}, options)
 		self.assertNotEqual(None, res)
 		self.assertEqual(2009, res['year'])
