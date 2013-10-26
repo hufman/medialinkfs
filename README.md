@@ -37,6 +37,10 @@ Useful Features
 
   Multiple sets, such as TV and Movies, can be organized into the same directory. For example, a global Actors directory could be generated, containing each actor's movie and tv appearances.
 
+* Chainable metadata parsers
+
+  Parsers can use the information discovered by previous parsers in the parser list. For example, the quantizer plugin adds a decade value based on the year found by other plugins.
+
 Installation
 ------------
 
@@ -91,6 +95,13 @@ Plugins
   * actors
   * rated
   * year
+
+* quantizer
+
+  Looks through the previously discovered metadata and quantizes the year into decades:
+
+  * decade  (1980)
+  * decades  (1980s)
 
 * vgmdb
 
