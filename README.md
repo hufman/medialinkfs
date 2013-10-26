@@ -131,6 +131,7 @@ At the root of the YAML document is a single item, sets. This is a list of set c
   - files - Use any files directly underneath the sourceDir
 - sourceDir: The full path to the media directory
 - cacheDir: The full path to the directory where MediaLinkFS should store any temporary state specific to this set. Defaults to the .cache directory directly under sourceDir
+- regex: An optional regex that will be searched for in each item's path. If this setting exists, it will only organize items that match. Each parser\_options setting can have a regex specific to that parser
 - noclean: Don't delete any extra files from the output directories
 - fakeclean: Indicate what directories and files would be cleaned out at the end of a run, but don't actually clean them
 - preferCachedData: If an item has cached metadata from a previous run, don't search for new metadata. This is helpful with the mymovieapi plugin, because it has a query limit
