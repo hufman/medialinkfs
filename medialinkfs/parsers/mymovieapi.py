@@ -57,7 +57,7 @@ def find_best_match(name, results):
 	for result in results:
 		s = difflib.SequenceMatcher(None, squash(name), squash(result['title']))
 		score = s.ratio()
-		logger.debug("Search result %s scored %s"%(result['title'], score))
+		logger.debug("Search result %s (%s) scored %s"%(result['title'], result['imdb_id'], score))
 		if score > best and score > MATCH_THRESHOLD:
 			best = score
 			bestresult = result
