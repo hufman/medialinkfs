@@ -16,6 +16,9 @@ splitter = re.compile('\s*,\s*')
 yearfinder = re.compile('\(([12][0-9]{3})(-[12][0-9]{3})?\)')
 notislettermatcher = re.compile('[^\w¢]', re.UNICODE)
 MATCH_THRESHOLD = 0.8
+
+_last_time = 0	# enforce a sleep of 2 seconds between calls
+
 def get_metadata(path, settings={}):
 	name = os.path.basename(path)
 	yearfound = yearfinder.search(name)
@@ -68,8 +71,14 @@ def search_title(name, year=None, settings={}):
 		url += "&mt="+api_type_str(settings['type'])
 
 	logger.debug("Searching from %s"%url)
+
+	# api rate limit
+	global _last_time
+	delay = _last_time + 2 - time.time()
+	if delay > 0: time.sleep(delay)
+	_last_time = time.time()
+
 	resource = urllib.request.urlopen(url)
-	time.sleep(2)	# api rate limit
 	raw_data = resource.read()
 	text_data = raw_data.decode('utf-8')
 	data = json.loads(text_data)
