@@ -283,3 +283,20 @@ class TestDummy(unittest.TestCase):
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "True")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "True", "test")))
+
+	def test_dummy_regex(self):
+		self.settings['regex'] = '^.*tst$'
+		dummy.data['test.tst'] = dummy.data['test']
+		os.mkdir(os.path.join(self.tmpdir, 'All', 'test.tst'))
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test.tst")))
+	def test_dummy_settings_regex(self):
+		self.settings['parser_settings'] = {'dummy':{'regex': '^.*tst$'}}
+		dummy.data['test.tst'] = dummy.data['test']
+		os.mkdir(os.path.join(self.tmpdir, 'All', 'test.tst'))
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test.tst")))

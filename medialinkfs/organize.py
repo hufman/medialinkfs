@@ -11,6 +11,7 @@ import shutil
 import hashlib
 import json
 import glob
+import re
 
 try:
 	import simplejson as json
@@ -34,6 +35,9 @@ def organize_set(options, settings):
 	else:
 		logger.info("Resuming progress after %s items"%(len(processed_files)))
 
+	regex = None
+	if 'regex' in settings:
+		regex = re.compile(settings['regex'])
 	omitted_dirs = generate_omitted_dirs(settings)
 	files = os.listdir(settings['sourceDir'])
 	files = sorted(files)
@@ -51,6 +55,8 @@ def organize_set(options, settings):
 				if settings['scanMode'] == 'files' and \
 				   not os.path.isfile(path):
 					continue
+			if regex and not regex.search(path):
+				continue
 			organize_item(options, settings, name)
 			add_progress(settings, name)
 	finish_progress(settings)
@@ -80,6 +86,10 @@ def load_item_metadata(options, settings, name):
 		else:
 			parser_settings = {}
 		try:
+			if 'regex' in parser_settings:
+				regex = re.compile(parser_settings['regex'])
+				if not regex.search(new_metadata['path']):
+					continue
 			item_metadata = parser.get_metadata(dict(new_metadata), parser_settings)
 			if item_metadata == None:
 				log_unknown_item(settings['cacheDir'], parser_name, name)
