@@ -92,10 +92,10 @@ def search_title(name, year=None):
 def parse_response(data):
 	logger.debug("Found %s (%s)"%(data['Title'],data['imdbID']))
 	result = {}
-	result['genres'] = splitter.split(data['Genre'])
-	result['writers'] = splitter.split(data['Writer'])
-	result['directors'] = splitter.split(data['Director'])
-	result['actors'] = splitter.split(data['Actors'])
-	result['rated'] = data['Rated']
-	result['year'] = int(data['Year'])
+	if 'Genre' in data: result['genres'] = splitter.split(data['Genre'])
+	if 'Writer' in data: result['writers'] = splitter.split(data['Writer'])
+	if 'Director' in data: result['directors'] = splitter.split(data['Director'])
+	if 'Actors' in data: result['actors'] = splitter.split(data['Actors'])
+	if 'Rated' in data: result['rated'] = data['Rated']
+	if 'Year' in data: result['year'] = int(data['Year'])
 	return result

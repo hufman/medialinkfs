@@ -92,9 +92,8 @@ def search_title(name, year=None, settings={}):
 def parse_response(data):
 	logger.debug("Found %s (%s)"%(data['title'],data['imdb_id']))
 	result = {}
-	result['genres'] = data['genres']
-	result['actors'] = data['actors']
-	result['year'] = int(data['year'])
-	if 'rated' in data:
-		result['rated'] = data['rated']
+	if 'genres' in data: result['genres'] = data['genres']
+	if 'actors' in data: result['actors'] = data['actors']
+	if 'year' in data: result['year'] = int(data['year'])
+	if 'rated' in data: result['rated'] = data['rated']
 	return result
