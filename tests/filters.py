@@ -66,3 +66,12 @@ class TestFilters(unittest.TestCase):
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Year", "1979")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Decade", "1970")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Decades", "1970s")))
+
+	def test_release_date(self):
+		res = {"release_date":"2012-09-06"}
+		res = quantizer.get_metadata(res)
+		self.assertTrue('year' in res)
+		self.assertEqual(2012, res['year'])
+		self.assertTrue('decade' in res)
+		self.assertEqual('2010', res['decade'])
+		self.assertEqual('2010s', res['decades'])
