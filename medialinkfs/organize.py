@@ -22,9 +22,14 @@ logger = logging.getLogger(__name__)
 
 def organize(options):
 	config = import_config(options['config'])
+	default_settings = config.get('default_settings', {})
+	override_settings = config.get('override_settings', {})
 	for settings in config['sets']:
+		comb_settings = dict(default_settings)
+		deep_merge(comb_settings, settings)
+		deep_merge(comb_settings, override_settings)
 		if options['set_name'] == None or options['set_name'] == settings['name']:
-			organize_set(options, settings)
+			organize_set(options, comb_settings)
 
 def organize_set(options, settings):
 	logger.info("Beginning to organize %s"%(settings['name'],))

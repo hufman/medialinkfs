@@ -118,7 +118,7 @@ Configuration
 
 Invoking the main.py command requires a configuration to be passed with the -c argument. This is a file, in YAML format, that describes how to organize the media.
 
-At the root of the YAML document is a single item, sets. This is a list of set configurations, and each set describes how to organize each set of media.
+At the root of the YAML document is a single item, sets. This is a list of set configurations, and each set describes how to organize each set of media. There may also be two other items, default\_settings and override\_settings. These configuration items are merged into each set configuration, so that the specific set configuration overrides the default\_settings and the override\_settings will override those.
 
 ### Set Configuration
 
