@@ -68,6 +68,48 @@ Plugins
   * artists
   * composers
 
+* freebase
+
+  The freebase plugin is very flexible, supporting user-customizable queries to freebase.com.  It comes with a few common queries. Add a type option to the parser\_options to set one. This is used in the film and tv\_program options to search with the year information. Without a type, the plugin will search for everything on freebase by the name, and then try to fill in any extra properties that it finds for that item.
+
+  Properties that are found through the properties option will be added to the metadata object. If the property name does not show up in the renames option, then the full property name will be used, otherwise the renamed metadata name.
+
+  Heavy usage of the freebase plugin may require an API key for Freebase from the [Google API Console](https://code.google.com/apis/console). This key is set in the api\_key parser\_option. Some usage is available without a key, but there isn't clear documentation of how much. The limit with the API key is 100k requests per day.
+
+  * type - A freebase schema type. The following types are built-in:
+      * /film/film
+      * /tv/tv\_program
+  * searches - A dictionary of hashes, each hash describing how to map from the discovered name and year to a search query
+  * properties - A dictionary of MQL parameters to search for, such as {"/film/film/directed\_by":[]}
+  * renames - A dictionary of freebase properties to be renamed to shorter metadata keys. If a search returns a property that is not in this list, then the full name will be available in the metadata. The following properties are renamed by default:
+      * /common/topic/alias -> aka
+      * /film/film/initial\_release\_date -> release\_date
+      * /film/film/directed\_by -> directors
+      * /film/film/starring -> actors
+      * /film/film/genre -> genres
+      * /film/film/subjects -> subjects
+      * /film/film/film\_series -> series
+      * /film/film/produced\_by -> producers
+      * /film/film/written\_by -> writers
+      * /film/film/edited\_by -> editors
+      * /film/film/music -> composers
+      * /film/film/language -> languages
+      * /film/film/country -> countries
+      * /tv/tv\_program/regular\_cast -> actors
+      * /tv/tv\_program/air\_date\_of\_first\_episode -> release\_date
+      * /tv/tv\_program/genre -> genres
+      * /tv/tv\_program/tv\_producer -> producers
+      * /tv/tv\_program/recurring\_writers -> writers
+      * /tv/tv\_program/original\_network -> network
+      * /tv/tv\_program/country\_of\_origin -> countries
+      * /tv/tv\_program/languages -> languages
+  * promotions - A dictionary of freebase properties that should be promoted from a list of dictionaries to a regular list. For example, instead of /film/film/starring being a structure such as [{"actor":"name1"},{"actor":"name2"}], this changes it to a structure such as ["name1","name2"]. The following properties are changed by default:
+      * /film/film/starring['actor']
+      * /tv/tv\_program/regular\_cast['actor']
+      * /tv/tv\_program/original\_network['network']
+      * /tv/tv\_program/recurring\_writers['writers']
+      * /tv/tv\_program/tv\_producer['producer']
+
 * mymovieapi
 
   Looks up information about a collection of TV of movies, and discovers the following information. mymovieapi returns a complete list of actors, but has a limit of 2500 item lookups per day.
