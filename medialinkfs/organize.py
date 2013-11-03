@@ -80,17 +80,17 @@ def load_item_metadata(options, settings, name):
 	new_metadata = {"name":name, "path":path}
 	for parser_name in settings['parsers']:
 		parser = load_parser(parser_name)
-		if 'parser_settings' in settings and \
-		   parser_name in settings['parser_settings']:
-			parser_settings = settings['parser_settings'][parser_name]
+		if 'parser_options' in settings and \
+		   parser_name in settings['parser_options']:
+			parser_options = settings['parser_options'][parser_name]
 		else:
-			parser_settings = {}
+			parser_options = {}
 		try:
-			if 'regex' in parser_settings:
-				regex = re.compile(parser_settings['regex'])
+			if 'regex' in parser_options:
+				regex = re.compile(parser_options['regex'])
 				if not regex.search(new_metadata['path']):
 					continue
-			item_metadata = parser.get_metadata(dict(new_metadata), parser_settings)
+			item_metadata = parser.get_metadata(dict(new_metadata), parser_options)
 			if item_metadata == None:
 				log_unknown_item(settings['cacheDir'], parser_name, name)
 				continue
