@@ -170,7 +170,7 @@ def do_output(options, settings, metadata):
 			values = [value]
 		else:
 			values = value
-		for value in values:
+		for value in sorted(set(values)):
 			if value == None:
 				continue
 			value = value.replace('/','／')
