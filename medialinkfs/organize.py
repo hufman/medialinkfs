@@ -141,7 +141,7 @@ def load_cached_metadata(settings, name):
 	except:
 		if os.path.isfile(cache_path):
 			msg = "Failed to open cache file for %s (%s): %s" % \
-			      (name, cache_path, traceback.format_exc())
+			      (name, cache_path)
 			logger.warning(msg)
 		return {}
 
