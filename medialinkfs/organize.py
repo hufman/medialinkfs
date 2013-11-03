@@ -171,6 +171,8 @@ def do_output(options, settings, metadata):
 		else:
 			values = value
 		for value in values:
+			if value == None:
+				continue
 			value = value.replace('/','／')
 			logger.debug("Putting %s into %s"%(metadata['name'],value))
 			valueDir = os.path.join(dest, value)
