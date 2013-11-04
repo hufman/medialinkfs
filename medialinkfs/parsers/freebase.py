@@ -9,6 +9,8 @@ import logging
 import re
 import difflib
 import time
+import html.parser
+HTMLParser = html.parser.HTMLParser()
 
 logger = logging.getLogger(__name__)
 
@@ -229,6 +231,28 @@ def cleanup_nulls_list(info):
 		index += 1
 	return info
 
+def unescape_html_dict(info):
+	for key,value in info.items():
+		if isinstance(value, dict):
+			unescape_html_dict(value)
+		if isinstance(value, list):
+			unescape_html_list(value)
+		if isinstance(value, str):
+			info[key] = HTMLParser.unescape(value)
+	return info
+def unescape_html_list(info):
+	index = 0
+	while index < len(info):
+		value = info[index]
+		if isinstance(value, dict):
+			unescape_html_dict(value)
+		if isinstance(value, list):
+			unescape_html_list(value)
+		if isinstance(value, str):
+			info[index] = HTMLParser.unescape(value)
+		index += 1
+	return info
+
 def search_title(name, year=None, settings={}):
 	queries = []
 	searches = []
@@ -313,6 +337,7 @@ def run_mql_query(query, settings):
 		data = json.loads(text_data)
 		if 'result' in data:
 			results = data['result']
+		unescape_html_list(results)
 	except:
 		raise
 		logger.warning("Error occurred while fetching search results")

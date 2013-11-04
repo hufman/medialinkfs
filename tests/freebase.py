@@ -111,6 +111,14 @@ class TestFreebase(unittest.TestCase):
 		self.assertFalse(any(map(lambda x:x == None, res['actors'])))
 		self.assertEqual(7, len(res['actors']))
 
+	def test_manwire(self):
+		""" Man On Wire is part of Law &amp; Crime genrer """
+		self.settings['type'] = '/film/film'
+		res = api.get_metadata({"path":"/Man On Wire"}, self.settings)
+		self.assertNotEqual(None, res)
+		self.assertFalse('Law &amp; Crime' in res['genres'])
+		self.assertTrue('Law & Crime' in res['genres'])
+
 	def test_custom(self):
 		self.settings['type'] = '/time/calendar'
 		self.settings['searches'] = [{
