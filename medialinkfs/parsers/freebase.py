@@ -318,11 +318,3 @@ def run_mql_query(query, settings):
 		logger.warning("Error occurred while fetching search results")
 	return results
 
-def parse_response(data):
-	logger.debug("Found %s (%s)"%(data['title'],data['imdb_id']))
-	result = {}
-	if 'genres' in data: result['genres'] = data['genres']
-	if 'actors' in data: result['actors'] = data['actors']
-	if 'year' in data: result['year'] = int(data['year'])
-	if 'rated' in data: result['rated'] = data['rated']
-	return result
