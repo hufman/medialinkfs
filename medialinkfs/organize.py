@@ -267,6 +267,8 @@ def safe_delete_dir(path):
 		found_deletions = glob.glob(os.path.join(path, pattern))
 		trimmed_deletions = [x[len(path)+1:] for x in found_deletions]
 		allowed_deletions.extend(trimmed_deletions)
+	if '.toc.extra' in allowed_deletions:
+		allowed_deletions.remove('.toc.extra')
 
 	# load up the list of extra things that we should not delete
 	nameextra = os.path.join(path,'.toc.extra')

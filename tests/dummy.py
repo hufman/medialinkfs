@@ -207,12 +207,19 @@ class TestDummy(unittest.TestCase):
 		shutil.rmtree(self.settings['cacheDir'])
 		dummy.data['test']['actors'][0] = 'Sir Phil'
 		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isfile(os.path.join(george, '.toc.extra')))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertFalse(os.path.islink(os.path.join(george, 'test')))
 		self.assertTrue(os.path.islink(os.path.join(george, 'test.extra')))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", 'test')))
 
+		# run it again, make sure that the extra file wasn't deleted
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isfile(os.path.join(george, '.toc.extra')))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertFalse(os.path.islink(os.path.join(george, 'test')))
+		self.assertTrue(os.path.islink(os.path.join(george, 'test.extra')))
 	def test_dummy_dontdelete_file(self):
 		# does it create the link
 		medialinkfs.organize.organize_set({}, self.settings)
