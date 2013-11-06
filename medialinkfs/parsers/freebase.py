@@ -209,7 +209,7 @@ def cleanup_freebase(info):
 	return info
 
 def cleanup_nulls(info):
-	for key,value in info.items():
+	for key,value in dict(info.items()).items():
 		if value == None:
 			del info[key]
 		if isinstance(value, dict):

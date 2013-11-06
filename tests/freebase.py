@@ -111,6 +111,14 @@ class TestFreebase(unittest.TestCase):
 		self.assertFalse(any(map(lambda x:x == None, res['actors'])))
 		self.assertEqual(7, len(res['actors']))
 
+	def test_black_adder(self):
+		""" Black Adder has a null release_date """
+		self.settings['type'] = '/tv/tv_program'
+		res = api.get_metadata({"path":"/Black Adder"}, self.settings)
+		self.assertNotEqual(None, res)
+		self.assertFalse(any(map(lambda x:x == None, res['actors'])))
+		self.assertEqual(6, len(res['actors']))
+
 	def test_manwire(self):
 		""" Man On Wire is part of Law &amp; Crime genrer """
 		self.settings['type'] = '/film/film'
