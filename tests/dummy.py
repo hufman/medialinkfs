@@ -83,11 +83,13 @@ class TestDummy(unittest.TestCase):
 		dummy.data['test2']['actors'][0] = 'Sir Lexus'
 		lexus = os.path.join(self.tmpdir, "Actors", "Sir Lexus")
 		phil = os.path.join(self.tmpdir, "Actors", "Sir Phil")
+		open(os.path.join(phil, ".toc"),'w').close()
 		open(os.path.join(phil, ".toc-TV"),'w').close()
 		open(os.path.join(phil, ".toc.old-TV"),'w').close()
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertTrue(os.path.isdir(os.path.join(lexus)))
 		self.assertFalse(os.path.islink(os.path.join(phil, "test2")))
+		self.assertFalse(os.path.isfile(os.path.join(phil, ".toc")))
 		self.assertFalse(os.path.isfile(os.path.join(phil, ".toc-TV")))
 		self.assertFalse(os.path.isfile(os.path.join(phil, ".toc.old-TV")))
 		self.assertFalse(os.path.isdir(os.path.join(phil)))

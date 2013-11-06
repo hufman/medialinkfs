@@ -261,7 +261,7 @@ def cleanup_extra_output(settings):
 
 def safe_delete_dir(path):
 	# Extra files that we are allowed to delete
-	allowed_deletions_patterns = ['.toc-*', '.toc.*']
+	allowed_deletions_patterns = ['.toc', '.toc-*', '.toc.*']
 	allowed_deletions = []
 	for pattern in allowed_deletions_patterns:
 		found_deletions = glob.glob(os.path.join(path, pattern))
