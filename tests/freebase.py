@@ -43,7 +43,7 @@ class TestFreebase(unittest.TestCase):
 		self.assertEqual('Animation', res['genres'][0])
 		self.assertEqual('English Language', res['languages'][0])
 		self.assertEqual('United States of America', res['countries'][0])
-		self.assertEqual('American Broadcasting Company', res['network'])
+		self.assertEqual('American Broadcasting Company', res['network'][0])
 
 	def test_startrek_tv(self):
 		self.settings['type'] = '/tv/tv_program'

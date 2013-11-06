@@ -110,7 +110,7 @@ default_properties = {
 		'/tv/tv_program/languages':[],
 		'/tv/tv_program/tv_producer':[{"producer":None, 'optional':True}],
 		'/tv/tv_program/recurring_writers':[{"writer":None, 'optional':True}],
-		'/tv/tv_program/original_network':{"network":None, 'optional':True},
+		'/tv/tv_program/original_network':[{"network":None, 'optional':True}],
 		'/tv/tv_program/country_of_origin':[]
 	}
 }
