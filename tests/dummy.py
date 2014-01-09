@@ -322,3 +322,20 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test.tst")))
+
+	def test_dummy_multiple_groups(self):
+		self.settings['output'][0]['groupBy'] = ['actors', 'extras']
+		dummy.data['test2'] = {"extras": ["Sir George"]}
+		os.mkdir(os.path.join(self.tmpdir, 'All', 'test2'))
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")))
+	def test_dummy_multiple_identical_groups(self):
+		self.settings['output'][0]['groupBy'] = ['actors', 'extras']
+		dummy.data['test'] = {"actors": ["Sir George"], "extras": ["Sir George"]}
+		os.mkdir(os.path.join(self.tmpdir, 'All', 'test2'))
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
+		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
+		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")))
