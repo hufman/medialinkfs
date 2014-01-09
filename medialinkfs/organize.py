@@ -166,10 +166,14 @@ def save_cached_metadata(settings, data):
 def do_output(options, settings, metadata):
 	for group in settings['output']:
 		destdir = group['dest']
-		groupBy = group['groupBy']
-		if not groupBy in metadata:
-			continue
-		do_output_group(settings['name'], destdir, metadata, groupBy)
+		if isinstance(group['groupBy'], str):
+			groupsBy = [group['groupBy']]
+		else:
+			groupsBy = group['groupBy']
+		for groupBy in groupsBy:
+			if not groupBy in metadata:
+				continue
+			do_output_group(settings['name'], destdir, metadata, groupBy)
 
 def do_output_group(setname, destdir, metadata, groupBy):
 	logger.debug("Sorting %s by %s"%(metadata['name'],groupBy))
