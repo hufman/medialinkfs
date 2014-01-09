@@ -20,13 +20,13 @@ class TestOMDBAPI(unittest.TestCase):
 		self.assertNotEqual(None, res)
 		res['actors'] = sorted(res['actors'])
 		res['genres'] = sorted(res['genres'])
-		self.assertEqual(4, len(res['actors']))
+		self.assertTrue(len(res['actors']) > 1)
 		self.assertEqual(1, len(res['directors']))
 		self.assertEqual(2, len(res['genres']))
-		self.assertEqual('Frank Welker', res['actors'][0])
-		self.assertEqual('Gary Owens', res['actors'][1])
-		self.assertEqual('Charles A. Nichols', res['directors'][0])
-		self.assertEqual('Animation', res['genres'][0])
+		self.assertTrue('Frank Welker' in res['actors'])
+		self.assertTrue('Gary Owens' in res['actors'])
+		self.assertTrue('Joe Ruby' in res['writers'])
+		self.assertTrue('Animation' in res['genres'])
 
 	def test_startrek(self):
 		res = omdbapi.get_metadata({"path":"/Star Trek (1966)"})
