@@ -165,35 +165,44 @@ def save_cached_metadata(settings, data):
 # Actual organizing
 def do_output(options, settings, metadata):
 	for group in settings['output']:
-		dest = group['dest']
+		destdir = group['dest']
 		groupBy = group['groupBy']
-		logger.debug("Sorting %s by %s"%(metadata['name'],group['groupBy']))
 		if not groupBy in metadata:
 			continue
-		value = metadata[groupBy]
-		if isinstance(value,str):
-			values = [value]
-		else:
-			values = value
-		for value in sorted(set(values)):
-			if value == None:
-				continue
-			value = value.replace('/','／')
-			logger.debug("Putting %s into %s"%(metadata['name'],value))
-			valueDir = os.path.join(dest, value)
-			if not os.path.isdir(valueDir):
-				os.mkdir(valueDir)
-			with open(os.path.join(dest, '.toc-%s'%(settings['name'],)), 'a') as toc:
-				toc.write("%s\n"%(value,))
-			destpath = os.path.join(valueDir, metadata['name'])
-			link = os.path.relpath(metadata['path'], valueDir)
-			if os.path.islink(destpath) and \
-			   os.readlink(destpath) != link:
-				os.unlink(destpath)
-			if not os.path.islink(destpath):
-				os.symlink(link, destpath)
-			with open(os.path.join(valueDir, '.toc-%s'%(settings['name'],)), 'a') as toc:
-				toc.write("%s\n"%(metadata['name'],))
+		do_output_group(settings['name'], destdir, metadata, groupBy)
+
+def do_output_group(setname, destdir, metadata, groupBy):
+	logger.debug("Sorting %s by %s"%(metadata['name'],groupBy))
+	value = metadata[groupBy]
+	if isinstance(value,str):
+		values = [value]
+	else:
+		values = value
+	for value in sorted(set(values)):
+		if value == None:
+			continue
+		value = value.replace('/','／')
+		do_output_single(destdir, setname, metadata['path'], metadata['name'], value)
+
+def do_output_single(destdir, setname, itempath, itemname, value):
+	""" Adds an item from the set into the collection named value
+	Adds FF8 from Albums into collection named Nobuo Uematsu
+	"""
+	logger.debug("Putting %s into %s"%(itemname,value))
+	valueDir = os.path.join(destdir, value)
+	if not os.path.isdir(valueDir):
+		os.mkdir(valueDir)
+	with open(os.path.join(destdir, '.toc-%s'%(setname,)), 'a') as toc:
+		toc.write("%s\n"%(value,))
+	destpath = os.path.join(valueDir, itemname)
+	link = os.path.relpath(itempath, valueDir)
+	if os.path.islink(destpath) and \
+	   os.readlink(destpath) != link:
+		os.unlink(destpath)
+	if not os.path.islink(destpath):
+		os.symlink(link, destpath)
+	with open(os.path.join(valueDir, '.toc-%s'%(setname,)), 'a') as toc:
+		toc.write("%s\n"%(itemname,))
 
 # Preparation
 def prepare_for_organization(settings):
