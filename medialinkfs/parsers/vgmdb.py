@@ -25,9 +25,11 @@ def get_metadata(metadata, settings={}):
 	album_data = load_json_data(result['link'])
 	franchises = load_album_franchises(album_data)
 	data = {}
-	for type in ['composers', 'lyricists', 'performers']:
+	for type in ['arrangers', 'composers', 'lyricists', 'performers']:
 		if type in album_data:
 			data[type] = [x['names']['en'] for x in album_data[type]]
+	if 'products' in album_data:
+		data['games'] = [x['names']['en'] for x in album_data['products']]
 	if len(album_data['composers']) > 0:
 		data['artists'] = [x['names']['en'] for x in album_data['composers']]
 		data['artist'] = data['artists'][0]

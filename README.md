@@ -149,7 +149,9 @@ Plugins
 
   Looks up information about a collection of video game albums, and discovers the following information:
 
+  * arrangers
   * composers
+  * games
   * lyricists
   * performers
   * artists - an alias of composers
