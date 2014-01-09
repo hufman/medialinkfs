@@ -25,6 +25,8 @@ class TestVGMDB(unittest.TestCase):
 		self.assertEqual('Yuzo Koshiro', res['artists'][0])
 		self.assertEqual('Yuzo Koshiro', res['composers'][0])
 		self.assertEqual('Yuji Takase', res['performers'][0])
+		self.assertTrue('AN' in res['arrangers'])
+		self.assertTrue('Bosconian' in res['games'])
 
 	def test_album_series(self):
 		res = vgmdb.get_metadata({"path":"/Gyakuten Saiban 4 Original Soundtrack"})
