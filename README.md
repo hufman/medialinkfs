@@ -182,7 +182,7 @@ At the root of the YAML document is a single item, sets. This is a list of set c
 ### Output Configuration
 
 - dest: The full path to the directory to make the group directories
-- groupBy: The metadata key of each item to use as the basis for grouping
+- groupBy: The metadata key of each item to use as the basis for grouping. This can also be an array of keys
 
 Example Config
 --------------
