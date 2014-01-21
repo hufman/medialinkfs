@@ -50,3 +50,13 @@ sets:
         groupBy: series
       - dest: /media/video/actors
         groupBy: actors
+
+  - name: Songs
+    parsers: [id3]
+    scanMode: files
+    sourceDir: /media/music/Songs
+    cacheDir: /tmp/songcache
+    regex: \.mp3$
+    output:
+      - dest: /tmp/songs
+        groupBy: album
