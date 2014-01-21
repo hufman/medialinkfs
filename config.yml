@@ -6,7 +6,7 @@ sets:
     cacheDir: /media/music/Game Music/Mp3/Albums/.cache
     output:
        - dest: /media/music/Game Music/Mp3/Artists
-         groupBy: artists
+         groupBy: [artists, arrangers]
        - dest: /media/music/Game Music/Mp3/Series
          groupBy: franchise
   - name: TV
