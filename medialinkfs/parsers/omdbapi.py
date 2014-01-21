@@ -97,5 +97,5 @@ def parse_response(data):
 	if 'Director' in data: result['directors'] = splitter.split(data['Director'])
 	if 'Actors' in data: result['actors'] = splitter.split(data['Actors'])
 	if 'Rated' in data: result['rated'] = data['Rated']
-	if 'Year' in data: result['year'] = int(re.sub('[^0-9]','',data['Year']))
+	if 'Year' in data: result['year'] = int(re.sub('[^0-9]','',data['Year'])[0:4])
 	return result
