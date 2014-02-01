@@ -117,12 +117,16 @@ default_properties = {
 
 def get_metadata(metadata, settings={}):
 	path = metadata['path']
-	name = os.path.basename(path)
-	yearfound = yearfinder.search(name)
-	year = None
-	if yearfound:
-		name = yearfinder.sub('',name).strip()
-		year = yearfound.group(1)
+	if 'name' in metadata:
+		name = metadata['name']
+		year = metadata.get('year')
+	else:
+		name = os.path.basename(path)
+		yearfound = yearfinder.search(name)
+		year = None
+		if yearfound:
+			name = yearfinder.sub('',name).strip()
+			year = yearfound.group(1)
 	logger.debug("Loading metadata for %s"%name)
 	result = search_title(name, year, settings)
 	if not result:
