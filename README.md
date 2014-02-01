@@ -52,6 +52,17 @@ Installation
 Plugins
 -------
 
+* parsename
+
+  Attempts to parse a few common patterns out of the given folder or file name. It also removes any found data from the name key, providing a cleaner name for subsequent modules to use.
+
+  * year - A 4 digit number that starts with 19 or 20
+  * resolution - A number from a list of common video resolutions
+  * format - h264, x264, avc, xvid, or divx
+  * release\_group - A release group, if one directly follows the format field
+  * extension - Any detected extension at the end of the filename
+  * name - The rest of the filename that wasn't matched by the above
+
 * id3
 
   Parses out ID3 tags from mp3s, and gets the following information. If it is told to scan a directory, it will parse the directory as an album, collecting information recursively about the contained files. The plural items, like artists, may be useful for mix albums or directories.
