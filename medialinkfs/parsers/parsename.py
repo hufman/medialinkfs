@@ -10,8 +10,9 @@ logger = logging.getLogger(__name__)
 wrapped = lambda x: r'[^0-9a-zA-Z]%s([^0-9a-zA-Z])?'%(x,)
 yearmatcher = re.compile(wrapped('((19|20)[0-9][0-9])'))
 resmatcher = re.compile(wrapped('(240|288|320|480|576|720|1080|2160|4320|8640)(p|i)?'), re.IGNORECASE)
-scenematcher = re.compile(wrapped('([hx]264|avc)[-_]([A-Za-z0-9]+)'), re.IGNORECASE)
-formatmatcher = re.compile(wrapped('([hx]264|avc)'), re.IGNORECASE)
+formats = r'([hx]264|avc|xvid|divx)'
+scenematcher = re.compile(wrapped('%s[-_]([A-Za-z0-9]+)'%(formats,)), re.IGNORECASE)
+formatmatcher = re.compile(wrapped(formats), re.IGNORECASE)
 extmatcher = re.compile(r'\.([a-zA-Z0-9]{2,4})$')
 
 clean_doublespace = lambda x: x.replace('  ',' ')
