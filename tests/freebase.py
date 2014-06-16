@@ -69,6 +69,12 @@ class TestFreebase(unittest.TestCase):
 		self.assertNotEqual(None, res)
 		self.assertEqual('1966-09-08', res['release_date'])
 
+	def test_leagues(self):
+		self.settings['type'] = '/film/film'
+		res = api.get_metadata({"path":"/20,000 Leagues Under the Sea (1954)"}, self.settings)
+		self.assertNotEqual(None, res)
+		self.assertEqual('1954-12-23', res['release_date'])
+
 	def test_startrek_movie(self):
 		self.settings['type'] = '/film/film'
 		res = api.get_metadata({"path":"/Star Trek"}, self.settings)
