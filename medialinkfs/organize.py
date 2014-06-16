@@ -75,14 +75,14 @@ def load_item_metadata(options, settings, name):
 	path = os.path.join(settings['sourceDir'], name)
 	if not ('ignore_cache' in options and options['ignore_cache']):
 		cached_metadata = load_cached_metadata(settings, name)
-	if 'name' in cached_metadata:	# valid cached data
+	if 'itemname' in cached_metadata:	# valid cached data
 		if 'preferCachedData' in settings and \
 		   settings['preferCachedData']:
 			logger.debug("Preferring cached data for %s"%(name,))
 			return cached_metadata
 		else:
 			logger.debug("Loaded cached data for %s"%(name,))
-	new_metadata = {"name":name, "path":path}
+	new_metadata = {"itemname":name, "path":path}
 	for parser_name in settings['parsers']:
 		parser = load_parser(parser_name)
 		if 'parser_options' in settings and \
@@ -151,7 +151,7 @@ def load_cached_metadata(settings, name):
 		return {}
 
 def save_cached_metadata(settings, data):
-	cache_path = get_cache_path(settings, data['name'])
+	cache_path = get_cache_path(settings, data['itemname'])
 	if 'parser_options' in settings:
 		data['parser_options'] = settings['parser_options']
 	try:
@@ -159,7 +159,7 @@ def save_cached_metadata(settings, data):
 			writing.write(json.dumps(data))
 	except:
 		msg = "Failed to save cache file for %s (%s): %s" % \
-		      (data['name'], cache_path, traceback.format_exc())
+		      (data['itemname'], cache_path, traceback.format_exc())
 		logger.warning(msg)
 
 # Actual organizing
@@ -176,7 +176,7 @@ def do_output(options, settings, metadata):
 			do_output_group(settings['name'], destdir, metadata, groupBy)
 
 def do_output_group(setname, destdir, metadata, groupBy):
-	logger.debug("Sorting %s by %s"%(metadata['name'],groupBy))
+	logger.debug("Sorting %s by %s"%(metadata['itemname'],groupBy))
 	value = metadata[groupBy]
 	if isinstance(value,str):
 		values = [value]
@@ -186,7 +186,7 @@ def do_output_group(setname, destdir, metadata, groupBy):
 		if value == None:
 			continue
 		value = value.replace('/','／')
-		do_output_single(destdir, setname, metadata['path'], metadata['name'], value)
+		do_output_single(destdir, setname, metadata['path'], metadata['itemname'], value)
 
 def do_output_single(destdir, setname, itempath, itemname, value):
 	""" Adds an item from the set into the collection named value
