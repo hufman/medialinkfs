@@ -4,5 +4,5 @@ PyYAML
 # Optional performance boost for the cache
 simplejson
 
-# id3 plugin needs this
-stagger
+# id3 plugin needs this, but it doesn't work in python 3.3
+#stagger
