@@ -2,6 +2,7 @@ from .config import import_config
 from .parsers import load_parser
 from .deepmerge import deep_merge
 from . import errors
+from . import sourcelist
 import os
 import os.path
 import logging
@@ -40,30 +41,11 @@ def organize_set(options, settings):
 	else:
 		logger.info("Resuming progress after %s items"%(len(processed_files)))
 
-	regex = None
-	if 'regex' in settings:
-		regex = re.compile(settings['regex'])
-	omitted_dirs = generate_omitted_dirs(settings)
-	files = os.listdir(settings['sourceDir'])
-	files = sorted(files)
-	if settings['scanMode'] in ['directories', 'files', 'toplevel']:
-		for name in files:
-			if name in processed_files:
-				continue
-			path = os.path.join(settings['sourceDir'], name)
-			if path in omitted_dirs:
-				continue
-			if settings['scanMode'] != 'toplevel':
-				if settings['scanMode'] == 'directories' and \
-				   not os.path.isdir(path):
-					continue
-				if settings['scanMode'] == 'files' and \
-				   not os.path.isfile(path):
-					continue
-			if regex and not regex.search(path):
-				continue
-			organize_item(options, settings, name)
-			add_progress(settings, name)
+	for name in sourcelist.items(settings):
+		if name in processed_files:
+			continue
+		organize_item(options, settings, name)
+		add_progress(settings, name)
 	finish_progress(settings)
 
 def organize_item(options, settings, name):
@@ -231,12 +213,6 @@ def prepare_cache_dir(cache_dir):
 	for d in dirs:
 		if not os.path.isdir(d):
 			os.mkdir(d)
-
-def generate_omitted_dirs(settings):
-	dirs = []
-	dirs.append(os.path.join(settings['cacheDir']))
-	dirs.extend([o['dest'] for o in settings['output']])
-	return dirs
 
 # Progress tracking
 def load_progress(settings):
