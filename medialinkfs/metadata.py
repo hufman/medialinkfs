@@ -13,8 +13,7 @@ def load_item(settings, name):
 	new_metadata = {"itemname":name, "path":path}
 	for parser_name in settings['parsers']:
 		parser = load_parser(parser_name)
-		if 'parser_options' in settings and \
-		   parser_name in settings['parser_options']:
+		if parser_name in settings.get('parser_options', {}):
 			parser_options = settings['parser_options'][parser_name]
 		else:
 			parser_options = {}

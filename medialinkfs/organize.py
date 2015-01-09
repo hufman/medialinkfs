@@ -57,12 +57,12 @@ def organize_item(options, settings, name):
 def load_item_metadata(options, settings, name):
 	logger.debug("Loading metadata for %s"%(name,))
 	path = os.path.join(settings['sourceDir'], name)
-	if not ('ignore_cache' in options and options['ignore_cache']):
+	if not (options.get('ignore_cache', False)):  # default to loading cached data
 		cached_metadata = cache.load(settings, name)
+	else:
+		cached_metadata = {}
 	if 'itemname' in cached_metadata:	# valid cached data
-
-		if 'preferCachedData' in settings and \
-		   settings['preferCachedData']:
+		if settings.get('preferCachedData', False):
 			logger.debug("Preferring cached data for %s"%(name,))
 			return cached_metadata
 		else:
@@ -269,8 +269,7 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 		if subpath not in extra_paths and \
 		   name not in proper_contents and \
 		   name not in extra_contents:
-			if not ('fakeclean' in settings and
-				settings['fakeclean']):
+			if not (settings.get('fakeclean', False)):
 				if not os.path.islink(subpath) and \
 				   os.path.isdir(subpath):
 					logger.debug("Removing extra dir %s"%(subpath,))
