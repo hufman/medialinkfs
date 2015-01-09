@@ -1,6 +1,7 @@
 from .config import import_config
 from .deepmerge import deep_merge
 from .parsers import load_parser
+from . import cache
 from . import errors
 from . import metadata
 from . import sourcelist
@@ -57,7 +58,7 @@ def load_item_metadata(options, settings, name):
 	logger.debug("Loading metadata for %s"%(name,))
 	path = os.path.join(settings['sourceDir'], name)
 	if not ('ignore_cache' in options and options['ignore_cache']):
-		cached_metadata = load_cached_metadata(settings, name)
+		cached_metadata = cache.load(settings, name)
 	if 'itemname' in cached_metadata:	# valid cached data
 
 		if 'preferCachedData' in settings and \
@@ -71,59 +72,8 @@ def load_item_metadata(options, settings, name):
 	# merge them
 	current_metadata = cached_metadata
 	current_metadata.update(fresh_metadata)
-	save_cached_metadata(settings, current_metadata)
+	cache.save(settings, current_metadata)
 	return current_metadata
-
-# Cache system
-def get_cache_key(name):
-	h = hashlib.new('md5')
-	h.update(name.encode('utf-8'))
-	return h.hexdigest()
-
-def get_cache_path(settings, name):
-	cache_key = get_cache_key(name)
-	cache_dir = settings['cacheDir']
-	cache_path = "%s/.cache-%s"%(cache_dir, cache_key)
-	return cache_path
-
-def load_cached_metadata(settings, name):
-	""" Loads up any previously cached dat
-	Returns {} if no data could be loaded
-	"""
-	cache_path = get_cache_path(settings, name)
-	if 'parser_options' in settings:
-		parser_options = json.dumps(settings['parser_options'])
-	else:
-		parser_options = None
-	try:
-		with open(cache_path) as reading:
-			data = reading.read()
-			parsed_data = json.loads(data)
-			# check that th cache's parser_options are the same
-			if 'parser_options' in parsed_data and \
-			   parsed_data['parser_options'] != parser_options:
-				return {}
-			if 'parser_options' in parsed_data:
-				del parsed_data['parser_options']
-			return parsed_data
-	except:
-		if os.path.isfile(cache_path):
-			msg = "Failed to open cache file for %s (%s): %s" % \
-			      (name, cache_path)
-			logger.warning(msg)
-		return {}
-
-def save_cached_metadata(settings, data):
-	cache_path = get_cache_path(settings, data['itemname'])
-	if 'parser_options' in settings:
-		data['parser_options'] = settings['parser_options']
-	try:
-		with open(cache_path, 'w') as writing:
-			writing.write(json.dumps(data))
-	except:
-		msg = "Failed to save cache file for %s (%s): %s" % \
-		      (data['itemname'], cache_path, traceback.format_exc())
-		logger.warning(msg)
 
 # Actual organizing
 def do_output(options, settings, metadata):
