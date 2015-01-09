@@ -1,7 +1,8 @@
 from .config import import_config
-from .parsers import load_parser
 from .deepmerge import deep_merge
+from .parsers import load_parser
 from . import errors
+from . import metadata
 from . import sourcelist
 import os
 import os.path
@@ -58,40 +59,20 @@ def load_item_metadata(options, settings, name):
 	if not ('ignore_cache' in options and options['ignore_cache']):
 		cached_metadata = load_cached_metadata(settings, name)
 	if 'itemname' in cached_metadata:	# valid cached data
+
 		if 'preferCachedData' in settings and \
 		   settings['preferCachedData']:
 			logger.debug("Preferring cached data for %s"%(name,))
 			return cached_metadata
 		else:
 			logger.debug("Loaded cached data for %s"%(name,))
-	new_metadata = {"itemname":name, "path":path}
-	for parser_name in settings['parsers']:
-		parser = load_parser(parser_name)
-		if 'parser_options' in settings and \
-		   parser_name in settings['parser_options']:
-			parser_options = settings['parser_options'][parser_name]
-		else:
-			parser_options = {}
-		try:
-			if 'regex' in parser_options:
-				regex = re.compile(parser_options['regex'])
-				if not regex.search(new_metadata['path']):
-					continue
-			item_metadata = parser.get_metadata(dict(new_metadata), parser_options)
-			if item_metadata == None:
-				log_unknown_item(settings['cacheDir'], parser_name, name)
-				continue
-		except KeyboardInterrupt:
-			raise
-		except:
-			log_crashed_parser(settings['cacheDir'], parser_name, name)
-			continue
-		deep_merge(new_metadata, item_metadata)
-	
-	metadata = cached_metadata
-	metadata.update(new_metadata)
-	save_cached_metadata(settings, metadata)
-	return metadata
+	fresh_metadata = metadata.load_item(settings, name)
+
+	# merge them
+	current_metadata = cached_metadata
+	current_metadata.update(fresh_metadata)
+	save_cached_metadata(settings, current_metadata)
+	return current_metadata
 
 # Cache system
 def get_cache_key(name):
@@ -366,14 +347,3 @@ def cleanup_extra_toc(settings, path, recurse_levels = 1):
 	# declare this toc done
 	os.rename(nametoc, namedone)
 
-# Logging
-def log_unknown_item(cache_dir, parser_name, item_name):
-	logger.warning("%s couldn't locate %s"%(parser_name, item_name))
-	with open(os.path.join(cache_dir, "unknown.log"), 'a') as log:
-		log.write("%s couldn't locate %s\n"%(parser_name, item_name))
-
-def log_crashed_parser(cache_dir, parser_name, item_name):
-	message = "%s crashed while parsing %s:\n%s"%(parser_name, item_name, traceback.format_exc())
-	logger.error(message)
-	with open(os.path.join(cache_dir, "failed.log"), 'a') as log:
-		log.write(message+"\n")
