@@ -202,12 +202,15 @@ Example Config
 
     sets:
       - name: TV
-        parsers: [omdb]
+        parsers: [omdb,freebase]
         scanMode: directories
         sourceDir: /media/tv/All
         cacheDir: /media/tv/.cache
         fakeclean: false
         preferCachedData: true
+        parser_options:
+          freebase:
+            type: /tv/tv_program
         output:
           - dest: /media/tv/Actors
             groupBy: actors
