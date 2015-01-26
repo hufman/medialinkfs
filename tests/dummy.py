@@ -59,6 +59,8 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")))
+		self.assertEqual(os.readlink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")),
+		                 os.path.join("..", "..", "All", "test"))
 
 		# does it rename the link if the data changes
 		os.rmdir(os.path.join(self.tmpdir, "All", 'test'))
@@ -70,6 +72,8 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")))
+		self.assertEqual(os.readlink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")),
+		                 os.path.join("..", "..", "All", "test2"))
 
 		# does it change the link if the metadata changes
 		dummy.data['test2']['actors'][0] = 'Sir Phil'
@@ -78,6 +82,8 @@ class TestDummy(unittest.TestCase):
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test2")))
+		self.assertEqual(os.readlink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test2")),
+		                 os.path.join("..", "..", "All", "test2"))
 
 		# does it delete the directory with extra .toc files in it
 		dummy.data['test2']['actors'][0] = 'Sir Lexus'
