@@ -329,7 +329,7 @@ def run_mql_queries(queries, settings={}):
 def run_mql_query(query, settings):
 	results = []
 	try:
-		headers = {'Content-Type': 'application/json'}
+		headers = {'Accept': 'application/json', 'User-Agent': 'Firefox'}
 		params = {'query': json.dumps(query)}
 		if "api_key" in settings:
 			params['key'] = settings['api_key']
