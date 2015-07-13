@@ -4,6 +4,7 @@ from .parsers import load_parser
 import logging
 import os.path
 import re
+import traceback
 
 logger = logging.getLogger(__name__)
 
