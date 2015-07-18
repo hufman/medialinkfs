@@ -50,7 +50,7 @@ class TestFilters(unittest.TestCase):
 	def test_decade(self):
 		res = quantizer.get_metadata(dummy.data['test'])
 		self.assertNotEqual(None, res)
-		self.assertFalse('year' in res)
+		self.assertEqual('1979', res['year'])
 		self.assertTrue('decade' in res)
 		self.assertEqual("1970", res['decade'])
 		self.assertEqual("1970s", res['decades'])
@@ -71,7 +71,7 @@ class TestFilters(unittest.TestCase):
 		res = {"release_date":"2012-09-06"}
 		res = quantizer.get_metadata(res)
 		self.assertTrue('year' in res)
-		self.assertEqual(2012, res['year'])
+		self.assertEqual('2012', res['year'])
 		self.assertTrue('decade' in res)
 		self.assertEqual('2010', res['decade'])
 		self.assertEqual('2010s', res['decades'])

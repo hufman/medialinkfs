@@ -12,8 +12,11 @@ def get_metadata(metadata, settings={}):
 	cur_metadata = dict(metadata)
 	new_metadata = {}
 	year = quantize_releasedate_year(cur_metadata)
+	if 'year' in cur_metadata:
+		# if 'year' is an int (and not a string), it fails in output "groupBy: year" mode
+		new_metadata['year'] = str(cur_metadata['year'])
 	if year:
-		new_metadata['year'] = year
+		new_metadata['year'] = str(year)
 
 	cur_metadata.update(new_metadata)
 
@@ -68,15 +71,16 @@ def quantize_rating_ratings(metadata):
 
 def quantize_name_letter(metadata):
 	try:
-		logger.debug("Trying to quantize name to letter")
+		# logger.debug("Trying to quantize name to letter")
 		if 'name' in metadata:
-			logger.debug("Quantizing %s into letter"%metadata['name'])
+			# logger.debug("Quantizing %s into letter"%metadata['name'])
 			letter = metadata['name'][0]
 			if letter.isalpha():
-				logger.debug("Matched letter %s"%letter)
+				# logger.debug("Matched letter %s"%letter)
 				return letter
 			else:
-				return '0' #numbers/special characters go into the '0' bin
+				# logger.debug("Returning letter 0")
+				return str('0') #numbers/special characters go into the '0' bin
 	except:
 		raise
 		pass
