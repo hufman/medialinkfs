@@ -8,11 +8,13 @@ import logging
 logging.basicConfig(level=logging.DEBUG, filename='tests.log')
 
 import medialinkfs.parsers.myapifilms as myapifilms
+import tests._utils as _utils
 
 base = os.path.dirname(__file__)
 
-class Testmyapifilms(unittest.TestCase):
+class Testmyapifilms(_utils.TestAPI):
 	def setUp(self):
+		super().setUp()
 		logging.debug("Initializing unittest %s"%(self.id(),))
 
 	def test_goodwillhunting(self):
