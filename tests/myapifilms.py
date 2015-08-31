@@ -20,6 +20,7 @@ class Testmyapifilms(unittest.TestCase):
 		self.assertNotEqual(None, res)
 		self.assertEqual(1997, res['year'])
 		self.assertEqual(8.3, res['rating'])
+		self.assertIn('Matt Damon', res['actors'])
 
 	def test_goodwillhunting_wrongyear_doesnotexist(self):
 		res = myapifilms.get_metadata({"path":"/Good Will Hunting (1990)"})

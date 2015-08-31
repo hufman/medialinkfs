@@ -57,7 +57,7 @@ def api_type_str(type):
 
 
 def search_title(name, year=None, settings={}):
-	url = API_BASE+"?type=json&actors=N&lang=en-us&title="+urllib.parse.quote(squash(name))
+	url = API_BASE+"?type=json&actors=S&lang=en-us&title="+urllib.parse.quote(squash(name))
 	if year:
 		url += "&forceYear=1&year="+str(year)
 	if 'type' in settings:
@@ -86,6 +86,7 @@ def search_title(name, year=None, settings={}):
 def parse_response(data):
 	if 'title' in data: logger.debug("Found %s (%s)"%(data['title'],data['idIMDB']))
 	result = {}
+	if 'actors' in data: result['actors'] = [a['actorName'] for a in data['actors']]
 	if 'genres' in data: result['genres'] = data['genres']
 	if 'year' in data: result['year'] = int(data['year'][0:4])
 	if 'rating' in data: 
