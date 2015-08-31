@@ -1,0 +1,212 @@
+{
+    "albums": [
+        {
+            "catalog": "CPCA-10179",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2006-09-22",
+            "link": "album/3601",
+            "reprint": true,
+            "titles": {
+                "en": "Gyakuten Saiban Orchestra Album ~Gyakuten Meets Orchestra~",
+                "ja": "逆転裁判オーケストラアルバム ～GYAKUTEN MEETS ORCHESTRA～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10178",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2006-09-30",
+            "link": "album/3602",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Orchestra Album ~GYAKUTEN MEETS ORCHESTRA~",
+                "ja": "逆転裁判オーケストラアルバム ～GYAKUTEN MEETS ORCHESTRA～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10186",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2007-03-31",
+            "link": "album/4429",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Jazz Album ~Gyakuten Meets Jazz Soul~",
+                "ja": "『逆転裁判』 ジャズアルバム～GYAKUTEN MEETS JAZZ SOUL～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10187",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2007-06-27",
+            "link": "album/4602",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban 4 Original Soundtrack",
+                "ja": "逆転裁判4　オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CAP-080420",
+            "classifications": [
+                "Arrange",
+                "Vocal"
+            ],
+            "date": "2008-04-20",
+            "link": "album/8308",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Special Courtroom 2008 Orchestra Concert ~Gyakuten Meets Orchestra~ Commemorative Souvenir",
+                "ja": "逆転裁判 特別法廷2008 オーケストラコンサート ~GYAKUTEN MEETS ORCHESTRA~ 開催記念品"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SHCD-0015",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2008-08-16",
+            "link": "album/10090",
+            "reprint": false,
+            "titles": {
+                "en": "Reversal Disc",
+                "ja": "逆転音盤",
+                "ja-latn": "Gyakuten Onban"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "CPDA-10054",
+            "classifications": [
+                "Arrange",
+                "Vocal"
+            ],
+            "date": "2008-09-23",
+            "link": "album/10466",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Special Courtroom 2008 Orchestra Concert Autumn Commemorative Souvenir",
+                "ja": "逆転裁判 特別法廷2008 オーケストラコンサート秋 開催記念品"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "CPCA-10211",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2009-10-01",
+            "link": "album/15230",
+            "reprint": false,
+            "titles": {
+                "en": "Capcom Music Collection Vol.0 prologue",
+                "ja": "カプコン ミュージック コレクション Vol.0 prologue"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10380~1",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2015-03-18",
+            "link": "album/49935",
+            "reprint": false,
+            "titles": {
+                "en": "GYAKUTEN SAIBAN MEETS AGAIN ~Orchestra & Jazz~",
+                "ja": "逆転裁判 MEETS AGAIN ～オーケストラ＆ジャズ～"
+            },
+            "type": "game"
+        }
+    ],
+    "description": "",
+    "franchises": [
+        {
+            "link": "product/164",
+            "names": {
+                "en": "Ace Attorney",
+                "ja": "逆転裁判",
+                "ja-latn": "Gyakuten Saiban"
+            }
+        }
+    ],
+    "link": "product/255",
+    "meta": {
+        "added_date": "2010-09-21T09:14",
+        "added_user": "Revoc",
+        "edited_date": "2010-09-21T09:14",
+        "edited_user": "Revoc",
+        "fetched_date": "2015-08-30T20:37",
+        "ttl": 86400,
+        "visitors": 1295
+    },
+    "name": "Apollo Justice: Ace Attorney",
+    "name_real": "逆転裁判4",
+    "organizations": [],
+    "picture_full": "http://vgmdb.net/db/assets/logos/255-pr-1285090406.jpg",
+    "picture_small": "http://vgmdb.net/db/assets/logos-medium/255-pr-1285090406.jpg",
+    "release_date": "2007-04-12",
+    "releases": [
+        {
+            "date": "2007-04-12",
+            "names": {
+                "en": "Gyakuten Saiban 4",
+                "ja": "逆転裁判4",
+                "ja-latn": "Gyakuten Saiban 4"
+            },
+            "platform": "Nintendo DS",
+            "region": "JPY (Japan)"
+        },
+        {
+            "date": "2008-02-19",
+            "names": {
+                "en": "Apollo Justice: Ace Attorney",
+                "ja": "Apollo Justice: Ace Attorney",
+                "ja-latn": "Apollo Justice: Ace Attorney"
+            },
+            "platform": "Nintendo DS",
+            "region": "USD (U.S.)"
+        },
+        {
+            "date": "2008-05-09",
+            "names": {
+                "en": "Apollo Justice: Ace Attorney",
+                "ja": "Apollo Justice: Ace Attorney",
+                "ja-latn": "Apollo Justice: Ace Attorney"
+            },
+            "platform": "Nintendo DS",
+            "region": "EUR (Europe)"
+        },
+        {
+            "date": "2008-05-22",
+            "names": {
+                "en": "Apollo Justice: Ace Attorney",
+                "ja": "Apollo Justice: Ace Attorney",
+                "ja-latn": "Apollo Justice: Ace Attorney"
+            },
+            "platform": "Nintendo DS",
+            "region": "AUD (Australia)"
+        }
+    ],
+    "type": "Game",
+    "vgmdb_link": "http://vgmdb.net/product/255?perpage=99999",
+    "websites": {
+        "Reference": [
+            {
+                "link": "http://www.mobygames.com/game/nintendo-ds/apollo-justice-ace-attorney",
+                "name": "Mobygames"
+            }
+        ]
+    }
+}

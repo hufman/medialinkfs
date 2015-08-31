@@ -1,0 +1,39 @@
+{
+    "link": "search/albums/suteki%20da%20ne%20featured%20in%20final%20fantasy%20x",
+    "meta": {},
+    "query": "suteki da ne featured in final fantasy x",
+    "results": {
+        "albums": [
+            {
+                "catalog": "SQEX-10029",
+                "link": "album/3424",
+                "release_date": "2004-07-22",
+                "titles": {
+                    "en": "suteki da ne featured in FINAL FANTASY X",
+                    "ja": "素敵だね　featured in FINAL FANTASY X",
+                    "ja-latn": "suteki da ne featured in FINAL FANTASY X"
+                }
+            },
+            {
+                "catalog": "SSCX-10053",
+                "link": "album/103",
+                "release_date": "2001-07-18",
+                "titles": {
+                    "en": "suteki da ne featured in FINAL FANTASY X",
+                    "ja": "素敵だね　featured in FINAL FANTASY X",
+                    "ja-latn": "suteki da ne featured in FINAL FANTASY X"
+                }
+            }
+        ],
+        "artists": [],
+        "orgs": [],
+        "products": []
+    },
+    "sections": [
+        "albums",
+        "artists",
+        "orgs",
+        "products"
+    ],
+    "vgmdb_link": "http://vgmdb.net/search?q=suteki%20da%20ne%20featured%20in%20final%20fantasy%20x"
+}

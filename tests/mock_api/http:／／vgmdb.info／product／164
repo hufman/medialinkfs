@@ -1,0 +1,564 @@
+{
+    "albums": [
+        {
+            "catalog": "NINTENDO-20040121",
+            "classifications": [
+                "Soundtrack",
+                "Arrange",
+                "Vocal",
+                "Sound Effect"
+            ],
+            "date": "2004-01-21",
+            "link": "album/5708",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Special CD [Nintendo DREAM Vol. 107]",
+                "ja": "逆転スペシャルＣＤ"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "CPCA-1089",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2004-03-31",
+            "link": "album/2601",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban 3 Original Soundtrack",
+                "ja": "逆転裁判３　オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-1087~8",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2004-03-31",
+            "link": "album/26579",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban + Gyakuten Saiban 2 Original Soundtrack",
+                "ja": "逆転裁判＋逆転裁判２　オリジナル・サウンドトラック"
+            },
+            "type": "cancel"
+        },
+        {
+            "catalog": "CPCA-1087~8",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2004-04-10",
+            "link": "album/2600",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban + Gyakuten Saiban 2 Original Soundtrack",
+                "ja": "逆転裁判＋逆転裁判２　オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2004-12-30",
+            "link": "album/15707",
+            "reprint": false,
+            "titles": {
+                "en": "Kagayake! Kono Kyoku nan Deshou Senshuken~ 3",
+                "ja": "輝け！この曲なんでしょう選手権〜３"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "GYAKUTEN-001",
+            "classifications": [
+                "Soundtrack",
+                "Prototype"
+            ],
+            "date": "2005-09-15",
+            "link": "album/7622",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Yomigaeru Gyakuten - Yomigaeru Remix",
+                "ja": "逆転裁判 蘇る逆転〜蘇るリミックス〜",
+                "ja-latn": "Phoenix Wright: Ace Attorney Yomigaeru Remix"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "CPCA-10124",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2005-11-30",
+            "link": "album/2602",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Yomigaeru Gyakuten Original Soundtrack",
+                "ja": "逆転裁判　蘇る逆転　オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2005-12-30",
+            "link": "album/15708",
+            "reprint": false,
+            "titles": {
+                "en": "Kagayake! Kono Kyoku nan Deshou Senshuken~ 4",
+                "ja": "輝け！この曲なんでしょう選手権〜４"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2006-08-13",
+            "link": "album/5689",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Recorder Arrange - Yantante Sabaiban",
+                "ja": "～逆転裁判リコーダーアレソヅCD～"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "CPCA-10179",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2006-09-22",
+            "link": "album/3601",
+            "reprint": true,
+            "titles": {
+                "en": "Gyakuten Saiban Orchestra Album ~Gyakuten Meets Orchestra~",
+                "ja": "逆転裁判オーケストラアルバム ～GYAKUTEN MEETS ORCHESTRA～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10178",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2006-09-30",
+            "link": "album/3602",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Orchestra Album ~GYAKUTEN MEETS ORCHESTRA~",
+                "ja": "逆転裁判オーケストラアルバム ～GYAKUTEN MEETS ORCHESTRA～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10186",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2007-03-31",
+            "link": "album/4429",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Jazz Album ~Gyakuten Meets Jazz Soul~",
+                "ja": "『逆転裁判』 ジャズアルバム～GYAKUTEN MEETS JAZZ SOUL～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10187",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2007-06-27",
+            "link": "album/4602",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban 4 Original Soundtrack",
+                "ja": "逆転裁判4　オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CAP-080420",
+            "classifications": [
+                "Arrange",
+                "Vocal"
+            ],
+            "date": "2008-04-20",
+            "link": "album/8308",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Special Courtroom 2008 Orchestra Concert ~Gyakuten Meets Orchestra~ Commemorative Souvenir",
+                "ja": "逆転裁判 特別法廷2008 オーケストラコンサート ~GYAKUTEN MEETS ORCHESTRA~ 開催記念品"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SHCD-0015",
+            "classifications": [
+                "Fan Arrange",
+                "Vocal"
+            ],
+            "date": "2008-08-16",
+            "link": "album/10090",
+            "reprint": false,
+            "titles": {
+                "en": "Reversal Disc",
+                "ja": "逆転音盤",
+                "ja-latn": "Gyakuten Onban"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "CPDA-10054",
+            "classifications": [
+                "Arrange",
+                "Vocal"
+            ],
+            "date": "2008-09-23",
+            "link": "album/10466",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Special Courtroom 2008 Orchestra Concert Autumn Commemorative Souvenir",
+                "ja": "逆転裁判 特別法廷2008 オーケストラコンサート秋 開催記念品"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "CPDA-10057",
+            "classifications": [
+                "Soundtrack",
+                "Arrange"
+            ],
+            "date": "2009-05-28",
+            "link": "album/12370",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Kenji Orchestra & Video Album",
+                "ja": "「逆転検事」 オーケストラミニアルバム ～逆転の旋律～",
+                "ja-latn": "Gyakuten Kenji Orchestra Mini Album ~Turnabout Melody~"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "CPCA-10204~5",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2009-06-24",
+            "link": "album/13686",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Kenji Original Soundtrack",
+                "ja": "逆転検事 オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10211",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2009-10-01",
+            "link": "album/15230",
+            "reprint": false,
+            "titles": {
+                "en": "Capcom Music Collection Vol.0 prologue",
+                "ja": "カプコン ミュージック コレクション Vol.0 prologue"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "AFX 210",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2011-01-13",
+            "link": "album/23511",
+            "reprint": false,
+            "titles": {
+                "en": "Now You're Playing With Powar 9 1/2: You Go Back to the Beginning"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "CPDA-10067",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2011-02-03",
+            "link": "album/21809",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Kenji 2 Orchestra Arrangement Collection ~Kanaderareshi Gyakuten~",
+                "ja": "逆転検事2 オーケストラ・アレンジ楽曲集～奏でられし逆転～"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "CPCA-10239~40",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2011-02-28",
+            "link": "album/22491",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Kenji 2 Original Soundtrack",
+                "ja": "逆転検事2 オリジナルサウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "KENJ-0001",
+            "classifications": [
+                "Drama"
+            ],
+            "date": "2011-02-28",
+            "link": "album/24314",
+            "reprint": false,
+            "titles": {
+                "en": "Drama CD Gyakuten Kenji 2 ~Turnabout from Space!?~",
+                "ja": "ドラマＣＤ 逆転検事2 ~宇宙からの逆転!?~",
+                "ja-latn": "Drama CD Gyakuten Kenji 2 ~Uchuu-kara no Gyakuten!?~"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "JOY-924",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-07-11",
+            "link": "album/40459",
+            "reprint": false,
+            "titles": {
+                "en": "VGM Acapella: Volume 2"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10313~4",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2013-09-25",
+            "link": "album/40637",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban 5 Original Soundtrack",
+                "ja": "逆転裁判5 オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10315~6",
+            "classifications": [
+                "Unclassified"
+            ],
+            "date": "2013-09-25",
+            "link": "album/40754",
+            "reprint": false,
+            "titles": {
+                "en": "30th ANNIVERSARY CAPCOM Music Best:Original & Arrange",
+                "ja": "カプコン30周年 ミュージックベスト オリジナル&アレンジ"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-10-01",
+            "link": "album/43839",
+            "reprint": false,
+            "titles": {
+                "en": "Infection #02"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "TBCD-0165~6",
+            "classifications": [
+                "Drama"
+            ],
+            "date": "2013-10-16",
+            "link": "album/43675",
+            "reprint": false,
+            "titles": {
+                "en": "DRAMA CD GYAKUTEN SAIBAN 5 ~gyakuten no animal circus!?~",
+                "ja": "ドラマCD 逆転裁判5 ~逆転のアニマルサーカス!?~"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPCA-10338",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2014-04-23",
+            "link": "album/44530",
+            "reprint": false,
+            "titles": {
+                "en": "Gyakuten Saiban Piano Album",
+                "ja": "逆転裁判 ピアノアルバム"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "OJSN-0001",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2014-10-26",
+            "link": "album/49519",
+            "reprint": false,
+            "titles": {
+                "en": "Game Cues"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "CPCA-10380~1",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2015-03-18",
+            "link": "album/49935",
+            "reprint": false,
+            "titles": {
+                "en": "GYAKUTEN SAIBAN MEETS AGAIN ~Orchestra & Jazz~",
+                "ja": "逆転裁判 MEETS AGAIN ～オーケストラ＆ジャズ～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CPDA-10095",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2015-07-09",
+            "link": "album/51939",
+            "reprint": false,
+            "titles": {
+                "en": "Daigyakuten Saiban -Naruhodou Ryuunosuke no Bouken- Gekichuu Gakkyokushuu",
+                "ja": "大逆転裁判 -成歩堂龍ノ介の冒險- 劇中楽曲集"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "CPCA-10386~7",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2015-07-15",
+            "link": "album/52318",
+            "reprint": false,
+            "titles": {
+                "en": "Daigyakuten Saiban -Naruhodou Ryuunosuke no Bouken- Gekiban Ongaku Daizenshuu",
+                "ja": "大逆転裁判 -成歩堂龍ノ介の冒險- 劇伴音樂大全集"
+            },
+            "type": "game"
+        }
+    ],
+    "description": "",
+    "link": "product/164",
+    "meta": {
+        "added_date": "2010-01-23T12:47",
+        "added_user": "Revoc",
+        "edited_date": "2010-01-23T12:47",
+        "edited_user": "Revoc",
+        "fetched_date": "2015-08-30T20:37",
+        "ttl": 86400,
+        "visitors": 1087
+    },
+    "name": "Ace Attorney",
+    "name_real": "逆転裁判",
+    "titles": [
+        {
+            "date": "2001-10-12",
+            "link": "product/257",
+            "names": {
+                "en": "Phoenix Wright: Ace Attorney",
+                "ja": "逆転裁判 蘇る逆転",
+                "ja-latn": "Gyakuten Saiban Yomigaeru Gyakuten"
+            }
+        },
+        {
+            "date": "2002-10-22",
+            "link": "product/253",
+            "names": {
+                "en": "Phoenix Wright: Ace Attorney: Justice for All",
+                "ja": "逆転裁判 2",
+                "ja-latn": "Gyakuten Saiban 2"
+            }
+        },
+        {
+            "date": "2004-01-23",
+            "link": "product/254",
+            "names": {
+                "en": "Phoenix Wright: Ace Attorney: Trials and Tribulations",
+                "ja": "逆転裁判3",
+                "ja-latn": "Gyakuten Saiban 3"
+            }
+        },
+        {
+            "date": "2007-04-12",
+            "link": "product/255",
+            "names": {
+                "en": "Apollo Justice: Ace Attorney",
+                "ja": "逆転裁判4",
+                "ja-latn": "Gyakuten Saiban 4"
+            }
+        },
+        {
+            "date": "2009-05-28",
+            "link": "product/256",
+            "names": {
+                "en": "Ace Attorney Investigations: Miles Edgeworth",
+                "ja": "逆転検事",
+                "ja-latn": "Gyakuten Kenji"
+            }
+        },
+        {
+            "date": "2011-02-03",
+            "link": "product/252",
+            "names": {
+                "en": "Gyakuten Kenji 2",
+                "ja": "逆転検事2",
+                "ja-latn": "Gyakuten Kenji 2"
+            }
+        },
+        {
+            "date": "2013-07-15",
+            "link": "product/2373",
+            "names": {
+                "en": "Phoenix Wright: Ace Attorney - Dual Destinies",
+                "ja": "逆転裁判5",
+                "ja-latn": "Gyakuten Saiban 5"
+            }
+        },
+        {
+            "date": "2015-07-09",
+            "link": "product/3932",
+            "names": {
+                "en": "Daigyakuten Saiban: Naruhodou Ryuunosuke no Bouken",
+                "ja": "大逆転裁判 ‐成歩堂龍ノ介の冒険‐",
+                "ja-latn": "Daigyakuten Saiban: Naruhodou Ryuunosuke no Bouken"
+            }
+        }
+    ],
+    "type": "Franchise",
+    "vgmdb_link": "http://vgmdb.net/product/164?perpage=99999",
+    "websites": {}
+}

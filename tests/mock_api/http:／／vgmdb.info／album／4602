@@ -1,0 +1,442 @@
+{
+    "arrangers": [],
+    "catalog": "CPCA-10187",
+    "categories": [
+        "Game"
+    ],
+    "category": "Game",
+    "classification": "Original Soundtrack",
+    "composers": [
+        {
+            "link": "artist/1358",
+            "names": {
+                "en": "Toshihiko Horiyama",
+                "ja": "堀山俊彦"
+            }
+        },
+        {
+            "link": "artist/1508",
+            "names": {
+                "en": "Hideki Okugawa",
+                "ja": "奥河英樹"
+            }
+        },
+        {
+            "link": "artist/3958",
+            "names": {
+                "en": "Shu Takumi",
+                "ja": "巧舟"
+            }
+        },
+        {
+            "link": "artist/1509",
+            "names": {
+                "en": "Akemi Kimura",
+                "ja": "木村明美"
+            }
+        }
+    ],
+    "covers": [
+        {
+            "full": "http://media.vgm.io/albums/20/4602/4602-1195758943.jpg",
+            "medium": "http://medium.media.vgm.io/albums/20/4602/4602-1195758943.jpg",
+            "name": "Front",
+            "thumb": "http://thumb.media.vgm.io/albums/20/4602/4602-1195758943.jpg"
+        },
+        {
+            "full": "http://media.vgm.io/albums/20/4602/4602-1195758944.jpg",
+            "medium": "http://medium.media.vgm.io/albums/20/4602/4602-1195758944.jpg",
+            "name": "Back",
+            "thumb": "http://thumb.media.vgm.io/albums/20/4602/4602-1195758944.jpg"
+        },
+        {
+            "full": "http://media.vgm.io/albums/20/4602/4602-1232667650.jpg",
+            "medium": "http://medium.media.vgm.io/albums/20/4602/4602-1232667650.jpg",
+            "name": "Booklet Back",
+            "thumb": "http://thumb.media.vgm.io/albums/20/4602/4602-1232667650.jpg"
+        },
+        {
+            "full": "http://media.vgm.io/albums/20/4602/4602-1237335168.jpg",
+            "medium": "http://medium.media.vgm.io/albums/20/4602/4602-1237335168.jpg",
+            "name": "Disc",
+            "thumb": "http://thumb.media.vgm.io/albums/20/4602/4602-1237335168.jpg"
+        }
+    ],
+    "discs": [
+        {
+            "disc_length": "59:07",
+            "name": "Disc 1",
+            "tracks": [
+                {
+                    "names": {
+                        "English": "Gyakuten Saiban 4 - Prologue",
+                        "English (Localization)": "Apollo Justice: Ace Attorney - Prologue",
+                        "Japanese": "逆転裁判4・序章"
+                    },
+                    "track_length": "0:45"
+                },
+                {
+                    "names": {
+                        "English": "Courtroom Lounge ~ New Prelude",
+                        "English (Localization)": "Courtroom Lounge ~ New Prelude",
+                        "Japanese": "法廷休憩室 ～新たなる序曲"
+                    },
+                    "track_length": "1:11"
+                },
+                {
+                    "names": {
+                        "English": "Gyakuten Saiban 4 - Court Begins",
+                        "English (Localization)": "Apollo Justice: Ace Attorney - Court Begins",
+                        "Japanese": "逆転裁判4・開廷"
+                    },
+                    "track_length": "2:06"
+                },
+                {
+                    "names": {
+                        "English": "Cross-Examination ~ Moderato 2007",
+                        "English (Localization)": "Cross-Examination ~ Moderato 2007",
+                        "Japanese": "尋問 ～モデラート 2007"
+                    },
+                    "track_length": "1:20"
+                },
+                {
+                    "names": {
+                        "English": "Trance Logic",
+                        "English (Localization)": "Trance Logic",
+                        "Japanese": "トランス・ロジック"
+                    },
+                    "track_length": "1:49"
+                },
+                {
+                    "names": {
+                        "English": "Housuke Odoroki ~ A New Chapter of Trials!",
+                        "English (Localization)": "Apollo Justice ~ A New Chapter of Trials!",
+                        "Japanese": "王泥喜 法介 ～新章開廷!"
+                    },
+                    "track_length": "1:36"
+                },
+                {
+                    "names": {
+                        "English": "Cross-Examination ~ Allegro 2007",
+                        "English (Localization)": "Cross-Examination ~ Allegro 2007",
+                        "Japanese": "尋問 ～アレグロ 2007"
+                    },
+                    "track_length": "1:43"
+                },
+                {
+                    "names": {
+                        "English": "Confess the Truth 2007",
+                        "English (Localization)": "Confess the Truth 2007",
+                        "Japanese": "真実は告げる 2007"
+                    },
+                    "track_length": "0:59"
+                },
+                {
+                    "names": {
+                        "English": "Thrill Theme ~ Suspense",
+                        "English (Localization)": "Thrill Theme ~ Suspense",
+                        "Japanese": "スリルのテーマ ～サスペンス"
+                    },
+                    "track_length": "0:49"
+                },
+                {
+                    "names": {
+                        "English": "Seeing Through ~ Surge, Eyes",
+                        "English (Localization)": "Perceive ~ Surge, Eyes",
+                        "Japanese": "みぬく ～ほとばしれ、視線"
+                    },
+                    "track_length": "1:01"
+                },
+                {
+                    "names": {
+                        "English": "Pursuit ~ Must Corner",
+                        "English (Localization)": "Pursuit ~ Must Corner",
+                        "Japanese": "追求 ～追いつめないと"
+                    },
+                    "track_length": "1:49"
+                },
+                {
+                    "names": {
+                        "English": "Jingle ~ That’s All For Today",
+                        "English (Localization)": "Jingle ~ That’s All For Today",
+                        "Japanese": "ジングル ～今日はここまで"
+                    },
+                    "track_length": "0:08"
+                },
+                {
+                    "names": {
+                        "English": "Minuki's Theme ~ Child of Magic",
+                        "English (Localization)": "Trucy's Theme ~ Child of Magic",
+                        "Japanese": "みぬきのテーマ ～魔術の子"
+                    },
+                    "track_length": "1:36"
+                },
+                {
+                    "names": {
+                        "English": "Kyouya Garyuu ~ LOVE LOVE GUILTY",
+                        "English (Localization)": "Klavier Gavin ~ Guilty Love",
+                        "Japanese": "牙琉 響也 ～LOVE LOVE GUILTY"
+                    },
+                    "track_length": "1:39"
+                },
+                {
+                    "names": {
+                        "English": "Akane Houzuki ~ The Scientific Detective",
+                        "English (Localization)": "Ema Skye ~ The Scientific Detective",
+                        "Japanese": "宝月 茜 ～カガクの刑事"
+                    },
+                    "track_length": "1:27"
+                },
+                {
+                    "names": {
+                        "English": "Investigation ~ Opening 2007",
+                        "English (Localization)": "Investigation ~ Opening 2007",
+                        "Japanese": "捜査 ～序盤 2007"
+                    },
+                    "track_length": "1:29"
+                },
+                {
+                    "names": {
+                        "English": "Detention Center ~ Tragicomic Meeting",
+                        "English (Localization)": "Detention Center ~ Tragicomic Meeting",
+                        "Japanese": "留置所 ～面会の悲喜劇"
+                    },
+                    "track_length": "3:40"
+                },
+                {
+                    "names": {
+                        "English": "\"Turnabout Corner\"",
+                        "English (Localization)": "\"Turnabout Corner\"",
+                        "Japanese": "『逆転連鎖の街角』"
+                    },
+                    "track_length": "0:33"
+                },
+                {
+                    "names": {
+                        "English": "Eccentric 2007",
+                        "English (Localization)": "Eccentric 2007",
+                        "Japanese": "エキセントリック 2007"
+                    },
+                    "track_length": "1:43"
+                },
+                {
+                    "names": {
+                        "English": "Kitakitsune Family",
+                        "English (Localization)": "Kitaki Family",
+                        "Japanese": "キタキツネ一家"
+                    },
+                    "track_length": "2:07"
+                },
+                {
+                    "names": {
+                        "English": "Ringtone / LOVE LOVE GUILTY",
+                        "English (Localization)": "Ringtone / Guilty Love",
+                        "Japanese": "着信メロディ/LOVE LOVE GUILTY"
+                    },
+                    "track_length": "0:30"
+                },
+                {
+                    "names": {
+                        "English": "Reminiscing ~ Wounded Foxes",
+                        "English (Localization)": "Reminiscing ~ Wounded Foxes",
+                        "Japanese": "追憶 ～傷ついたキツネたち"
+                    },
+                    "track_length": "2:21"
+                },
+                {
+                    "names": {
+                        "English": "Loving Guitar's Serenade",
+                        "English (Localization)": "The Guitar's Serenade",
+                        "Japanese": "恋するギターのセレナード"
+                    },
+                    "track_length": "1:37"
+                },
+                {
+                    "names": {
+                        "English": "Arumajiki Troupe",
+                        "English (Localization)": "Troupe Gramarye",
+                        "Japanese": "或真敷一座"
+                    },
+                    "track_length": "1:53"
+                },
+                {
+                    "names": {
+                        "English": "Reminiscing ~ Fate Smeared by Tricks and Gimmicks",
+                        "English (Localization)": "Reminiscing ~ Fate Smeared by Tricks and Gimmicks",
+                        "Japanese": "追憶 ～タネとシカケにまみれた運命"
+                    },
+                    "track_length": "2:14"
+                },
+                {
+                    "names": {
+                        "English": "Lamiroir ~ Landscape Painter in Sound",
+                        "English (Localization)": "Lamiroir ~ Landscape Painter in Sound",
+                        "Japanese": "ラミロア ～音の風景画家"
+                    },
+                    "track_length": "2:43"
+                },
+                {
+                    "names": {
+                        "English": "\"Turnabout Succession\"",
+                        "English (Localization)": "\"Turnabout Succession\"",
+                        "Japanese": "『逆転を継ぐ者』"
+                    },
+                    "track_length": "1:04"
+                },
+                {
+                    "names": {
+                        "English": "Psyche-Locks 2007",
+                        "English (Localization)": "Psyche-Locks 2007",
+                        "Japanese": "心理錠(サイコ・ロック)2007"
+                    },
+                    "track_length": "1:20"
+                },
+                {
+                    "names": {
+                        "English": "Doburoku Studio",
+                        "English (Localization)": "Drew Studio",
+                        "Japanese": "どぶろくスタジオ"
+                    },
+                    "track_length": "3:12"
+                },
+                {
+                    "names": {
+                        "English": "Solitary Confinement ~ Darkness Theme",
+                        "English (Localization)": "Solitary Confinement ~ Darkness Theme",
+                        "Japanese": "独房 ～闇のテーマ"
+                    },
+                    "track_length": "1:50"
+                },
+                {
+                    "names": {
+                        "English": "Investigation ~ Core 2007",
+                        "English (Localization)": "Investigation ~ Core 2007",
+                        "Japanese": "捜査 ～核心 2007"
+                    },
+                    "track_length": "1:09"
+                },
+                {
+                    "names": {
+                        "English": "Reminiscing ~ Forgotten Legend",
+                        "English (Localization)": "Reminiscing ~ Forgotten Legend",
+                        "Japanese": "追憶 ～忘れられた伝説"
+                    },
+                    "track_length": "2:21"
+                },
+                {
+                    "names": {
+                        "English": "Won the Case! ~ Our Victory",
+                        "English (Localization)": "Won the Case! ~ Our Victory",
+                        "Japanese": "勝訴! ～オレたちの勝利"
+                    },
+                    "track_length": "2:08"
+                },
+                {
+                    "names": {
+                        "English": "Gyakuten Saiban 4 - End",
+                        "English (Localization)": "Apollo Justice: Ace Attorney - Epilogue",
+                        "Japanese": "逆転裁判4・終幕"
+                    },
+                    "track_length": "5:15"
+                }
+            ]
+        }
+    ],
+    "distributor": {
+        "link": "org/136",
+        "names": {
+            "en": "Sony Music Distribution",
+            "ja": "株式会社ソニー・ミュージックディストリビューション",
+            "ja-latn": "Sony Music Distribution"
+        }
+    },
+    "link": "album/4602",
+    "lyricists": [],
+    "media_format": "CD",
+    "meta": {
+        "added_date": "2007-09-17T20:56",
+        "edited_date": "2011-12-12T13:12",
+        "fetched_date": "2015-08-30T20:37",
+        "freedb": 20,
+        "ttl": 86400,
+        "visitors": 8056
+    },
+    "name": "Gyakuten Saiban 4 Original Soundtrack",
+    "names": {
+        "en": "Gyakuten Saiban 4 Original Soundtrack",
+        "ja": "逆転裁判4　オリジナル・サウンドトラック",
+        "ja-latn": "Gyakuten Saiban 4 Original Soundtrack"
+    },
+    "notes": "Composer credits:\nToshihiko Horiyama (1~10, 14~18, 20~22, 24~27, 29~34)\nHideki Okugawa (11~13)\nShu Takumi (23, 26)\nAkemi Kimura (19, 28)",
+    "organizations": [
+        {
+            "link": "org/36",
+            "names": {
+                "en": "Suleputer",
+                "ja": "セルピュータ",
+                "ja-latn": "Suleputer"
+            },
+            "role": "publisher"
+        },
+        {
+            "link": "org/136",
+            "names": {
+                "en": "Sony Music Distribution",
+                "ja": "株式会社ソニー・ミュージックディストリビューション",
+                "ja-latn": "Sony Music Distribution"
+            },
+            "role": "distributor"
+        }
+    ],
+    "performers": [],
+    "picture_full": "http://media.vgm.io/albums/20/4602/4602-1195758943.jpg",
+    "picture_small": "http://medium.media.vgm.io/albums/20/4602/4602-1195758943.jpg",
+    "picture_thumb": "http://thumb.media.vgm.io/albums/20/4602/4602-1195758943.jpg",
+    "platforms": [
+        "Nintendo DS"
+    ],
+    "products": [
+        {
+            "link": "product/255",
+            "names": {
+                "en": "Apollo Justice: Ace Attorney",
+                "ja": "逆転裁判4",
+                "ja-latn": "Gyakuten Saiban 4"
+            }
+        }
+    ],
+    "publish_format": "Commercial",
+    "publisher": {
+        "link": "org/36",
+        "names": {
+            "en": "Suleputer",
+            "ja": "セルピュータ",
+            "ja-latn": "Suleputer"
+        }
+    },
+    "rating": 3.73,
+    "related": [],
+    "release_date": "2007-06-27",
+    "release_events": [],
+    "release_price": {
+        "currency": "JPY",
+        "price": 3150.0
+    },
+    "reprints": [],
+    "stores": [
+        {
+            "link": "db/collection.php?do=show&albumid=4602",
+            "name": "1 for sale "
+        }
+    ],
+    "vgmdb_link": "http://vgmdb.net/album/4602?perpage=99999",
+    "votes": 15,
+    "websites": {
+        "Review": [
+            {
+                "link": "http://www.rpgfan.com/soundtracks/gyakuten4/index.html",
+                "name": "RPGFan's Review"
+            }
+        ]
+    }
+}

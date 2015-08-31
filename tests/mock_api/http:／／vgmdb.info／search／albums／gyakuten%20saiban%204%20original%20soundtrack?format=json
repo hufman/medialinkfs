@@ -1,0 +1,99 @@
+{
+    "link": "search/albums/gyakuten%20saiban%204%20original%20soundtrack",
+    "meta": {},
+    "query": "gyakuten saiban 4 original soundtrack",
+    "results": {
+        "albums": [
+            {
+                "catalog": "LAYTON-VS-GYAKUTAN",
+                "link": "album/36597",
+                "release_date": "2012-11-29",
+                "titles": {
+                    "en": "\"Professor Layton VS Gyakuten Saiban\" Original Soundtrack with Special Anime Film",
+                    "ja": "『レイトン教授VS逆転裁判』特製アニメフィルム付きオリジナルサウンドトラック",
+                    "ja-latn": "\"Professor Layton VS Gyakuten Saiban\" Original Soundtrack with Special Anime Film"
+                }
+            },
+            {
+                "catalog": "CPCA-1087~8",
+                "link": "album/2600",
+                "release_date": "2004-04-10",
+                "titles": {
+                    "en": "Gyakuten Saiban + Gyakuten Saiban 2 Original Soundtrack",
+                    "ja": "逆転裁判＋逆転裁判２　オリジナル・サウンドトラック",
+                    "ja-latn": "Gyakuten Saiban + Gyakuten Saiban 2 Original Soundtrack"
+                }
+            },
+            {
+                "catalog": "CPCA-1087~8",
+                "link": "album/26579",
+                "release_date": "2004-03-31",
+                "titles": {
+                    "en": "Gyakuten Saiban + Gyakuten Saiban 2 Original Soundtrack",
+                    "ja": "逆転裁判＋逆転裁判２　オリジナル・サウンドトラック",
+                    "ja-latn": "Gyakuten Saiban + Gyakuten Saiban 2 Original Soundtrack"
+                }
+            },
+            {
+                "catalog": "CPCA-1089",
+                "link": "album/2601",
+                "release_date": "2004-03-31",
+                "titles": {
+                    "en": "Gyakuten Saiban 3 Original Soundtrack",
+                    "ja": "逆転裁判３　オリジナル・サウンドトラック",
+                    "ja-latn": "Gyakuten Saiban 3 Original Soundtrack"
+                }
+            },
+            {
+                "catalog": "CPCA-10187",
+                "link": "album/4602",
+                "release_date": "2007-06-27",
+                "titles": {
+                    "en": "Gyakuten Saiban 4 Original Soundtrack",
+                    "ja": "逆転裁判4　オリジナル・サウンドトラック",
+                    "ja-latn": "Gyakuten Saiban 4 Original Soundtrack"
+                }
+            },
+            {
+                "catalog": "CPCA-10313~4",
+                "link": "album/40637",
+                "release_date": "2013-09-25",
+                "titles": {
+                    "en": "Gyakuten Saiban 5 Original Soundtrack",
+                    "ja": "逆転裁判5 オリジナル・サウンドトラック",
+                    "ja-latn": "Gyakuten Saiban 5 Original Soundtrack"
+                }
+            },
+            {
+                "catalog": "VPCD-81727",
+                "link": "album/31912",
+                "release_date": "2012-02-08",
+                "titles": {
+                    "en": "Gyakuten Saiban Movie Original Soundtrack",
+                    "ja": "映画 逆転裁判 オリジナル サウンドトラック",
+                    "ja-latn": "Gyakuten Saiban Movie Original Soundtrack"
+                }
+            },
+            {
+                "catalog": "CPCA-10124",
+                "link": "album/2602",
+                "release_date": "2005-11-30",
+                "titles": {
+                    "en": "Gyakuten Saiban Yomigaeru Gyakuten Original Soundtrack",
+                    "ja": "逆転裁判　蘇る逆転　オリジナル・サウンドトラック",
+                    "ja-latn": "Gyakuten Saiban Yomigaeru Gyakuten Original Soundtrack"
+                }
+            }
+        ],
+        "artists": [],
+        "orgs": [],
+        "products": []
+    },
+    "sections": [
+        "albums",
+        "artists",
+        "orgs",
+        "products"
+    ],
+    "vgmdb_link": "http://vgmdb.net/search?q=gyakuten%20saiban%204%20original%20soundtrack"
+}

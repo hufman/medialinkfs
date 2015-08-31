@@ -1,0 +1,80 @@
+{
+"result": [
+{
+"type": [
+"/common/topic", 
+"/film/film", 
+"/base/dystopia/topic", 
+"/base/wfilmbase/film", 
+"/base/wfilmbase/topic", 
+"/base/filmnoir/topic", 
+"/base/siswimsuitmodels/topic", 
+"/base/ontologies/ontology_instance", 
+"/award/award_winning_work", 
+"/award/award_nominated_work", 
+"/award/ranked_item", 
+"/media_common/netflix_title", 
+"/base/berlininternationalfilmfestival/topic"
+], 
+"mid": "/m/0bscw", 
+"name": "Gattaca", 
+"/common/topic/alias": [
+"Gattaca - szok przyszlosci", 
+"Gattaca: Experimento gen\u00e9tico", 
+"Ma Kara B'Gattaca", 
+"Gattaca - La porta dell'universo", 
+"Bienvenue \u00e0 Gattaca", 
+"Gattaca - Experi\u00eancia Gen\u00e9tica"
+]
+}, 
+{
+"type": [
+"/music/album", 
+"/common/topic", 
+"/music/soundtrack"
+], 
+"mid": "/m/01ky9qk", 
+"name": "Bienvenue \u00e0 Gattaca", 
+"/common/topic/alias": [
+"Gattaca Soundtrack", 
+"Gattaca", 
+"Gattaca: Original Motion Picture Soundtrack"
+]
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/recording", 
+"/music/single"
+], 
+"mid": "/m/0f3shl_", 
+"name": "Impromptu in G flat major, Op. 90, No. 3: Andante", 
+"/common/topic/alias": [
+"Impromptu No. 3 in G-Flat Major, D. 899 (From \"Gattaca\")"
+]
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic", 
+"/media_common/cataloged_instance"
+], 
+"mid": "/m/0ng2pb", 
+"name": "Gattaca: The Morrow", 
+"/common/topic/alias": [
+"Gattaca: The Morrow"
+]
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic"
+], 
+"mid": "/m/0prrg8", 
+"name": "Gattaca (Reprise)", 
+"/common/topic/alias": [
+"Gattaca (reprise)"
+]
+}
+]
+}

@@ -1,0 +1,305 @@
+{
+    "arrangers": [
+        {
+            "link": "artist/125",
+            "names": {
+                "en": "Shiro Hamaguchi",
+                "ja": "浜口史郎"
+            }
+        },
+        {
+            "link": "artist/4389",
+            "names": {
+                "en": "Jim Ediger"
+            }
+        }
+    ],
+    "catalog": "SQEX-10029",
+    "categories": [
+        "Game"
+    ],
+    "category": "Game",
+    "classification": "Vocal",
+    "composers": [
+        {
+            "link": "artist/77",
+            "names": {
+                "en": "Nobuo Uematsu",
+                "ja": "植松伸夫"
+            }
+        },
+        {
+            "link": "artist/1168",
+            "names": {
+                "en": "RIKKI"
+            }
+        }
+    ],
+    "covers": [
+        {
+            "full": "http://media.vgm.io/albums/42/3424/3424-1193420397.jpg",
+            "medium": "http://medium.media.vgm.io/albums/42/3424/3424-1193420397.jpg",
+            "name": "Front",
+            "thumb": "http://thumb.media.vgm.io/albums/42/3424/3424-1193420397.jpg"
+        },
+        {
+            "full": "http://media.vgm.io/albums/42/3424/3424-1191619170.jpg",
+            "medium": "http://medium.media.vgm.io/albums/42/3424/3424-1191619170.jpg",
+            "name": "Case Back",
+            "thumb": "http://thumb.media.vgm.io/albums/42/3424/3424-1191619170.jpg"
+        },
+        {
+            "full": "http://media.vgm.io/albums/42/3424/3424-1191619169.jpg",
+            "medium": "http://medium.media.vgm.io/albums/42/3424/3424-1191619169.jpg",
+            "name": "Case Front",
+            "thumb": "http://thumb.media.vgm.io/albums/42/3424/3424-1191619169.jpg"
+        }
+    ],
+    "discs": [
+        {
+            "disc_length": "20:35",
+            "name": "Disc 1",
+            "tracks": [
+                {
+                    "names": {
+                        "English": "Isn't it Wonderful? featured in FINAL FANTASY X",
+                        "Japanese": "素敵だね featured in FINAL FANTASY X"
+                    },
+                    "track_length": "5:37"
+                },
+                {
+                    "names": {
+                        "English": "The Moon \"Utikisama\"",
+                        "Japanese": "御月様 ~ウティキサマ~"
+                    },
+                    "track_length": "4:25"
+                },
+                {
+                    "names": {
+                        "English": "Pure Heart",
+                        "Japanese": "Pure Heart"
+                    },
+                    "track_length": "4:55"
+                },
+                {
+                    "names": {
+                        "English": "Isn't it Wonderful? featured in FINAL FANTASY X (Instrumental)",
+                        "Japanese": "素敵だね featured in FINAL FANTASY X (instumental)"
+                    },
+                    "track_length": "5:38"
+                }
+            ]
+        }
+    ],
+    "distributor": {
+        "link": "org/136",
+        "names": {
+            "en": "Sony Music Distribution",
+            "ja": "株式会社ソニー・ミュージックディストリビューション",
+            "ja-latn": "Sony Music Distribution"
+        }
+    },
+    "link": "album/3424",
+    "lyricists": [
+        {
+            "link": "artist/5083",
+            "names": {
+                "en": "Kazushige Nojima",
+                "ja": "野島一成"
+            }
+        },
+        {
+            "link": "artist/1168",
+            "names": {
+                "en": "RIKKI"
+            }
+        },
+        {
+            "link": "artist/2025",
+            "names": {
+                "en": "Emiko Shiratori",
+                "ja": "白鳥英美子"
+            }
+        }
+    ],
+    "media_format": "CD",
+    "meta": {
+        "added_date": "2006-10-11T10:05",
+        "edited_date": "2010-06-07T20:56",
+        "fetched_date": "2015-08-30T20:37",
+        "freedb": 16,
+        "ttl": 86400,
+        "visitors": 2222
+    },
+    "name": "suteki da ne featured in FINAL FANTASY X",
+    "names": {
+        "en": "suteki da ne featured in FINAL FANTASY X",
+        "ja": "素敵だね　featured in FINAL FANTASY X",
+        "ja-latn": "suteki da ne featured in FINAL FANTASY X"
+    },
+    "notes": "1. Suteki da ne\nMusic: Nobuo Uematsu\nLyrics: Kazushige Nojima\nArrangement: Shiro Hamaguchi\nAcoustic Guitar: Takahiro Ishikawa\nElectric Bass: Naoki Watanabe\nDrums: Eiji Shimamura\nSolo Violin: Keisuke Ohta\nStrings: Takashi Kato's Group\nSynthesizer Programmer: Takeharu Ishimoto\nRecording & Mixing Engineer: Toshiyuki Yoshida\nRecording Co-ordinator: Yuji Saito (IMAGIN)\nRecording Studio: Sound City 1 studio, VICTOR studio 303\n2. The Moon \"Utikisama\"\nMusic & Lyrics: RIKKI\nArrangement & Piano: Aki Kuroda by the courtesy of Victor Entertainment, Inc.\nRecording & Mixing Engineer: Toshiyuki Yoshida\nRecording Co-ordinator: Yuji Saito (IMAGIN)\nRecording Studio: Sound City 2 studio\n3. Pure Heart\nMusic: Nobuo Uematsu\nLyrics: Emiko Shiratori\nArrangement: Jim Ediger\nAcoustic Guitar: Yuji Hasegawa\nAcoustic Bass: Tetsuya Mashine\nFiddles and other Instruments: Jim Ediger\nSynthesizer Programmer: Keiji Kawamori\nRecording & Mixing Engineer: Toshiro Itoh\nRecording Studio: CRESCENT 2 studio\nMastering Engineer: Shuji Kitamura\nMastering Studio: AUDIOCITY",
+    "organizations": [
+        {
+            "link": "org/112",
+            "names": {
+                "en": "Square Enix",
+                "ja": "Square Enix",
+                "ja-latn": "Square Enix"
+            },
+            "role": "publisher"
+        },
+        {
+            "link": "org/136",
+            "names": {
+                "en": "Sony Music Distribution",
+                "ja": "株式会社ソニー・ミュージックディストリビューション",
+                "ja-latn": "Sony Music Distribution"
+            },
+            "role": "distributor"
+        }
+    ],
+    "performers": [
+        {
+            "link": "artist/1168",
+            "names": {
+                "en": "RIKKI"
+            }
+        },
+        {
+            "names": {
+                "en": "Takahiro Ishikawa"
+            }
+        },
+        {
+            "link": "artist/2066",
+            "names": {
+                "en": "Naoki Watanabe",
+                "ja": "渡辺直樹"
+            }
+        },
+        {
+            "link": "artist/5135",
+            "names": {
+                "en": "Eiji Shimamura",
+                "ja": "島村英二"
+            }
+        },
+        {
+            "link": "artist/5051",
+            "names": {
+                "en": "Keisuke Ohta",
+                "ja": "太田惠資"
+            }
+        },
+        {
+            "link": "artist/437",
+            "names": {
+                "en": "Takashi Kato's Group"
+            }
+        },
+        {
+            "link": "artist/348",
+            "names": {
+                "en": "Aki Kuroda",
+                "ja": "黒田亜樹"
+            }
+        },
+        {
+            "link": "artist/7353",
+            "names": {
+                "en": "Yuji Hasegawa",
+                "ja": "長谷川友二"
+            }
+        },
+        {
+            "link": "artist/8324",
+            "names": {
+                "en": "Tetsuya Mashine",
+                "ja": "増根哲也"
+            }
+        },
+        {
+            "link": "artist/4389",
+            "names": {
+                "en": "Jim Edigger"
+            }
+        }
+    ],
+    "picture_full": "http://media.vgm.io/albums/42/3424/3424-1193420397.jpg",
+    "picture_small": "http://medium.media.vgm.io/albums/42/3424/3424-1193420397.jpg",
+    "picture_thumb": "http://thumb.media.vgm.io/albums/42/3424/3424-1193420397.jpg",
+    "platforms": [
+        "Sony PlayStation",
+        "Sony PlayStation 2"
+    ],
+    "products": [
+        {
+            "link": "product/192",
+            "names": {
+                "en": "Final Fantasy X",
+                "ja": "ファイナルファンタジーX",
+                "ja-latn": "Final Fantasy X"
+            }
+        },
+        {
+            "link": "product/188",
+            "names": {
+                "en": "Final Fantasy VII",
+                "ja": "ファイナルファンタジーVII",
+                "ja-latn": "Final Fantasy VII"
+            }
+        }
+    ],
+    "publish_format": "Commercial",
+    "publisher": {
+        "link": "org/112",
+        "names": {
+            "en": "Square Enix",
+            "ja": "Square Enix",
+            "ja-latn": "Square Enix"
+        }
+    },
+    "rating": 4.21,
+    "related": [
+        {
+            "catalog": "SSCX-10053",
+            "date": "2001-07-18",
+            "link": "album/103",
+            "names": {
+                "en": "suteki da ne featured in FINAL FANTASY X",
+                "ja": "素敵だね　featured in FINAL FANTASY X",
+                "ja-latn": "suteki da ne featured in FINAL FANTASY X"
+            },
+            "type": "game"
+        }
+    ],
+    "release_date": "2004-07-22",
+    "release_events": [],
+    "release_price": {
+        "currency": "JPY",
+        "price": 1300.0
+    },
+    "reprints": [
+        {
+            "catalog": "SSCX-10053",
+            "link": "album/103",
+            "note": ""
+        }
+    ],
+    "stores": [
+        {
+            "link": "db/collection.php?do=show&albumid=3424",
+            "name": "1 for sale "
+        }
+    ],
+    "vgmdb_link": "http://vgmdb.net/album/3424?perpage=99999",
+    "votes": 12,
+    "websites": {
+        "Review": [
+            {
+                "link": "http://www.rpgfan.com/soundtracks/ff10single/index.html",
+                "name": "RPGFan's Review"
+            }
+        ]
+    }
+}

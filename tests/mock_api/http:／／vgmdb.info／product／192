@@ -1,0 +1,2055 @@
+{
+    "albums": [
+        {
+            "catalog": "SSCX-10053",
+            "classifications": [
+                "Vocal"
+            ],
+            "date": "2001-07-18",
+            "link": "album/103",
+            "reprint": false,
+            "titles": {
+                "en": "suteki da ne featured in FINAL FANTASY X",
+                "ja": "素敵だね　featured in FINAL FANTASY X"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Soundtrack",
+                "Prototype"
+            ],
+            "date": "2001-07-19",
+            "link": "album/1282",
+            "reprint": false,
+            "titles": {
+                "en": "Music from FFX"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SSCX-10054~7",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2001-08-01",
+            "link": "album/8",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY X Original Soundtrack",
+                "ja": "ファイナルファンタジーX オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SSCX-10054~7",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2001-08-01",
+            "link": "album/5020",
+            "reprint": true,
+            "titles": {
+                "en": "FINAL FANTASY X Original Soundtrack [Limited Edition]",
+                "ja": "ファイナルファンタジーX オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2001-08-10",
+            "link": "album/15346",
+            "reprint": false,
+            "titles": {
+                "en": "Ochichattan desu",
+                "ja": "落ちちゃったんです"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "UMCK-1056",
+            "classifications": [
+                "Vocal"
+            ],
+            "date": "2001-10-03",
+            "link": "album/16549",
+            "reprint": false,
+            "titles": {
+                "en": "Kanaria / RIKKI",
+                "ja": "加那鳥～カナリア～ ／ RIKKI"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SSCX-10058",
+            "classifications": [
+                "Vocal"
+            ],
+            "date": "2001-10-11",
+            "link": "album/106",
+            "reprint": false,
+            "titles": {
+                "en": "feel / Go dream Yuna & Tidus",
+                "ja": "feel / Go dream ユウナ&ティーダ"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SSBX-2020",
+            "classifications": [
+                "Vocal"
+            ],
+            "date": "2001-10-11",
+            "link": "album/26549",
+            "reprint": false,
+            "titles": {
+                "en": "Final Fantasy X DVD Single",
+                "ja": "ファイナルファンタジーⅩ　ＤＶＤシングル"
+            },
+            "type": "cancel"
+        },
+        {
+            "catalog": "TPCD 0211-2",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2001-11-20",
+            "link": "album/6828",
+            "reprint": false,
+            "titles": {
+                "en": "Uematsu's Best Selection: FINAL FANTASY X ::Official Soundtrack::"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "PL-646",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2002",
+            "link": "album/33473",
+            "reprint": false,
+            "titles": {
+                "en": "Codebreaker DJ",
+                "ja": "Code Breaker D.J."
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SSCX-10064",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2002-02-20",
+            "link": "album/118",
+            "reprint": false,
+            "titles": {
+                "en": "Piano Collections FINAL FANTASY X",
+                "ja": "ピアノ・コレクションズ ファイナルファンタジーX"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Live Event"
+            ],
+            "date": "2002-05-09",
+            "link": "album/12145",
+            "reprint": false,
+            "titles": {
+                "en": "20020220 music from FINAL FANTASY"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SSCX-10065~6",
+            "classifications": [
+                "Arrange",
+                "Live Event"
+            ],
+            "date": "2002-05-09",
+            "link": "album/46",
+            "reprint": false,
+            "titles": {
+                "en": "20020220 music from FINAL FANTASY",
+                "ja": "20020220 ミュージック・フロム ファイナルファンタジー ファイナルファンタジー オーケストラ・コンサート"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "KFSS-702",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2002-05-09",
+            "link": "album/1589",
+            "reprint": false,
+            "titles": {
+                "en": "Project Majestic Mix: A Tribute to Nobuo Uematsu (Silver Edition)"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "KFSS-701",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2002-06-22",
+            "link": "album/1588",
+            "reprint": false,
+            "titles": {
+                "en": "Project Majestic Mix: A Tribute to Nobuo Uematsu (Gold Edition) [Limited Edition]"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SRCD-3657",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2002-07-03",
+            "link": "album/31915",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY X Original Soundtrack"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2002-12",
+            "link": "album/44411",
+            "reprint": false,
+            "titles": {
+                "en": "Eternity -FINAL FANTASY I to X healing mix CD"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SSCX-10073",
+            "classifications": [
+                "Vocal"
+            ],
+            "date": "2002-12-18",
+            "link": "album/23",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY X VOCAL COLLECTION",
+                "ja": "ファイナルファンタジーX ヴォーカルコレクション"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2002-12-30",
+            "link": "album/15350",
+            "reprint": false,
+            "titles": {
+                "en": "PSG no Are",
+                "ja": "ＰＳＧのアレ"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SSCX-10080",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2003-02-19",
+            "link": "album/10",
+            "reprint": false,
+            "titles": {
+                "en": "THE BLACK MAGES"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "EZCD-0007",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2003-09-23",
+            "link": "album/13950",
+            "reprint": false,
+            "titles": {
+                "en": "Square Best Series Vol.4 Final Fantasy 2nd Best collection",
+                "ja": "スクウェアベストシリーズ Vol.4 ファイナルファンタジー 2NDベストコレクション"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SBFR-0001",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2003-12-30",
+            "link": "album/13643",
+            "reprint": false,
+            "titles": {
+                "en": "VISION◆SQUARE"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "PPM-003",
+            "classifications": [
+                "Arrange",
+                "Live Event",
+                "Video"
+            ],
+            "date": "2004",
+            "link": "album/1856",
+            "reprint": false,
+            "titles": {
+                "en": "Tour de Japon: Music from Final Fantasy"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "PPM-002",
+            "classifications": [
+                "Arrange",
+                "Live Event",
+                "Video"
+            ],
+            "date": "2004-01",
+            "link": "album/6856",
+            "reprint": false,
+            "titles": {
+                "en": "The Black Mages Live"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10013~6",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2004-05-10",
+            "link": "album/3386",
+            "reprint": true,
+            "titles": {
+                "en": "FINAL FANTASY X Original Soundtrack",
+                "ja": "ファイナルファンタジーX オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10019",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2004-05-10",
+            "link": "album/3388",
+            "reprint": true,
+            "titles": {
+                "en": "THE BLACK MAGES"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10030~1",
+            "classifications": [
+                "Arrange",
+                "Live Event"
+            ],
+            "date": "2004-07-22",
+            "link": "album/3401",
+            "reprint": true,
+            "titles": {
+                "en": "20020220 music from FINAL FANTASY",
+                "ja": "20020220 ミュージック・フロム ファイナルファンタジー ファイナルファンタジー オーケストラ・コンサート"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10029",
+            "classifications": [
+                "Vocal"
+            ],
+            "date": "2004-07-22",
+            "link": "album/3424",
+            "reprint": true,
+            "titles": {
+                "en": "suteki da ne featured in FINAL FANTASY X",
+                "ja": "素敵だね　featured in FINAL FANTASY X"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10028",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2004-07-22",
+            "link": "album/3429",
+            "reprint": true,
+            "titles": {
+                "en": "Piano Collections FINAL FANTASY X",
+                "ja": "ピアノ・コレクションズ ファイナルファンタジーX"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2004-08-15",
+            "link": "album/5179",
+            "reprint": false,
+            "titles": {
+                "en": "Evil Reflection"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2004-08-15",
+            "link": "album/3625",
+            "reprint": false,
+            "titles": {
+                "en": "Piano Fantasy"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "JMCP0014",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2004-08-15",
+            "link": "album/18767",
+            "reprint": false,
+            "titles": {
+                "en": "JMMIDI Best Hits ~Battle Collection 2~"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "KFSS-708",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2004-11-05",
+            "link": "album/1091",
+            "reprint": false,
+            "titles": {
+                "en": "Project Majestic Mix: The Trance Album [Limited Edition]"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "UPCH-1377",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2004-12-22",
+            "link": "album/182",
+            "reprint": false,
+            "titles": {
+                "en": "THE BLACK MAGES II The Skies Above"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "ZCCD-0001",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2004-12-30",
+            "link": "album/5950",
+            "reprint": false,
+            "titles": {
+                "en": "sweet Avenue"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "TGCS-2726",
+            "classifications": [
+                "Unclassified"
+            ],
+            "date": "2005-05-16",
+            "link": "album/4663",
+            "reprint": false,
+            "titles": {
+                "en": "Dear Friends: Music from FINAL FANTASY Original Soundtrack",
+                "ja": "ファイナルファンタジー オリジナル ゲームミュージック コンピレーション -ミュージック フロム ディア フレンズ-"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SRND-0501",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2005-08-05",
+            "link": "album/5054",
+            "reprint": false,
+            "titles": {
+                "en": "shifting horizon"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "EZCD-0012",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2005-08-14",
+            "link": "album/5702",
+            "reprint": false,
+            "titles": {
+                "en": "Square Best Series Vol.6 Final Fantasy 3rd best collection DISC I",
+                "ja": "スクウェアベストシリーズ Vol.6 ファイナルファンタジー 3RDベストコレクション DISC I"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "PRSS-0002",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2005-08-14",
+            "link": "album/5132",
+            "reprint": false,
+            "titles": {
+                "en": "SLIP STREAM"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "FPCR-004",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2005-11-13",
+            "link": "album/9534",
+            "reprint": false,
+            "titles": {
+                "en": "FMPSG004 -Yellow Jacket-"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "EZCD-0013",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2005-12-30",
+            "link": "album/5703",
+            "reprint": false,
+            "titles": {
+                "en": "Square Best Series Vol.7 Final Fantasy 3rd best collection DISC II",
+                "ja": "スクウェアベストシリーズ Vol.7 ファイナルファンタジー 3RDベストコレクション DISC II"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-200601",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2006",
+            "link": "album/7817",
+            "reprint": false,
+            "titles": {
+                "en": "SQUARE ENIX MUSiC COMPILATION Vol.1"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10065",
+            "classifications": [
+                "Arrange",
+                "Live Event",
+                "Video"
+            ],
+            "date": "2006-02-15",
+            "link": "album/76",
+            "reprint": false,
+            "titles": {
+                "en": "More Friends music from FINAL FANTASY ~Final Fantasy Orchestra Concert in Los Angeles 2005~",
+                "ja": "More Friends music from FINAL FANTASY ～ファイナルファンタジー オーケストラ・コンサート in ロサンゼルス 2005～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-2006P",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2006-02-18",
+            "link": "album/9245",
+            "reprint": false,
+            "titles": {
+                "en": "SQUARE ENIX MUSiC SAMPLER"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2006-04-15",
+            "link": "album/5697",
+            "reprint": false,
+            "titles": {
+                "en": "Journeys on a Piano"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "PPM-006",
+            "classifications": [
+                "Live Event",
+                "Video"
+            ],
+            "date": "2006-06",
+            "link": "album/6857",
+            "reprint": false,
+            "titles": {
+                "en": "THE BLACK MAGES LIVE \"Above the Sky"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-20001~2",
+            "classifications": [
+                "Arrange",
+                "Live Event",
+                "Video"
+            ],
+            "date": "2006-06-21",
+            "link": "album/309",
+            "reprint": false,
+            "titles": {
+                "en": "VOICES music from FINAL FANTASY - Final Fantasy Premium Orchestra Concert [Limited Edition]",
+                "ja": "VOICES 18 February 2006 at Pacifico Yokohama"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-20003",
+            "classifications": [
+                "Arrange",
+                "Live Event",
+                "Video"
+            ],
+            "date": "2006-06-21",
+            "link": "album/19292",
+            "reprint": false,
+            "titles": {
+                "en": "VOICES music from FINAL FANTASY - Final Fantasy Premium Orchestra Concert",
+                "ja": "VOICES 18 February 2006 at Pacifico Yokohama"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SHOA-1001",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2006-08-11",
+            "link": "album/26597",
+            "reprint": false,
+            "titles": {
+                "en": "Square-enix Heroes Organization"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SBFR-0009",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2006-08-13",
+            "link": "album/13651",
+            "reprint": false,
+            "titles": {
+                "en": "VISION◆SQUARE II"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "C6L08-3",
+            "classifications": [
+                "Soundtrack",
+                "Talk"
+            ],
+            "date": "2006-12-22",
+            "link": "album/7760",
+            "reprint": false,
+            "titles": {
+                "en": "Square Enix Music Powered Vol.4",
+                "ja": "スクウェア・エニックスMUSICパワード VOL.4"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "MCR001",
+            "classifications": [
+                "Fan Arrange",
+                "Fan Remix"
+            ],
+            "date": "2006-12-31",
+            "link": "album/6900",
+            "reprint": false,
+            "titles": {
+                "en": "Monochrome & Colored"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "AARM-03",
+            "classifications": [
+                "Fan Remix"
+            ],
+            "date": "2007",
+            "link": "album/12314",
+            "reprint": false,
+            "titles": {
+                "en": "Materia Blue"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SFCD-0002",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2007-04-29",
+            "link": "album/7027",
+            "reprint": false,
+            "titles": {
+                "en": "Battle of Seven Tusks"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-10098",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2007-05-30",
+            "link": "album/4724",
+            "reprint": false,
+            "titles": {
+                "en": "Vielen Dank",
+                "ja": "Vielen Dank －Masashi HAMAUZU－"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SBFR-0012",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2008-03-09",
+            "link": "album/8250",
+            "reprint": false,
+            "titles": {
+                "en": "SBFR the Best"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-10111",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2008-03-19",
+            "link": "album/6986",
+            "reprint": true,
+            "titles": {
+                "en": "THE BLACK MAGES II The Skies Above"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10119",
+            "classifications": [
+                "Remix"
+            ],
+            "date": "2008-08-06",
+            "link": "album/8824",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY REMIX",
+                "ja": "ファイナルファンタジー リミックス"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "PRSS-0003",
+            "classifications": [
+                "Fan Arrange",
+                "Fan Remix"
+            ],
+            "date": "2008-08-16",
+            "link": "album/10036",
+            "reprint": false,
+            "titles": {
+                "en": "STRAIGHT SPEED"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "KR-0080",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2008-09-20",
+            "link": "album/10471",
+            "reprint": false,
+            "titles": {
+                "en": "Guitar solo FINAL FANTASY Official Best Collection CD BOOK",
+                "ja": "ギター・ソロ ファイナルファンタジー オフィシャル・ベスト・コレクション"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2009-05-07",
+            "link": "album/13365",
+            "reprint": false,
+            "titles": {
+                "en": "Boshuu Natsuyo Piano Collection vol. 01 \"Kizuna",
+                "ja": "暮秋夏夜 Piano Collection vol. 01 『絆 -キヅナ-』"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2009-09-30",
+            "link": "album/17078",
+            "reprint": false,
+            "titles": {
+                "en": "Final Fantasy Ukulele Solo Collections",
+                "ja": "ファイナルファンタジー ウクレレ・ソロ・コレクションズ"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "QWCE-00133",
+            "classifications": [
+                "Unclassified"
+            ],
+            "date": "2009-11-04",
+            "link": "album/16065",
+            "reprint": false,
+            "titles": {
+                "en": "EXIT TRANCE PRESENTS FamiTrance EX",
+                "ja": "EXIT TRANCE PRESENTS ファミトランス EX"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Remix"
+            ],
+            "date": "2009-12-30",
+            "link": "album/17583",
+            "reprint": false,
+            "titles": {
+                "en": "FMP Music Disk 9 ~15th Anniversary Edition~"
+            },
+            "type": "demo"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2010-04-02",
+            "link": "album/24727",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY SOLO GUITAR COLLECTIONS",
+                "ja": "ファイナルファンタジー ソロギターコレクションズ"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "AWR-10102",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2010-06-01",
+            "link": "album/17847",
+            "reprint": false,
+            "titles": {
+                "en": "Distant Worlds II: more music from FINAL FANTASY"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2010-06-30",
+            "link": "album/24584",
+            "reprint": false,
+            "titles": {
+                "en": "GUITAR SOLO BEST OF FINAL FANTASY",
+                "ja": "ギター・ソロ ベスト・オブ ファイナルファンタジー"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2010-08-03",
+            "link": "album/21178",
+            "reprint": false,
+            "titles": {
+                "en": "Final Fantasy: An Ocarina Odyssey"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "DBT-2002",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2010-08-14",
+            "link": "album/40382",
+            "reprint": false,
+            "titles": {
+                "en": "FinalFantasy on Brass"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "KNGIA-0000",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2010-09-03",
+            "link": "album/20987",
+            "reprint": false,
+            "titles": {
+                "en": "HURRY! A Final Fantasy X Impossible ReMix Album"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SF 12324",
+            "classifications": [
+                "Arrange",
+                "Live Event"
+            ],
+            "date": "2010-10-19",
+            "link": "album/20979",
+            "reprint": false,
+            "titles": {
+                "en": "VIDEO GAMES LIVE: LEVEL 2"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10205",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2010-11-03",
+            "link": "album/20917",
+            "reprint": true,
+            "titles": {
+                "en": "Distant Worlds II: more music from FINAL FANTASY"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2010-12-01",
+            "link": "album/22166",
+            "reprint": false,
+            "titles": {
+                "en": "Obligatory Ice Level Day 2010"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2011-01-18",
+            "link": "album/24728",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY SOLO GUITAR COLLECTIONS VOL.2",
+                "ja": "ファイナルファンタジー ソロギターコレクションズ VOL.2"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-20004~6",
+            "classifications": [
+                "Arrange",
+                "Live Event",
+                "Video"
+            ],
+            "date": "2011-01-19",
+            "link": "album/21858",
+            "reprint": false,
+            "titles": {
+                "en": "Distant Worlds: music from FINAL FANTASY Returning Home"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2011-02-07",
+            "link": "album/41284",
+            "reprint": false,
+            "titles": {
+                "en": "Game Arrangements"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "FSRD-0012~3",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2011-04-01",
+            "link": "album/36094",
+            "reprint": false,
+            "titles": {
+                "en": "Crystal Chronicle"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "AWR-10104~7",
+            "classifications": [
+                "Arrange",
+                "Live Event",
+                "Video"
+            ],
+            "date": "2011-04-01",
+            "link": "album/26177",
+            "reprint": true,
+            "titles": {
+                "en": "Distant Worlds: music from FINAL FANTASY Returning Home"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "KR-0108",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2011-06-15",
+            "link": "album/32033",
+            "reprint": false,
+            "titles": {
+                "en": "Guitar solo SQUARE ENIX Official Best Collection CD BOOK",
+                "ja": "ギター・ソロ スクウェア・エニックス オフィシャル・ベストコレクション"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2011-07-16",
+            "link": "album/29762",
+            "reprint": false,
+            "titles": {
+                "en": "The Power Cosmic"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "TAM3-0077",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2011-08-13",
+            "link": "album/27333",
+            "reprint": false,
+            "titles": {
+                "en": "FF VIOLIN II -FINAL FANTASTIC VIOLIN 2-"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-10288",
+            "classifications": [
+                "Unclassified"
+            ],
+            "date": "2011-09-15",
+            "link": "album/29959",
+            "reprint": true,
+            "titles": {
+                "en": "Dear Friends: Music from FINAL FANTASY Original Soundtrack",
+                "ja": "ファイナルファンタジー オリジナル ゲームミュージック コンピレーション -ミュージック フロム ディア フレンズ-"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SSLA-0003",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2011-10-30",
+            "link": "album/29417",
+            "reprint": false,
+            "titles": {
+                "en": "S-studio2 Sound Collection 2001-2011 Vol.3 \"square-side",
+                "ja": "S-studio2 Sound Collection 2001-2011 Vol.3 \"square-side"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-10276",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2011-11-23",
+            "link": "album/26921",
+            "reprint": false,
+            "titles": {
+                "en": "Cafe SQ",
+                "ja": "カフェ エスキュー"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "OCRA-0030",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2011-12-06",
+            "link": "album/30411",
+            "reprint": false,
+            "titles": {
+                "en": "BadAss: Boss Themes"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "DERP-10017~8",
+            "classifications": [
+                "Live Event"
+            ],
+            "date": "2011-12-28",
+            "link": "album/29701",
+            "reprint": false,
+            "titles": {
+                "en": "Symphonic Odysseys TRIBUTE TO NOBUO UEMATSU",
+                "ja": "シンフォニック・オデッセイズ~トリビュート・トゥ・植松伸夫"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2011-12-30",
+            "link": "album/34382",
+            "reprint": false,
+            "titles": {
+                "en": "Videogames Covers 2011"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "EP-09",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2012-01-07",
+            "link": "album/31246",
+            "reprint": false,
+            "titles": {
+                "en": "Bad Dudes 2012 MAGFest Sampler"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2012-05-20",
+            "link": "album/35200",
+            "reprint": false,
+            "titles": {
+                "en": "Gaming Fantasy"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-07-20",
+            "link": "album/34408",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY SOLO GUITAR COLLECTIONS VOL.3",
+                "ja": "ファイナルファンタジー ソロギターコレクションズ VOL.3"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10318",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-07-25",
+            "link": "album/32650",
+            "reprint": false,
+            "titles": {
+                "en": "SQ Chips 2"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-07-31",
+            "link": "album/34413",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY GUITAR SOLO COLLECTION Selected by Original Soundtrack \"FINAL FANTASY X~XIII-2",
+                "ja": "ファイナルファンタジー／ギター・ソロ・コレクション X~XIII-2"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10335~6",
+            "classifications": [
+                "Arrange",
+                "Live Event"
+            ],
+            "date": "2012-08-12",
+            "link": "album/36652",
+            "reprint": false,
+            "titles": {
+                "en": "Distant Worlds: music from FINAL FANTASY Returning Home"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-2012S",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2012-09-01",
+            "link": "album/34980",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY 25TH ANNIVERSARY SQUARE ENIX MUSiC COMPOSERS' SELECTION CD"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10341",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-09-19",
+            "link": "album/34860",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY X CHIPS"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "WF-0001",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-11-04",
+            "link": "album/37225",
+            "reprint": false,
+            "titles": {
+                "en": "Nobuo Uematsu - Limited Selection 2012"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "WF-0001",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-11-14",
+            "link": "album/36463",
+            "reprint": false,
+            "titles": {
+                "en": "Limited Selection 2012"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10353~7",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2012-11-28",
+            "link": "album/35035",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY VINYLS"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10358~9",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-12-05",
+            "link": "album/35479",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY TRIBUTE ~THANKS~",
+                "ja": "ファイナルファンタジー トリビュート ～サンクス～"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2012-12-11",
+            "link": "album/37918",
+            "reprint": false,
+            "titles": {
+                "en": "Obligatory Ice Level Day 2012"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "TGCS-7389~90",
+            "classifications": [
+                "Soundtrack",
+                "Sound Effect"
+            ],
+            "date": "2012-12-18",
+            "link": "album/34972",
+            "reprint": false,
+            "titles": {
+                "en": "Final Fantasy 25th Anniversary Music Selection CD",
+                "ja": "FF25周年記念ミュージックセレクションCD"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2012-12-18",
+            "link": "album/37570",
+            "reprint": false,
+            "titles": {
+                "en": "Final Fantasy 25th Anniversary EP"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-20010",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-12-26",
+            "link": "album/36000",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY Orchestral Album",
+                "ja": "ファイナルファンタジー オーケストラアルバム"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-20008~9",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2012-12-26",
+            "link": "album/36001",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY Orchestral Album [Limited Edition]",
+                "ja": "ファイナルファンタジー オーケストラアルバム [初回生産限定盤]"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2012-12-31",
+            "link": "album/36873",
+            "reprint": false,
+            "titles": {
+                "en": "Osamuraisan Selection vol.4 ~Rokugen Monogatari~",
+                "ja": "おさむらいさんせれくしょんVol.4～六弦物語～"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "JOY-552",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-01-18",
+            "link": "album/37546",
+            "reprint": false,
+            "titles": {
+                "en": "A Bard's Side Quest"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10360",
+            "classifications": [
+                "Vocal"
+            ],
+            "date": "2013-01-30",
+            "link": "album/36557",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY Vocal Collection"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2013-04",
+            "link": "album/42870",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY COLLECTION FOR A CAPPELLA Selected by Original Soundtrack \"FINAL FANTASY I~Type-0",
+                "ja": "アカペラで歌う ファイナルファンタジー"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "JOY-694",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-04-10",
+            "link": "album/38765",
+            "reprint": false,
+            "titles": {
+                "en": "VGM Acapella"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10372",
+            "classifications": [
+                "Sound Effect"
+            ],
+            "date": "2013-04-26",
+            "link": "album/38935",
+            "reprint": false,
+            "titles": {
+                "en": "SQUARE ENIX Sound Effects Collection ARTNIA LIMITED EDITION",
+                "ja": "SQUARE ENIX 効果音集 ARTNIA LIMITED EDITION"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "CKCD0014",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-04-29",
+            "link": "album/39264",
+            "reprint": false,
+            "titles": {
+                "en": "Sound of Crystal"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "JOY-744",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-05-04",
+            "link": "album/39111",
+            "reprint": false,
+            "titles": {
+                "en": "Transfiguration"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "ME-005",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-05-12",
+            "link": "album/43644",
+            "reprint": true,
+            "titles": {
+                "en": "Transfiguration"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-20011",
+            "classifications": [
+                "Unclassified"
+            ],
+            "date": "2013-06-26",
+            "link": "album/38932",
+            "reprint": false,
+            "titles": {
+                "en": "Distant Worlds: music from FINAL FANTASY THE CELEBRATION"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10386",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2013-06-26",
+            "link": "album/39932",
+            "reprint": false,
+            "titles": {
+                "en": "Distant Worlds: music from FINAL FANTASY THE CELEBRATION BONUS DISC"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "DERP-10020",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2013-09-01",
+            "link": "album/40331",
+            "reprint": false,
+            "titles": {
+                "en": "DANCING DAD"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10391",
+            "classifications": [
+                "Unclassified"
+            ],
+            "date": "2013-09-18",
+            "link": "album/40155",
+            "reprint": false,
+            "titles": {
+                "en": "SQUARE ENIX COMPOSERS BEST/SELECTION BLACK DISK"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-09-18",
+            "link": "album/41726",
+            "reprint": false,
+            "titles": {
+                "en": "Portals"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-2013P",
+            "classifications": [
+                "Soundtrack",
+                "Arrange"
+            ],
+            "date": "2013-09-21",
+            "link": "album/41395",
+            "reprint": false,
+            "titles": {
+                "en": "SQUARE ENIX MUSiC SAMPLER CD Vol.8"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10409~10",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2013-09-21",
+            "link": "album/41394",
+            "reprint": false,
+            "titles": {
+                "en": "Compi de Chocobo"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "MXJ4909",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2013-10-31",
+            "link": "album/42414",
+            "reprint": false,
+            "titles": {
+                "en": "Critical Hit: Volume One"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "LOUDR-1528",
+            "classifications": [
+                "Fan Arrange",
+                "Vocal"
+            ],
+            "date": "2013-11-21",
+            "link": "album/42827",
+            "reprint": false,
+            "titles": {
+                "en": "Final Fantasy: Hollow Echoes"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-11-22",
+            "link": "album/43035",
+            "reprint": false,
+            "titles": {
+                "en": "Harping on Video Games"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-12-16",
+            "link": "album/43171",
+            "reprint": false,
+            "titles": {
+                "en": "Onward Dissension"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-20015",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2013-12-25",
+            "link": "album/42208",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY X HD Remaster Original Soundtrack",
+                "ja": "ファイナルファンタジーX HDリマスター オリジナル・サウンドトラック"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "LOCD-1060",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2013-12-31",
+            "link": "album/47051",
+            "reprint": false,
+            "titles": {
+                "en": "lol project 004:Final Fantasy Remixes"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2014-01-14",
+            "link": "album/43821",
+            "reprint": false,
+            "titles": {
+                "en": "La Buena Vista: The Gogo EP"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "OCRI-0001",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2014-02-20",
+            "link": "album/44476",
+            "reprint": false,
+            "titles": {
+                "en": "Audio Engineering: A Tribute to Cid"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-10429",
+            "classifications": [
+                "Unclassified"
+            ],
+            "date": "2014-04",
+            "link": "album/45462",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY GO THERE SPECIAL COMPILATION CD"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "LOUDR-3314",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2014-05-02",
+            "link": "album/45684",
+            "reprint": false,
+            "titles": {
+                "en": "VGM Acapella: Volume 5"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2014-05-15",
+            "link": "album/46333",
+            "reprint": false,
+            "titles": {
+                "en": "Final Fantasy Ukulele Solo Album Music Selection from FINAL FANTASY",
+                "ja": "ウクレレ・ソロ・アルバム ファイナルファンタジー"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2014-07-28",
+            "link": "album/47318",
+            "reprint": false,
+            "titles": {
+                "en": "Guitar Solo Best of Final Fantasy",
+                "ja": "ギター・ソロ ベスト・オブ・ファイナルファンタジー"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10461",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2014-09-20",
+            "link": "album/48128",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY HEROES"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10462",
+            "classifications": [
+                "Soundtrack"
+            ],
+            "date": "2014-09-20",
+            "link": "album/48129",
+            "reprint": false,
+            "titles": {
+                "en": "FINAL FANTASY VILLAINS"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "SQEX-10459~60",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2014-09-20",
+            "link": "album/48130",
+            "reprint": false,
+            "titles": {
+                "en": "Distant Worlds: music from FINAL FANTASY THE CELEBRATION"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "ZCCD-0003",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2014-10-26",
+            "link": "album/48695",
+            "reprint": false,
+            "titles": {
+                "en": "Chronostalgia"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2014-12-11",
+            "link": "album/49779",
+            "reprint": false,
+            "titles": {
+                "en": "Super VG Christmas Party"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "N/A",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2014-12-20",
+            "link": "album/50077",
+            "reprint": false,
+            "titles": {
+                "en": "Final Fantasy Ukulele Solo Collections Selected From Original Soundtrack \"Final Fantasy I~XIV",
+                "ja": "ファイナルファンタジー ウクレレ・ソロ・コレクションズ"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "MSP-6710d",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2015-02-23",
+            "link": "album/50946",
+            "reprint": false,
+            "titles": {
+                "en": "Final Symphony - music from Final Fantasy VI, VII and X"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "SQEX-10487",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2015-03-04",
+            "link": "album/49874",
+            "reprint": false,
+            "titles": {
+                "en": "BRA★BRA FINAL FANTASY BRASS de BRAVO"
+            },
+            "type": "game"
+        },
+        {
+            "catalog": "MSP-6710",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2015-04-23",
+            "link": "album/52309",
+            "reprint": false,
+            "titles": {
+                "en": "Final Symphony - music from Final Fantasy VI, VII and X"
+            },
+            "type": "bonus"
+        },
+        {
+            "catalog": "TAM3-0127",
+            "classifications": [
+                "Fan Arrange"
+            ],
+            "date": "2015-04-26",
+            "link": "album/53512",
+            "reprint": false,
+            "titles": {
+                "en": "FF VIOLIN I+II -INTERNATIONAL-"
+            },
+            "type": "doujin"
+        },
+        {
+            "catalog": "SQEX-20021",
+            "classifications": [
+                "Arrange"
+            ],
+            "date": "2015-09-16",
+            "link": "album/53591",
+            "reprint": false,
+            "titles": {
+                "en": "Final Symphony - music from FINAL FANTASY VI, VII and X"
+            },
+            "type": "game"
+        }
+    ],
+    "description": "",
+    "franchises": [
+        {
+            "link": "product/23",
+            "names": {
+                "en": "Final Fantasy",
+                "ja": "ファイナルファンタジー (スクウェア)",
+                "ja-latn": "Final Fantasy (Square)"
+            }
+        }
+    ],
+    "link": "product/192",
+    "meta": {
+        "added_date": "2010-09-18T17:06",
+        "added_user": "Secret Squirrel",
+        "edited_date": "2012-03-04T06:27",
+        "edited_user": "Secret Squirrel",
+        "fetched_date": "2015-08-30T20:37",
+        "ttl": 86400,
+        "visitors": 3872
+    },
+    "name": "Final Fantasy X",
+    "name_real": "ファイナルファンタジーX",
+    "organizations": [
+        {
+            "names": {
+                "en": "Square"
+            }
+        }
+    ],
+    "picture_full": "http://vgmdb.net/db/assets/logos/192-pr-1284858528.jpg",
+    "picture_small": "http://vgmdb.net/db/assets/logos-medium/192-pr-1284858528.jpg",
+    "release_date": "2001-07-19",
+    "releases": [
+        {
+            "date": "2001-07-19",
+            "link": "release/102",
+            "names": {
+                "en": "Final Fantasy X",
+                "ja": "ファイナルファンタジーX",
+                "ja-latn": "Final Fantasy X"
+            },
+            "platform": "Sony PlayStation 2",
+            "region": "JPY (Japan)"
+        },
+        {
+            "date": "2001-12-26",
+            "link": "release/103",
+            "names": {
+                "en": "Final Fantasy X",
+                "ja": "Final Fantasy X",
+                "ja-latn": "Final Fantasy X"
+            },
+            "platform": "Sony PlayStation 2",
+            "region": "USD (U.S.)"
+        },
+        {
+            "date": "2002-05-24",
+            "link": "release/3587",
+            "names": {
+                "en": "Final Fantasy X",
+                "ja": "Final Fantasy X",
+                "ja-latn": "Final Fantasy X"
+            },
+            "platform": "Sony PlayStation 2",
+            "region": "EUR (Europe)"
+        },
+        {
+            "date": "2013-12-26",
+            "link": "release/3585",
+            "names": {
+                "en": "Final Fantasy X HD Remaster",
+                "ja": "Final Fantasy X HD Remaster",
+                "ja-latn": "Final Fantasy X HD Remaster"
+            },
+            "platform": "Sony PlayStation 3",
+            "region": "JPY (Japan)"
+        },
+        {
+            "date": "2014-03-18",
+            "link": "release/3586",
+            "names": {
+                "en": "Final Fantasy X HD Remaster",
+                "ja": "Final Fantasy X HD Remaster",
+                "ja-latn": "Final Fantasy X HD Remaster"
+            },
+            "platform": "Sony PlayStation 3",
+            "region": "USD (U.S.)"
+        },
+        {
+            "date": "2014-03-21",
+            "link": "release/3588",
+            "names": {
+                "en": "Final Fantasy X HD Remaster",
+                "ja": "Final Fantasy X HD Remaster",
+                "ja-latn": "Final Fantasy X HD Remaster"
+            },
+            "platform": "Sony PlayStation 3",
+            "region": "EUR (Europe)"
+        }
+    ],
+    "type": "Game",
+    "vgmdb_link": "http://vgmdb.net/product/192?perpage=99999",
+    "websites": {
+        "Reference": [
+            {
+                "link": "http://www.mobygames.com/game/ps2/final-fantasy-x",
+                "name": "MobyGames"
+            },
+            {
+                "link": "http://ocremix.org/game/15/final-fantasy-x-ps2",
+                "name": "OverClocked ReMix"
+            }
+        ]
+    }
+}

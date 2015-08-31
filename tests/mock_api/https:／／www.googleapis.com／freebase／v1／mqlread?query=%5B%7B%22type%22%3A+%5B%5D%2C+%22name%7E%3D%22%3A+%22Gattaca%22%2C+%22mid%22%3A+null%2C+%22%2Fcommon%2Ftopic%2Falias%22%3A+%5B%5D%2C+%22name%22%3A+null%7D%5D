@@ -1,0 +1,753 @@
+{
+"result": [
+{
+"type": [
+"/common/topic", 
+"/film/film", 
+"/base/dystopia/topic", 
+"/base/wfilmbase/film", 
+"/base/wfilmbase/topic", 
+"/base/filmnoir/topic", 
+"/base/siswimsuitmodels/topic", 
+"/base/ontologies/ontology_instance", 
+"/award/award_winning_work", 
+"/award/award_nominated_work", 
+"/award/ranked_item", 
+"/media_common/netflix_title", 
+"/base/berlininternationalfilmfestival/topic"
+], 
+"mid": "/m/0bscw", 
+"/common/topic/alias": [
+"Gattaca - szok przyszlosci", 
+"\u0413\u0430\u0442\u0442\u0430\u043a\u0430", 
+"\u0413\u0410\u0422\u0410\u041a\u0410", 
+"The Eighth Day", 
+"Gattaca: Experimento gen\u00e9tico", 
+"Ma Kara B'Gattaca", 
+"Gattaca - La porta dell'universo", 
+"Bienvenue \u00e0 Gattaca", 
+"Gattaca - Experi\u00eancia Gen\u00e9tica"
+], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic", 
+"/music/single"
+], 
+"mid": "/m/0prrfm", 
+"/common/topic/alias": [], 
+"name": "Gattaca (Schizo)"
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic"
+], 
+"mid": "/m/0prrg8", 
+"/common/topic/alias": [
+"Gattaca (reprise)"
+], 
+"name": "Gattaca (Reprise)"
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic", 
+"/music/single"
+], 
+"mid": "/m/0ptz0h", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/recording", 
+"/music/single", 
+"/common/topic"
+], 
+"mid": "/m/0125h_0", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/recording", 
+"/music/single", 
+"/common/topic"
+], 
+"mid": "/m/0140vpl", 
+"/common/topic/alias": [], 
+"name": "Gattaca Grooves (deep mix)"
+}, 
+{
+"type": [
+"/music/release", 
+"/media_common/creative_work", 
+"/common/topic"
+], 
+"mid": "/m/01ky9ns", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/album", 
+"/common/topic", 
+"/music/soundtrack"
+], 
+"mid": "/m/01ky9qk", 
+"/common/topic/alias": [
+"Gattaca Soundtrack", 
+"Gattaca", 
+"Gattaca: Original Motion Picture Soundtrack"
+], 
+"name": "Bienvenue \u00e0 Gattaca"
+}, 
+{
+"type": [
+"/music/release", 
+"/media_common/creative_work", 
+"/common/topic", 
+"/business/consumer_product"
+], 
+"mid": "/m/0375n5p", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/type/content", 
+"/common/image"
+], 
+"mid": "/m/0kkgb7", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/resource"
+], 
+"mid": "/m/08vl1_b", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/resource"
+], 
+"mid": "/m/08vlf8t", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/resource"
+], 
+"mid": "/m/08vvsjb", 
+"/common/topic/alias": [], 
+"name": "BODY BY 'GATTACA'"
+}, 
+{
+"type": [
+"/common/resource"
+], 
+"mid": "/m/08w10gn", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/resource"
+], 
+"mid": "/m/08w4mnq", 
+"/common/topic/alias": [], 
+"name": "Is ''Gattaca'' worth the upgrade?"
+}, 
+{
+"type": [
+"/common/resource"
+], 
+"mid": "/m/08w94p2", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/business/consumer_product", 
+"/common/topic"
+], 
+"mid": "/m/09rplv4", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zdn", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Roger Ebert at Chicago Sun-Times"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zf2", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Emanuel Levy at Variety"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zfj", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Lisa Alspector at Chicago Reader"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zfz", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Manohla Dargis at LA Weekly"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zgd", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Maitland McDonagh at TV Guide"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zgv", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Mick LaSalle at San Francisco Chronicle"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zh8", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Rick Groen at The Globe and Mail (Toronto)"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zhq", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Scott Rosenberg at Salon.com"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zj4", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Michael Sragow at The New Yorker"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zjs", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Ty Burr at Entertainment Weekly"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zk6", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Desson Thomson at Washington Post"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zkn", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Jack Mathews at Los Angeles Times"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zl2", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by James Berardinelli at ReelViews"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zlj", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Elvis Mitchell at The New York Times"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zlz", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Rita Kempley at Washington Post"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zmd", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by John Krewson at The Onion (A.V. Club)"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zmv", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Walter Addiego at San Francisco Examiner"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0zn8", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Neil Jeffries at Empire"
+}, 
+{
+"type": [
+"/base/reviews/review", 
+"/base/reviews/topic", 
+"/common/resource"
+], 
+"mid": "/m/09t0znq", 
+"/common/topic/alias": [], 
+"name": "Review of Gattaca by Marc Savlov at Austin Chronicle"
+}, 
+{
+"type": [
+"/common/resource"
+], 
+"mid": "/m/09ws5_1", 
+"/common/topic/alias": [], 
+"name": "'Gattaca' director Andrew Niccol takes on Stephenie Meyer's 'The Host'"
+}, 
+{
+"type": [
+"/dataworld/mass_data_operation", 
+"/common/topic"
+], 
+"mid": "/m/0cwwzby", 
+"/common/topic/alias": [], 
+"name": "Spreadsheet Upload about film GATTACA imdb keys"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/recording", 
+"/music/single"
+], 
+"mid": "/m/0dwzq4g", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/release", 
+"/common/topic", 
+"/media_common/creative_work", 
+"/business/consumer_product"
+], 
+"mid": "/m/0dzmktg", 
+"/common/topic/alias": [], 
+"name": "Gattaca: Original Motion Picture Soundtrack"
+}, 
+{
+"type": [
+"/music/artist", 
+"/common/topic", 
+"/people/person"
+], 
+"mid": "/m/0dsbklg", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/release", 
+"/common/topic", 
+"/media_common/creative_work", 
+"/business/consumer_product"
+], 
+"mid": "/m/0f95mfk", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/release", 
+"/common/topic", 
+"/media_common/creative_work", 
+"/business/consumer_product"
+], 
+"mid": "/m/0fdkvy_", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/release", 
+"/common/topic", 
+"/media_common/creative_work", 
+"/business/consumer_product"
+], 
+"mid": "/m/0fdwnz1", 
+"/common/topic/alias": [], 
+"name": "Bienvenue \u00e0 Gattaca"
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic", 
+"/music/single"
+], 
+"mid": "/m/0f6v2_7", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/organization/organization", 
+"/common/topic", 
+"/music/record_label", 
+"/business/business_operation"
+], 
+"mid": "/m/0fvl0wk", 
+"/common/topic/alias": [], 
+"name": "Los mundos de Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/recording", 
+"/music/single"
+], 
+"mid": "/m/0g2hkt6", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/film/film_character", 
+"/fictional_universe/fictional_character"
+], 
+"mid": "/m/0h56r2j", 
+"/common/topic/alias": [], 
+"name": "Gattaca Trainer"
+}, 
+{
+"type": [
+"/music/release_track", 
+"/common/topic"
+], 
+"mid": "/m/0kjnrn6", 
+"/common/topic/alias": [], 
+"name": "Gattaca (reprise)"
+}, 
+{
+"type": [
+"/music/release_track", 
+"/common/topic"
+], 
+"mid": "/m/0kjnrq6", 
+"/common/topic/alias": [], 
+"name": "Gattaca (Schizo)"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0ln37zv", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0lrj3yd", 
+"/common/topic/alias": [], 
+"name": "Gattaca Grooves (deep mix)"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0lvy97r", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0lxn48j", 
+"/common/topic/alias": [], 
+"name": "Gattaca: The Morrow"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0l_0cvd", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0myd6b_", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0n7bh15", 
+"/common/topic/alias": [], 
+"name": "Gattaca (Schizo)"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0n7bh1y", 
+"/common/topic/alias": [], 
+"name": "Gattaca (Reprise)"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0qdy2sr", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0shh8w0", 
+"/common/topic/alias": [], 
+"name": "Impromptu No. 3 in G-Flat Major, D. 899 (From \"Gattaca\")"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/recording"
+], 
+"mid": "/m/0sl3hpg", 
+"/common/topic/alias": [], 
+"name": "Impromptu No. 3 in G-Flat Major, D. 899 (From \"Gattaca\")"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/recording", 
+"/music/single"
+], 
+"mid": "/m/0shg3qm", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/release_track", 
+"/common/topic"
+], 
+"mid": "/m/0sr022y", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/tv/tv_series_episode", 
+"/common/topic"
+], 
+"mid": "/m/0w34ywk", 
+"/common/topic/alias": [], 
+"name": "Quiptracks: Gattaca"
+}, 
+{
+"type": [
+"/music/artist", 
+"/common/topic", 
+"/music/musical_group"
+], 
+"mid": "/m/0ws8dc9", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/0x70vk6", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic", 
+"/music/single"
+], 
+"mid": "/m/0x08vfw", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/film/film_character", 
+"/common/topic", 
+"/fictional_universe/fictional_character"
+], 
+"mid": "/m/0y6kv1b", 
+"/common/topic/alias": [], 
+"name": "Gattaca Hoover"
+}, 
+{
+"type": [
+"/film/film_character", 
+"/common/topic", 
+"/fictional_universe/fictional_character"
+], 
+"mid": "/m/0y6lrjr", 
+"/common/topic/alias": [], 
+"name": "Gattaca Detective"
+}, 
+{
+"type": [
+"/media_common/cataloged_instance", 
+"/common/topic", 
+"/music/recording", 
+"/music/single"
+], 
+"mid": "/m/010chr1p", 
+"/common/topic/alias": [], 
+"name": "Gattaca: The Departure"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/010c_3tx", 
+"/common/topic/alias": [], 
+"name": "Gattaca: The Departure"
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic", 
+"/media_common/cataloged_instance"
+], 
+"mid": "/m/0ng2pb", 
+"/common/topic/alias": [
+"Gattaca: The Morrow", 
+"The Morrow"
+], 
+"name": "Gattaca: The Morrow"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/012qfr72", 
+"/common/topic/alias": [], 
+"name": "Gattaca"
+}, 
+{
+"type": [
+"/music/recording", 
+"/common/topic", 
+"/music/single"
+], 
+"mid": "/m/012wgcs2", 
+"/common/topic/alias": [], 
+"name": "Sewers of Gattaca"
+}, 
+{
+"type": [
+"/common/topic", 
+"/music/release_track"
+], 
+"mid": "/m/012xzyc1", 
+"/common/topic/alias": [], 
+"name": "Sewers of Gattaca"
+}
+]
+}
