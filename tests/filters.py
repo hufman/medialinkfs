@@ -50,7 +50,7 @@ class TestFilters(unittest.TestCase):
 	def test_decade(self):
 		res = quantizer.get_metadata(dummy.data['test'])
 		self.assertNotEqual(None, res)
-		self.assertFalse('year' in res)
+		self.assertEqual('1979', res['year'])
 		self.assertTrue('decade' in res)
 		self.assertEqual("1970", res['decade'])
 		self.assertEqual("1970s", res['decades'])
@@ -71,7 +71,30 @@ class TestFilters(unittest.TestCase):
 		res = {"release_date":"2012-09-06"}
 		res = quantizer.get_metadata(res)
 		self.assertTrue('year' in res)
-		self.assertEqual(2012, res['year'])
+		self.assertEqual('2012', res['year'])
 		self.assertTrue('decade' in res)
 		self.assertEqual('2010', res['decade'])
 		self.assertEqual('2010s', res['decades'])
+
+	def test_release_date_organize(self):
+		dummy.data['test']['release_date]'] = "1979-09-06"
+		res = quantizer.get_metadata(dummy.data['test'])	
+		medialinkfs.organize.organize_set({}, self.settings)
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Year", "1979")))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Decade", "1970")))
+		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Decades", "1970s")))
+
+	def test_letters(self):
+		res = {"name":"This is a movie"}
+		res = quantizer.get_metadata(res)
+		self.assertEqual('T', res['letter'])
+
+	def test_letters_special(self):
+		res = {"name":"1234 This is a movie"}
+		res = quantizer.get_metadata(res)
+		self.assertEqual('0', res['letter'])
+
+	def test_ratings(self):
+		res = {"rating":"8.3"}
+		res = quantizer.get_metadata(res)
+		self.assertEqual('8.5', res['ratings'])

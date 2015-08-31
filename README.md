@@ -128,7 +128,7 @@ Plugins
   * `genres`
   * `actors`
   * `year`
-  * `rated`
+  * `rated` (G, PG, etc)
 
   The mymovieapi plugin supports a parser option of type, which must be one of the following. It defaults to searching for any type.
 
@@ -137,6 +137,22 @@ Plugins
   * `tv servies`
   * `video`
   * `video game`
+
+* myapifilms
+
+  MyApiFilms is provided as an alternative to mymovieapi, which appears to have gone down.  myapifilms has a limit of 1000 item lookups per day without an api key or 2000 per day with an api key.  This key is set in the `api_key` `parser_option`. Looks up information about a collection of TV of movies, and discovers the following information
+
+  * `genres`
+  * `year`
+  * `rating` (IMDB "quality" rating 1.0-10.0, e.g. "7.4")
+  * `metascore`
+
+  The mymovieapi plugin supports a parser option of type, which must be one of the following. It defaults to searching for any type.
+
+  * `movie`
+  * `tv series`
+  * `video game`
+
 
 * omdbapi
 
@@ -155,6 +171,14 @@ Plugins
 
   * `decade`  (1980)
   * `decades`  (1980s)
+
+  Looks through the previously discovered metadata and quantizes the "rating" field into buckets of 0.5:
+
+  * `ratings`  (rating of 7.3 -> 7.5)
+
+  Looks through the previously discovered metadata and quantizes the "name" by the initial letter. Any non-alpha initial letter is assigned to category '0':
+
+  * `letter`  (Adaptation -> 'A')
 
 * vgmdb
 
