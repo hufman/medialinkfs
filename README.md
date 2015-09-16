@@ -79,75 +79,16 @@ Plugins
   * `artists`
   * `composers`
 
-* freebase
-
-  The freebase plugin is very flexible, supporting user-customizable queries to freebase.com.  It comes with a few common queries. Add a type option to the `parser_options` to set one. This is used in the film and `tv_program` options to search with the year information. Without a type, the plugin will search for everything on freebase by the name, and then try to fill in any extra properties that it finds for that item.
-
-  Properties that are found through the properties option will be added to the metadata object. If the property name does not show up in the renames option, then the full property name will be used, otherwise the renamed metadata name.
-
-  Heavy usage of the freebase plugin may require an API key for Freebase from the [Google API Console](https://code.google.com/apis/console). This key is set in the `api_key` `parser_option`. Some usage is available without a key, but there isn't clear documentation of how much. The limit with the API key is 100k requests per day.
-
-  * `type` - A freebase schema type. The following types are built-in:
-      * `/film/film`
-      * `/tv/tv_program`
-  * `searches` - A dictionary of hashes, each hash describing how to map from the discovered name and year to a search query
-  * `properties` - A dictionary of MQL parameters to search for, such as `{"/film/film/directed_by":[]}`
-  * `renames` - A dictionary of freebase properties to be renamed to shorter metadata keys. If a search returns a property that is not in this list, then the full name will be available in the metadata. The following properties are renamed by default:
-      * `/common/topic/alias` -> `aka`
-      * `/film/film/initial_release_date` -> `release_date`
-      * `/film/film/directed_by` -> `directors`
-      * `/film/film/starring` -> `actors`
-      * `/film/film/genre` -> `genres`
-      * `/film/film/subjects` -> `subjects`
-      * `/film/film/film_series` -> `series`
-      * `/film/film/produced_by` -> `producers`
-      * `/film/film/written_by` -> `writers`
-      * `/film/film/edited_by` -> `editors`
-      * `/film/film/music` -> `composers`
-      * `/film/film/language` -> `languages`
-      * `/film/film/country` -> `countries`
-      * `/tv/tv_program/regular_cast` -> `actors`
-      * `/tv/tv_program/air_date_of_first_episode` -> `release_date`
-      * `/tv/tv_program/genre` -> `genres`
-      * `/tv/tv_program/tv_producer` -> `producers`
-      * `/tv/tv_program/recurring_writers` -> `writers`
-      * `/tv/tv_program/original_network` -> `network`
-      * `/tv/tv_program/country_of_origin` -> `countries`
-      * `/tv/tv_program/languages` -> `languages`
-  * `promotions` - A dictionary of freebase properties that should be promoted from a list of dictionaries to a regular list. For example, instead of `/film/film/starring` being a structure such as `[{"actor":"name1"},{"actor":"name2"}]`, this changes it to a structure such as `["name1","name2"]`. The following properties are changed by default:
-      * `/film/film/starring['actor']`
-      * `/tv/tv_program/regular_cast['actor']`
-      * `/tv/tv_program/original_network['network']`
-      * `/tv/tv_program/recurring_writers['writers']`
-      * `/tv/tv_program/tv_producer['producer']`
-
-* mymovieapi
-
-  Looks up information about a collection of TV of movies, and discovers the following information. mymovieapi returns a complete list of actors, but has a limit of 2500 item lookups per day.
-
-  * `genres`
-  * `actors`
-  * `year`
-  * `rated` (G, PG, etc)
-
-  The mymovieapi plugin supports a parser option of type, which must be one of the following. It defaults to searching for any type.
-
-  * `movie`
-  * `tv movie`
-  * `tv servies`
-  * `video`
-  * `video game`
-
 * myapifilms
 
-  MyApiFilms is provided as an alternative to mymovieapi, which appears to have gone down.  myapifilms has a limit of 1000 item lookups per day without an api key or 2000 per day with an api key.  This key is set in the `api_key` `parser_option`. Looks up information about a collection of TV of movies, and discovers the following information
+  MyApiFilms searches IMDB for a given tv show, movie, or video game name.  myapifilms has a limit of 1000 item lookups per day without an api key or 2000 per day with an api key.  This key is set in the `api_key` `parser_option`. Looks up information about a collection of TV or movies, and discovers the following information
 
   * `genres`
   * `year`
   * `rating` (IMDB "quality" rating 1.0-10.0, e.g. "7.4")
   * `metascore`
 
-  The mymovieapi plugin supports a parser option of type, which must be one of the following. It defaults to searching for any type.
+  The myapifilms plugin supports a parser option of type, which must be one of the following. It defaults to searching for any type.
 
   * `movie`
   * `tv series`
@@ -213,7 +154,7 @@ At the root of the YAML document is a single item, sets. This is a list of set c
 - `regex`: An optional regex that will be searched for in each item's path. If this setting exists, it will only organize items that match. Each `parser_options` setting can have a regex specific to that parser
 - `noclean`: Don't delete any extra files from the output directories
 - `fakeclean`: Indicate what directories and files would be cleaned out at the end of a run, but don't actually clean them
-- `preferCachedData`: If an item has cached metadata from a previous run, don't search for new metadata. This is helpful with the mymovieapi plugin, because it has a query limit
+- `preferCachedData`: If an item has cached metadata from a previous run, don't search for new metadata.
 - `output`: A list of output directories to manage
 
 ### Output Configuration
