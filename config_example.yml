@@ -1,3 +1,8 @@
+default_settings:
+  parser_options:
+    myapifilms:
+      api_key: INSERTHERE
+
 sets:
   - name: GameMusic
     parsers: [vgmdb]
@@ -42,6 +47,8 @@ sets:
     output:
       - dest: /media/video/movies/Genres
         groupBy: genres
+      - dest: /media/video/movies/Composers
+        groupBy: composers
       - dest: /media/video/movies/Directors
         groupBy: directors
       - dest: /media/video/movies/Decades
