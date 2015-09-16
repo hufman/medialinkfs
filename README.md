@@ -154,7 +154,6 @@ At the root of the YAML document is a single item, sets. This is a list of set c
 - `regex`: An optional regex that will be searched for in each item's path. If this setting exists, it will only organize items that match. Each `parser_options` setting can have a regex specific to that parser
 - `noclean`: Don't delete any extra files from the output directories
 - `fakeclean`: Indicate what directories and files would be cleaned out at the end of a run, but don't actually clean them
-- `preferCachedData`: If an item has cached metadata from a previous run, don't search for new metadata.
 - `output`: A list of output directories to manage
 
 ### Output Configuration
@@ -172,7 +171,6 @@ Example Config
         sourceDir: /media/tv/All
         cacheDir: /media/tv/.cache
         fakeclean: false
-        preferCachedData: true
         parser_options:
           freebase:
             type: /tv/tv_program

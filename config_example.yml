@@ -23,7 +23,6 @@ sets:
     scanMode: directories
     sourceDir: /media/video/tv/All
     cacheDir: /media/video/tv/.cache
-    preferCachedData: true
     output:
       - dest: /media/video/tv/Genres
         groupBy: genres
@@ -43,7 +42,6 @@ sets:
     scanMode: directories
     sourceDir: /media/video/movies/All
     cacheDir: /media/video/movies/.cache
-    preferCachedData: true
     output:
       - dest: /media/video/movies/Genres
         groupBy: genres

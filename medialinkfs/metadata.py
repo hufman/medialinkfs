@@ -1,4 +1,5 @@
 # Responsible for loading an item's metadata
+from . import cache
 from .deepmerge import deep_merge
 from .parsers import load_parser
 import logging
@@ -9,7 +10,12 @@ import traceback
 logger = logging.getLogger(__name__)
 
 def load_item(settings, name):
-	logger.debug("Loading metadata for %s"%(name,))
+	logger.debug("Loading metadata for %s from cache"%(name,))
+	cached_metadata = cache.load(settings, name)
+	return cached_metadata
+
+def fetch_item(settings, name):
+	logger.debug("Fetching metadata for %s"%(name,))
 	path = os.path.join(settings['sourceDir'], name)
 	new_metadata = {"itemname":name, "path":path}
 	for parser_name in settings['parsers']:
@@ -33,7 +39,7 @@ def load_item(settings, name):
 			log_crashed_parser(settings['cacheDir'], parser_name, name)
 			continue
 		deep_merge(new_metadata, item_metadata)
-	
+	cache.save(settings, new_metadata)
 	return new_metadata
 
 # Logging

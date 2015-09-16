@@ -85,13 +85,15 @@ class TestDummy(unittest.TestCase):
 		self.assertEqual(os.readlink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test2")),
 		                 os.path.join("..", "..", "All", "test2"))
 
-		# does it delete the directory with extra .toc files in it
+		# the actor changed from Phil to Lexus
+		# does it properly clean up the old toc files from Phil's directory
 		dummy.data['test2']['actors'][0] = 'Sir Lexus'
 		lexus = os.path.join(self.tmpdir, "Actors", "Sir Lexus")
 		phil = os.path.join(self.tmpdir, "Actors", "Sir Phil")
 		open(os.path.join(phil, ".toc"),'w').close()
 		open(os.path.join(phil, ".toc-TV"),'w').close()
 		open(os.path.join(phil, ".toc.old-TV"),'w').close()
+		medialinkfs.organize.fetch_set({}, self.settings)
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertTrue(os.path.isdir(os.path.join(lexus)))
 		self.assertFalse(os.path.islink(os.path.join(phil, "test2")))
@@ -106,14 +108,13 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 
-		# delete the actors field and see if it uses cache
+		# delete the actors field and verify that it uses cache
 		del dummy.data['test']['actors']
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 
-		# now prefer the cache, even if the data has changed
+		# change the data and verify that it uses the cache
 		dummy.data['test']['actors'] = ['Sir Phil']
-		self.settings['preferCachedData'] = True
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
@@ -194,7 +195,7 @@ class TestDummy(unittest.TestCase):
 
 		# Now, change the dummy data from Sir George to Sir Phil
 		# Then, add in another parser
-		# It should ignore the cached data about Sir George because the new parser data
+		# It should flush the cached data about Sir George because the new parser data
 		# However, it should merge the two actors sections
 		dummy.data['Dynomutt Dog Wonder']['actors'][0] = 'Sir Phil'
 		self.settings['parsers'].append('omdbapi')

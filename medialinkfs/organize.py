@@ -1,7 +1,6 @@
 from .config import import_config
 from .deepmerge import deep_merge
 from .parsers import load_parser
-from . import cache
 from . import errors
 from . import metadata
 from . import sourcelist
@@ -35,6 +34,21 @@ def organize(options):
 		if options['set_name'] == None or options['set_name'] == settings['name']:
 			organize_set(options, comb_settings)
 
+def fetch_set(options, settings):
+	logger.info("Beginning to fetch metadata for %s"%(settings['name'],))
+	processed_files = load_progress(settings)
+	if len(processed_files) == 0:
+		start_progress(settings)
+	else:
+		logger.info("Resuming progress after %s items"%(len(processed_files)))
+
+	for name in sourcelist.items(settings):
+		if name in processed_files:
+			continue
+		fetch_item_metadata(settings, name)
+		add_progress(settings, name)
+	finish_progress(settings)
+
 def organize_set(options, settings):
 	logger.info("Beginning to organize %s"%(settings['name'],))
 	prepare_for_organization(settings)
@@ -55,26 +69,19 @@ def organize_item(options, settings, name):
 	metadata = load_item_metadata(options, settings, name)
 	output.do_output(options, settings, metadata)
 
+def fetch_item_metadata(settings, name):
+	fresh_metadata = metadata.fetch_item(settings, name)
+	return fresh_metadata
+
 def load_item_metadata(options, settings, name):
 	logger.debug("Loading metadata for %s"%(name,))
 	path = os.path.join(settings['sourceDir'], name)
-	if not (options.get('ignore_cache', False)):  # default to loading cached data
-		cached_metadata = cache.load(settings, name)
-	else:
-		cached_metadata = {}
-	if 'itemname' in cached_metadata:	# valid cached data
-		if settings.get('preferCachedData', False):
-			logger.debug("Preferring cached data for %s"%(name,))
+	if not options.get('ignore_cache', False):	# if the user didn't say to ignore the cache
+		cached_metadata = metadata.load_item(settings, name)
+		if 'itemname' in cached_metadata:	# valid cached data
 			return cached_metadata
-		else:
-			logger.debug("Loaded cached data for %s"%(name,))
-	fresh_metadata = metadata.load_item(settings, name)
-
-	# merge them
-	current_metadata = cached_metadata
-	current_metadata.update(fresh_metadata)
-	cache.save(settings, current_metadata)
-	return current_metadata
+	# manually ignoring cache, or doesn't have it cached
+	return fetch_item_metadata(settings, name)
 
 # Preparation
 def prepare_for_organization(settings):
