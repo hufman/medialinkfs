@@ -8,6 +8,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG, filename='tests.log')
 
 import medialinkfs
+import medialinkfs.config
 import medialinkfs.organize
 import medialinkfs.parsers.dummy as dummy
 
@@ -20,7 +21,7 @@ class TestDummy(unittest.TestCase):
 		  "actors": ["Sir George"]
 		}}
 		self.tmpdir = tempfile.mkdtemp()
-		self.settings = {
+		self.secret_settings = {
 			"name": "test",
 			"parsers": ["dummy"],
 			"scanMode": "directories",
@@ -31,6 +32,7 @@ class TestDummy(unittest.TestCase):
 				"groupBy": "actors"
 			}]
 		}
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		os.mkdir(os.path.join(self.tmpdir, "All"))
 		os.mkdir(os.path.join(self.tmpdir, "All", 'test'))
 		os.mkdir(os.path.join(self.tmpdir, "Actors"))
@@ -130,7 +132,8 @@ class TestDummy(unittest.TestCase):
 	def test_dummy_nocachedir(self):
 		# does it create the link
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "All", ".cache")))
-		del self.settings['cacheDir']
+		del self.secret_settings['cacheDir']
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "All", ".cache")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
@@ -143,7 +146,8 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 
 		# Add the setting, leaving it false
-		self.settings['fakeclean'] = False
+		self.secret_settings['fakeclean'] = False
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		dummy.data['test']['actors'] = ['Sir Phil']
 		shutil.rmtree(self.settings['cacheDir'])
 		medialinkfs.organize.organize_set({}, self.settings)
@@ -153,7 +157,8 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test")))
 
 		# Set the setting to true
-		self.settings['fakeclean'] = True
+		self.secret_settings['fakeclean'] = True
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		dummy.data['test']['actors'] = []
 		shutil.rmtree(self.settings['cacheDir'])
 		medialinkfs.organize.organize_set({}, self.settings)
@@ -163,8 +168,9 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test")))
 
 		# set the quiet noclean setting, but to false
-		del self.settings['fakeclean']
-		self.settings['noclean'] = False
+		del self.secret_settings['fakeclean']
+		self.secret_settings['noclean'] = False
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		dummy.data['test']['actors'] = ['Sir Harry']
 		shutil.rmtree(self.settings['cacheDir'])
 		medialinkfs.organize.organize_set({}, self.settings)
@@ -174,7 +180,8 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Harry", "test")))
 
 		# set the quiet noclean setting to true
-		self.settings['noclean'] = True
+		self.secret_settings['noclean'] = True
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		dummy.data['test']['actors'] = []
 		shutil.rmtree(self.settings['cacheDir'])
 		medialinkfs.organize.organize_set({}, self.settings)
@@ -198,7 +205,8 @@ class TestDummy(unittest.TestCase):
 		# It should flush the cached data about Sir George because the new parser data
 		# However, it should merge the two actors sections
 		dummy.data['Dynomutt Dog Wonder']['actors'][0] = 'Sir Phil'
-		self.settings['parsers'].append('omdbapi')
+		self.secret_settings['parsers'].append('omdbapi')
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
@@ -206,7 +214,8 @@ class TestDummy(unittest.TestCase):
 
 		# Try it the other way
 		shutil.rmtree(self.settings['cacheDir'])
-		self.settings['parsers'] = ['omdbapi', 'dummy']
+		self.secret_settings['parsers'] = ['omdbapi', 'dummy']
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
@@ -270,7 +279,7 @@ class TestDummy(unittest.TestCase):
 
 		newtmp = tempfile.mkdtemp()
 		try:
-			settings = {
+			secret_settings = {
 				"name": "test2",
 				"parsers": ["dummy"],
 				"scanMode": "directories",
@@ -282,6 +291,7 @@ class TestDummy(unittest.TestCase):
 				}]
 			}
 			os.mkdir(os.path.join(newtmp, 'test2'))
+			settings = medialinkfs.config.ConfigSet(secret_settings)
 			dummy.data['test2'] = {'actors':['Sir George']}
 
 			# try it
@@ -304,17 +314,19 @@ class TestDummy(unittest.TestCase):
 
 	def test_dummy_parser_options(self):
 		# does it create the link
-		self.settings['parser_options'] = {
+		self.secret_settings['parser_options'] = {
 		  'dummy': {'should_exist':'True'},
 		  'fake': {'should_exist':'False'}
 		}
-		self.settings['output'][0]['groupBy'] = 'should_exist'
+		self.secret_settings['output'][0]['groupBy'] = 'should_exist'
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "True")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "True", "test")))
 
 	def test_dummy_regex(self):
-		self.settings['regex'] = '^.*tst$'
+		self.secret_settings['regex'] = '^.*tst$'
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		dummy.data['test.tst'] = dummy.data['test']
 		os.mkdir(os.path.join(self.tmpdir, 'All', 'test.tst'))
 		medialinkfs.organize.organize_set({}, self.settings)
@@ -322,7 +334,8 @@ class TestDummy(unittest.TestCase):
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test.tst")))
 	def test_dummy_settings_regex(self):
-		self.settings['parser_options'] = {'dummy':{'regex': '^.*tst$'}}
+		self.secret_settings['parser_options'] = {'dummy':{'regex': '^.*tst$'}}
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		dummy.data['test.tst'] = dummy.data['test']
 		os.mkdir(os.path.join(self.tmpdir, 'All', 'test.tst'))
 		medialinkfs.organize.organize_set({}, self.settings)
@@ -331,7 +344,8 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test.tst")))
 
 	def test_dummy_multiple_groups(self):
-		self.settings['output'][0]['groupBy'] = ['actors', 'extras']
+		self.secret_settings['output'][0]['groupBy'] = ['actors', 'extras']
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		dummy.data['test2'] = {"extras": ["Sir George"]}
 		os.mkdir(os.path.join(self.tmpdir, 'All', 'test2'))
 		medialinkfs.organize.organize_set({}, self.settings)
@@ -339,7 +353,8 @@ class TestDummy(unittest.TestCase):
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")))
 	def test_dummy_multiple_identical_groups(self):
-		self.settings['output'][0]['groupBy'] = ['actors', 'extras']
+		self.secret_settings['output'][0]['groupBy'] = ['actors', 'extras']
+		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		dummy.data['test'] = {"actors": ["Sir George"], "extras": ["Sir George"]}
 		os.mkdir(os.path.join(self.tmpdir, 'All', 'test2'))
 		medialinkfs.organize.organize_set({}, self.settings)
