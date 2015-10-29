@@ -28,3 +28,8 @@ class TestConfig(unittest.TestCase):
 		c = config.Config({"sets":[{"thing":True}]})
 		self.assertEqual(1, len(c.sets()))
 		self.assertEqual(config.ConfigSet, type(c.sets()[0]))
+
+	def test_sets_key(self):
+		c = config.Config({"sets":[{"thing":True}]})
+		self.assertEqual(1, len(c['sets']))
+		self.assertEqual(config.ConfigSet, type(c['sets'][0]))

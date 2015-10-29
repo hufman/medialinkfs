@@ -4,6 +4,10 @@ from . import deepmerge
 class Config(dict):
 	def __init__(self, config):
 		dict.__init__(self, config)
+	def __getitem__(self, key):
+		if key == 'sets':
+			return self.sets()
+		return dict.__getitem__(self, key)
 	def sets(self):
 		return [ConfigSet(s) for s in self.get('sets', [])]
 
