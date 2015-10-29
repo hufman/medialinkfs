@@ -5,7 +5,7 @@ class Config(dict):
 	def __init__(self, config):
 		dict.__init__(self, config)
 	def sets(self):
-		return [ConfigSet(s) for s in self['sets']]
+		return [ConfigSet(s) for s in self.get('sets', [])]
 
 class ConfigSet(dict):
 	def __init__(self, settings, default_settings=None, override_settings=None):
