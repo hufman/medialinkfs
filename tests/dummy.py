@@ -7,6 +7,7 @@ import unittest
 import logging
 logging.basicConfig(level=logging.DEBUG, filename='tests.log')
 
+import tests._utils as _utils
 import medialinkfs
 import medialinkfs.config
 import medialinkfs.organize
@@ -14,8 +15,9 @@ import medialinkfs.parsers.dummy as dummy
 
 base = os.path.dirname(__file__)
 
-class TestDummy(unittest.TestCase):
+class TestDummy(_utils.TestAPI):
 	def setUp(self):
+		super().setUp()
 		logging.debug("Initializing unittest %s"%(self.id(),))
 		dummy.data = {"test": {
 		  "actors": ["Sir George"]
