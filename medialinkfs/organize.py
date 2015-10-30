@@ -46,6 +46,7 @@ def fetch_set(options, settings):
 
 def organize_set(options, settings):
 	logger.info("Beginning to organize %s"%(settings['name'],))
+	validate_settings(settings)
 	prepare_for_organization(settings)
 	processed_files = load_progress(settings)
 	if len(processed_files) == 0:
@@ -79,23 +80,27 @@ def load_item_metadata(options, settings, name):
 	return fetch_item_metadata(settings, name)
 
 # Preparation
-def prepare_for_organization(settings):
+def validate_settings(settings):
+	# check for parser and try to instantiate it
 	all_parser_options = settings.get('parser_options', {})
 	for parser_name in settings['parsers']:
 		parser_options = all_parser_options.get(parser_name, {})
 		parser = load_parser(parser_name, parser_options)
 		if not parser:
 			raise errors.MissingParser("Set %s can't load parser %s"%(settings['name'], parser_name))
+	# check that we have a source dir
 	if not os.path.isdir(settings['sourceDir']):
 		raise errors.MissingSourceDir("Set %s has an invalid sourceDir %s"%(settings['name'], settings['sourceDir']))
 	if 'cacheDir' not in settings:
 		settings['cacheDir'] = os.path.join(settings['sourceDir'], '.cache')
-	prepare_cache_dir(settings['cacheDir'])
-
+	# check that we have an output dir
 	if 'output' in settings:
 		for output_dir in settings['output']:
 			if not os.path.isdir(output_dir['dest']):
 				raise errors.MissingDestDir("Set %s is missing an output directory %s"%(settings['name'], output_dir['dest']))
+
+def prepare_for_organization(settings):
+	prepare_cache_dir(settings['cacheDir'])
 
 def prepare_cache_dir(cache_dir):
 	join = os.path.join
