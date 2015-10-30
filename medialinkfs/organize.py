@@ -37,7 +37,8 @@ def fetch_set(options, settings):
 	else:
 		logger.info("Resuming progress after %s items"%(len(processed_files)))
 
-	for name in sourcelist.items(settings):
+	items = sourcelist.SourceItems(settings)
+	for name in items:
 		if name in processed_files:
 			continue
 		fetch_item_metadata(settings, name)
@@ -54,7 +55,8 @@ def organize_set(options, settings):
 	else:
 		logger.info("Resuming progress after %s items"%(len(processed_files)))
 
-	for name in sourcelist.items(settings):
+	items = sourcelist.SourceItems(settings)
+	for name in items:
 		if name in processed_files:
 			continue
 		organize_item(options, settings, name)
