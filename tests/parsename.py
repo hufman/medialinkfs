@@ -14,46 +14,47 @@ base = os.path.dirname(__file__)
 class TestName(unittest.TestCase):
 	def setUp(self):
 		logging.debug("Initializing unittest %s"%(self.id(),))
+		self.parser = parsename.Module({})
 
 	def test_year(self):
-		res = parsename.get_metadata({"path":"/Schfifty Five"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertFalse('year' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (1955)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (1955)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)
 		self.assertEqual(1955, res['year'])
 
-		res = parsename.get_metadata({"path":"/Schfifty Five [1955]"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five [1955]"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)
 		self.assertEqual(1955, res['year'])
 
 	def test_res(self):
-		res = parsename.get_metadata({"path":"/Schfifty Five"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertFalse('year' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (720)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (720)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('resolution' in res)
 		self.assertEqual(720, res['resolution'])
 		self.assertFalse('interlaced' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (720p)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (720p)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('resolution' in res)
 		self.assertEqual(720, res['resolution'])
 		self.assertFalse('interlaced' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (720i)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (720i)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('resolution' in res)
@@ -62,12 +63,12 @@ class TestName(unittest.TestCase):
 		self.assertTrue(res['interlaced'])
 
 	def test_dots(self):
-		res = parsename.get_metadata({"path":"/Schfifty.Five"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertFalse('year' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty.Five.(720p)"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five.(720p)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('resolution' in res)
@@ -75,12 +76,12 @@ class TestName(unittest.TestCase):
 		self.assertFalse('interlaced' in res)
 
 	def test_scene(self):
-		res = parsename.get_metadata({"path":"/Schfifty Five"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertFalse('year' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (x264-Scene)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (x264-Scene)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('format' in res)
@@ -88,7 +89,7 @@ class TestName(unittest.TestCase):
 		self.assertTrue('release_group' in res)
 		self.assertEqual('Scene', res['release_group'])
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (avc_Scene)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (avc_Scene)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('format' in res)
@@ -96,7 +97,7 @@ class TestName(unittest.TestCase):
 		self.assertTrue('release_group' in res)
 		self.assertEqual('Scene', res['release_group'])
 
-		res = parsename.get_metadata({"path":"/Schfifty.Five.avc_Scene"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five.avc_Scene"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('format' in res)
@@ -105,37 +106,37 @@ class TestName(unittest.TestCase):
 		self.assertEqual('Scene', res['release_group'])
 
 	def test_format(self):
-		res = parsename.get_metadata({"path":"/Schfifty.Five"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertFalse('year' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (x264)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (x264)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('format' in res)
 		self.assertEqual('x264', res['format'])
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (X264)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (X264)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('format' in res)
 		self.assertEqual('x264', res['format'])
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (H264)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (H264)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('format' in res)
 		self.assertEqual('h264', res['format'])
 
-		res = parsename.get_metadata({"path":"/Schfifty Five (AVC)"})
+		res = self.parser.get_metadata({"path":"/Schfifty Five (AVC)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('format' in res)
 		self.assertEqual('avc', res['format'])
 
 	def test_filename(self):
-		res = parsename.get_metadata({"path":"/Schfifty.Five.(1955).720p"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five.(1955).720p"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)
@@ -145,7 +146,7 @@ class TestName(unittest.TestCase):
 		self.assertFalse('interlaced' in res)
 		self.assertFalse('extension' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty.Five.(1955).720p.mkv"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five.(1955).720p.mkv"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)
@@ -156,7 +157,7 @@ class TestName(unittest.TestCase):
 		self.assertTrue('extension' in res)
 		self.assertEqual('mkv', res['extension'])
 
-		res = parsename.get_metadata({"path":"/Schfifty.Five.(1955).720p.jpg"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five.(1955).720p.jpg"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)
@@ -168,7 +169,7 @@ class TestName(unittest.TestCase):
 		self.assertEqual('jpg', res['extension'])
 
 	def test_combined(self):
-		res = parsename.get_metadata({"path":"/Schfifty.Five.(1955).720p"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five.(1955).720p"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)
@@ -177,7 +178,7 @@ class TestName(unittest.TestCase):
 		self.assertEqual(720, res['resolution'])
 		self.assertFalse('interlaced' in res)
 
-		res = parsename.get_metadata({"path":"/Schfifty.Five.(1955)[720i]"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five.(1955)[720i]"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)
@@ -187,7 +188,7 @@ class TestName(unittest.TestCase):
 		self.assertTrue('interlaced' in res)
 		self.assertTrue(res['interlaced'])
 
-		res = parsename.get_metadata({"path":"/Schfifty.Five(1955)[720i].avi"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five(1955)[720i].avi"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)
@@ -199,7 +200,7 @@ class TestName(unittest.TestCase):
 		self.assertTrue('extension' in res)
 		self.assertEqual('avi', res['extension'])
 
-		res = parsename.get_metadata({"path":"/Schfifty.Five.1955.720p.h264-scene.mkv"})
+		res = self.parser.get_metadata({"path":"/Schfifty.Five.1955.720p.h264-scene.mkv"})
 		self.assertNotEqual(None, res)
 		self.assertEqual('Schfifty Five', res['name'])
 		self.assertTrue('year' in res)

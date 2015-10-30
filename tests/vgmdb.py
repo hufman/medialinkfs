@@ -16,9 +16,10 @@ class TestVGMDB(_utils.TestAPI):
 	def setUp(self):
 		super().setUp()
 		logging.debug("Initializing unittest %s"%(self.id(),))
+		self.parser = vgmdb.Module({})
 
 	def test_album(self):
-		res = vgmdb.get_metadata({"path":"/Suteki Da Ne featured in Final Fantasy X"})
+		res = self.parser.get_metadata({"path":"/Suteki Da Ne featured in Final Fantasy X"})
 		self.assertNotEqual(None, res)
 		self.assertEqual(2, len(res['artists']))
 		self.assertEqual(2, len(res['composers']))
@@ -31,7 +32,7 @@ class TestVGMDB(_utils.TestAPI):
 		self.assertTrue('Final Fantasy X' in res['games'])
 
 	def test_album_series(self):
-		res = vgmdb.get_metadata({"path":"/Gyakuten Saiban 4 Original Soundtrack"})
+		res = self.parser.get_metadata({"path":"/Gyakuten Saiban 4 Original Soundtrack"})
 		self.assertNotEqual(None, res)
 		self.assertEqual(4, len(res['artists']))
 		self.assertEqual(4, len(res['composers']))

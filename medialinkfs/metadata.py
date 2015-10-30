@@ -19,13 +19,11 @@ def fetch_item(settings, name):
 	path = os.path.join(settings['sourceDir'], name)
 	new_metadata = {"itemname":name, "path":path}
 	for parser_name in settings['parsers']:
-		parser = load_parser(parser_name)
-		if parser_name in settings.get('parser_options', {}):
-			parser_options = settings['parser_options'][parser_name]
-		else:
-			parser_options = {}
+		all_parser_options = settings.get('parser_options', {})
+		parser_options = all_parser_options.get(parser_name, {})
+		parser = load_parser(parser_name, parser_options)
 		try:
-			item_metadata = parser.get_metadata(dict(new_metadata), parser_options)
+			item_metadata = parser.get_metadata(dict(new_metadata))
 			if item_metadata == None:
 				log_unknown_item(settings['cacheDir'], parser_name, name)
 				continue

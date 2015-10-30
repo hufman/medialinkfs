@@ -16,9 +16,10 @@ class TestOMDBAPI(_utils.TestAPI):
 	def setUp(self):
 		super().setUp()
 		logging.debug("Initializing unittest %s"%(self.id(),))
+		self.parser = omdbapi.Module({})
 
 	def test_dynomutt(self):
-		res = omdbapi.get_metadata({"path":"/Dynomutt Dog Wonder"})
+		res = self.parser.get_metadata({"path":"/Dynomutt Dog Wonder"})
 		self.assertNotEqual(None, res)
 		res['actors'] = sorted(res['actors'])
 		res['genres'] = sorted(res['genres'])
@@ -31,6 +32,6 @@ class TestOMDBAPI(_utils.TestAPI):
 		self.assertTrue('Animation' in res['genres'])
 
 	def test_startrek(self):
-		res = omdbapi.get_metadata({"path":"/Star Trek (1966)"})
+		res = self.parser.get_metadata({"path":"/Star Trek (1966)"})
 		self.assertNotEqual(None, res)
 		self.assertEqual(1966, res['year'])

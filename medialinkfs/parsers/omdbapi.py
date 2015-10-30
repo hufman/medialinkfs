@@ -11,95 +11,101 @@ import difflib
 
 logger = logging.getLogger(__name__)
 
-splitter = re.compile('\s*,\s*')
-yearfinder = re.compile('\(([12][0-9]{3})(-[12][0-9]{3})?\)')
-notislettermatcher = re.compile('[^\w¢]', re.UNICODE)
-MATCH_THRESHOLD = 0.8
-def get_metadata(metadata, settings={}):
-	path = metadata['path']
-	if 'name' in metadata:
-		name = metadata['name']
-		year = metadata.get('year')
-	else:
-		name = os.path.basename(path)
-		yearfound = yearfinder.search(name)
-		year = None
-		if yearfound:
-			name = yearfinder.sub('',name).strip()
-			year = yearfound.group(1)
-	logger.debug("Loading metadata for %s"%name)
-	result = load_title(name, year)
-	if not result:
-		result = search_title(name, year)
+class Module(object):
+	splitter = re.compile('\s*,\s*')
+	yearfinder = re.compile('\(([12][0-9]{3})(-[12][0-9]{3})?\)')
+	notislettermatcher = re.compile('[^\w¢]', re.UNICODE)
+	MATCH_THRESHOLD = 0.8
+
+	def __init__(self, parser_options):
+		self.parser_options = parser_options
+
+	def get_metadata(self, metadata):
+		path = metadata['path']
+		if 'name' in metadata:
+			name = metadata['name']
+			year = metadata.get('year')
+		else:
+			name = os.path.basename(path)
+			yearfound = Module.yearfinder.search(name)
+			year = None
+			if yearfound:
+				name = Module.yearfinder.sub('',name).strip()
+				year = yearfound.group(1)
+		logger.debug("Loading metadata for %s"%name)
+		result = self.load_title(name, year)
 		if not result:
-			logger.debug("Found no metadata for %s"%name)
-	return result
+			result = self.search_title(name, year)
+			if not result:
+				logger.debug("Found no metadata for %s"%name)
+		return result
 
-def load_by_id(tt):
-	url = API_BASE+"?f=json&i="+urllib.parse.quote(tt)
-	resource = urllib.request.urlopen(url)
-	raw_data = resource.read()
-	text_data = raw_data.decode('utf-8')
-	data = json.loads(text_data)
-	return data
+	def load_by_id(self, tt):
+		url = API_BASE+"?f=json&i="+urllib.parse.quote(tt)
+		resource = urllib.request.urlopen(url)
+		raw_data = resource.read()
+		text_data = raw_data.decode('utf-8')
+		data = json.loads(text_data)
+		return data
 
-def load_title(name, year=None):
-	url = API_BASE+"?f=json&t="+urllib.parse.quote(name)
-	if year:
-		url += "&y="+year
-	logger.debug("Loading metadata from %s"%url)
-	resource = urllib.request.urlopen(url)
-	raw_data = resource.read()
-	text_data = raw_data.decode('utf-8')
-	data = json.loads(text_data)
-	if 'Response' in data and data['Response']=='True':
-		return parse_response(data)
-	else:
-		result = None
-	return result
+	def load_title(self, name, year=None):
+		url = API_BASE+"?f=json&t="+urllib.parse.quote(name)
+		if year:
+			url += "&y="+year
+		logger.debug("Loading metadata from %s"%url)
+		resource = urllib.request.urlopen(url)
+		raw_data = resource.read()
+		text_data = raw_data.decode('utf-8')
+		data = json.loads(text_data)
+		if 'Response' in data and data['Response']=='True':
+			return self.parse_response(data)
+		else:
+			result = None
+		return result
 
-def squash(s):
-	# normalize some weird characters first
-	replacements = {'ː':':'}
-	for f,t in replacements.items():
-		s = s.replace(f,t)
-	return re.sub(notislettermatcher, ' ', s.lower())
+	@staticmethod
+	def squash(s):
+		# normalize some weird characters first
+		replacements = {'ː':':'}
+		for f,t in replacements.items():
+			s = s.replace(f,t)
+		return re.sub(Module.notislettermatcher, ' ', s.lower())
 
-def find_best_match(name, results):
-	best = 0
-	bestresult = None
-	for result in results:
-		s = difflib.SequenceMatcher(None, squash(name), squash(result['Title']))
-		score = s.ratio()
-		logger.debug("Search result %s (%s) scored %s"%(result['Title'], result['imdbID'], score))
-		if score > best and score > MATCH_THRESHOLD:
-			best = score
-			bestresult = result
-	return bestresult
+	def find_best_match(self, name, results):
+		best = 0
+		bestresult = None
+		for result in results:
+			s = difflib.SequenceMatcher(None, Module.squash(name), Module.squash(result['Title']))
+			score = s.ratio()
+			logger.debug("Search result %s (%s) scored %s"%(result['Title'], result['imdbID'], score))
+			if score > best and score > Module.MATCH_THRESHOLD:
+				best = score
+				bestresult = result
+		return bestresult
 
-def search_title(name, year=None):
-	url = API_BASE+"?f=json&s="+urllib.parse.quote(squash(name))
-	if year:
-		url += "&y="+year
-	logger.debug("Searching from %s"%url)
-	resource = urllib.request.urlopen(url)
-	raw_data = resource.read()
-	text_data = raw_data.decode('utf-8')
-	data = json.loads(text_data)
-	if not "Response" in data or data['Response']!="False":
-		result = find_best_match(name, data['Search'])
-		if result:
-			id = result['imdbID']
-			return parse_response(load_by_id(id))
-	return None
-	
-def parse_response(data):
-	logger.debug("Found %s (%s)"%(data['Title'],data['imdbID']))
-	result = {}
-	if 'Genre' in data: result['genres'] = splitter.split(data['Genre'])
-	if 'Writer' in data: result['writers'] = splitter.split(data['Writer'])
-	if 'Director' in data: result['directors'] = splitter.split(data['Director'])
-	if 'Actors' in data: result['actors'] = splitter.split(data['Actors'])
-	if 'Rated' in data: result['rated'] = data['Rated']
-	if 'Year' in data: result['year'] = int(re.sub('[^0-9]','',data['Year'])[0:4])
-	return result
+	def search_title(self, name, year=None):
+		url = API_BASE+"?f=json&s="+urllib.parse.quote(Module.squash(name))
+		if year:
+			url += "&y="+year
+		logger.debug("Searching from %s"%url)
+		resource = urllib.request.urlopen(url)
+		raw_data = resource.read()
+		text_data = raw_data.decode('utf-8')
+		data = json.loads(text_data)
+		if not "Response" in data or data['Response']!="False":
+			result = self.find_best_match(name, data['Search'])
+			if result:
+				id = result['imdbID']
+				return self.parse_response(self.load_by_id(id))
+		return None
+
+	def parse_response(self, data):
+		logger.debug("Found %s (%s)"%(data['Title'],data['imdbID']))
+		result = {}
+		if 'Genre' in data: result['genres'] = Module.splitter.split(data['Genre'])
+		if 'Writer' in data: result['writers'] = Module.splitter.split(data['Writer'])
+		if 'Director' in data: result['directors'] = Module.splitter.split(data['Director'])
+		if 'Actors' in data: result['actors'] = Module.splitter.split(data['Actors'])
+		if 'Rated' in data: result['rated'] = data['Rated']
+		if 'Year' in data: result['year'] = int(re.sub('[^0-9]','',data['Year'])[0:4])
+		return result

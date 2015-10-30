@@ -80,8 +80,10 @@ def load_item_metadata(options, settings, name):
 
 # Preparation
 def prepare_for_organization(settings):
+	all_parser_options = settings.get('parser_options', {})
 	for parser_name in settings['parsers']:
-		parser = load_parser(parser_name)
+		parser_options = all_parser_options.get(parser_name, {})
+		parser = load_parser(parser_name, parser_options)
 		if not parser:
 			raise errors.MissingParser("Set %s can't load parser %s"%(settings['name'], parser_name))
 	if not os.path.isdir(settings['sourceDir']):
