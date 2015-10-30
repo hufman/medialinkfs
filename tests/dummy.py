@@ -22,13 +22,21 @@ class TestDummy(_utils.TestAPI):
 		self.dummy_data = {"test": {
 		  "actors": ["Sir George"]
 		}}
+		self.dummy_data_2 = {"Dynomutt Dog Wonder": {
+		  "actors": ["Frank Welker"]
+		}}
 		self.tmpdir = tempfile.mkdtemp()
 		self.secret_settings = {
 			"name": "test",
 			"parsers": ["dummy"],
-			"parser_options": {"dummy": {
-				"data": self.dummy_data
-			}},
+			"parser_options": {
+			  "dummy": {
+			    "data": self.dummy_data
+			  },
+			  "dummy.2": {
+			    "data": self.dummy_data_2
+			  }
+			},
 			"scanMode": "directories",
 			"sourceDir": os.path.join(self.tmpdir, "All"),
 			"cacheDir": os.path.join(self.tmpdir, ".cache"),
@@ -214,7 +222,7 @@ class TestDummy(_utils.TestAPI):
 		# It should flush the cached data about Sir George because the new parser data
 		# However, it should merge the two actors sections
 		self.dummy_data['Dynomutt Dog Wonder']['actors'][0] = 'Sir Phil'
-		self.secret_settings['parsers'].append('omdbapi')
+		self.secret_settings['parsers'].append('dummy.2')
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
@@ -223,7 +231,7 @@ class TestDummy(_utils.TestAPI):
 
 		# Try it the other way
 		shutil.rmtree(self.settings['cacheDir'])
-		self.secret_settings['parsers'] = ['omdbapi', 'dummy']
+		self.secret_settings['parsers'] = ['dummy.2', 'dummy']
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.organize_set({}, self.settings)
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
