@@ -63,7 +63,7 @@ class TestFilters(unittest.TestCase):
 		self.assertFalse('decade' in res)
 
 	def test_decade_organize(self):
-		medialinkfs.organize.organize_set({}, self.settings)
+		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Year", "1979")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Decade", "1970")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Decades", "1970s")))
@@ -80,7 +80,7 @@ class TestFilters(unittest.TestCase):
 	def test_release_date_organize(self):
 		dummy.data['test']['release_date]'] = "1979-09-06"
 		res = self.quantizer.get_metadata(dummy.data['test'])
-		medialinkfs.organize.organize_set({}, self.settings)
+		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Year", "1979")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Decade", "1970")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Decades", "1970s")))

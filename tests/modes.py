@@ -48,7 +48,7 @@ class TestModes(unittest.TestCase):
 
 	def test_directories(self):
 		self.settings['scanMode'] = 'directories'
-		medialinkfs.organize.organize_set({}, self.settings)
+		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.exists(os.path.join(self.tmpdir, "Actors", "Sir George", "testdir")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George", "testdir")))
@@ -57,7 +57,7 @@ class TestModes(unittest.TestCase):
 
 	def test_files(self):
 		self.settings['scanMode'] = 'files'
-		medialinkfs.organize.organize_set({}, self.settings)
+		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertFalse(os.path.exists(os.path.join(self.tmpdir, "Actors", "Sir George", "testdir")))
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George", "testdir")))
@@ -66,7 +66,7 @@ class TestModes(unittest.TestCase):
 
 	def test_toplevel(self):
 		self.settings['scanMode'] = 'toplevel'
-		medialinkfs.organize.organize_set({}, self.settings)
+		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.exists(os.path.join(self.tmpdir, "Actors", "Sir George", "testdir")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George", "testdir")))
