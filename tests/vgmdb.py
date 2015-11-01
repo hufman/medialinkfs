@@ -30,6 +30,7 @@ class TestVGMDB(_utils.TestAPI):
 		self.assertEqual('RIKKI', res['performers'][0])
 		self.assertTrue('Shiro Hamaguchi' in res['arrangers'])
 		self.assertTrue('Final Fantasy X' in res['games'])
+		self.assertEqual('2004', res['year'])
 
 	def test_album_series(self):
 		res = self.parser.get_metadata({"path":"/Gyakuten Saiban 4 Original Soundtrack"})

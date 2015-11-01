@@ -132,6 +132,7 @@ Plugins
   * `performers`
   * `artists` - an alias of composers
   * `franchises`
+  * `year` - the release year of the album
 
 Configuration
 -------------

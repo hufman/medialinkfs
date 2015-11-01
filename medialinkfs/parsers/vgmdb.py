@@ -38,6 +38,8 @@ class Module(object):
 				data[type] = [x['names']['en'] for x in album_data[type]]
 		if 'products' in album_data:
 			data['games'] = [x['names']['en'] for x in album_data['products']]
+		if 'release_date' in album_data:
+			data['year'] = album_data['release_date'][0:4]
 		if len(album_data['composers']) > 0:
 			data['artists'] = [x['names']['en'] for x in album_data['composers']]
 			data['artist'] = data['artists'][0]
