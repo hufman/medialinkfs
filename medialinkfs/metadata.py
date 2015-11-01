@@ -12,8 +12,8 @@ logger = logging.getLogger(__name__)
 class Metadata(object):
 	def __init__(self, settings):
 		self.settings = settings
-		self.cache_dir = self.settings['cacheDir']
 		self.cache = cache.Cache(self.settings)
+		self.cache_dir = self.cache.get_cache_dir()
 		self.parsers = {}
 		self.load_parsers()
 

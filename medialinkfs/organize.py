@@ -36,6 +36,7 @@ class OrganizeSet(object):
 		self.settings = settings
 		self.validate_settings()
 		self.metadata = metadata.Metadata(settings)
+		self.cache_dir = self.metadata.cache.get_cache_dir()
 
 	def fetch_set(self):
 		logger.info("Beginning to fetch metadata for %s"%(self.settings['name'],))
@@ -109,7 +110,7 @@ class OrganizeSet(object):
 					raise errors.MissingDestDir("Set %s is missing an output directory %s"%(self.settings['name'], output_dir['dest']))
 
 	def prepare_for_organization(self):
-		OrganizeSet.prepare_cache_dir(self.settings['cacheDir'])
+		OrganizeSet.prepare_cache_dir(self.cache_dir)
 
 	@staticmethod
 	def prepare_cache_dir(cache_dir):
@@ -121,29 +122,29 @@ class OrganizeSet(object):
 
 	# Progress tracking
 	def load_progress(self):
-		progress_filename = os.path.join(self.settings['cacheDir'], 'progress')
+		progress_filename = os.path.join(self.cache_dir, 'progress')
 		if os.path.isfile(progress_filename):
 			progress_file = open(progress_filename,'r')
 			return [x.strip() for x in progress_file.readlines() if x.strip()!='']
 		return []
 
 	def start_progress(self):
-		failed = os.path.join(self.settings['cacheDir'], 'failed.log')
+		failed = os.path.join(self.cache_dir, 'failed.log')
 		if os.path.isfile(failed):
 			os.unlink(failed)
-		unknown = os.path.join(self.settings['cacheDir'], 'unknown.log')
+		unknown = os.path.join(self.cache_dir, 'unknown.log')
 		if os.path.isfile(unknown):
 			os.unlink(unknown)
 
 	def add_progress(self, name):
-		progress_filename = os.path.join(self.settings['cacheDir'], 'progress')
+		progress_filename = os.path.join(self.cache_dir, 'progress')
 		with open(progress_filename,'a') as progress_file:
 			progress_file.write("%s\n"%(name,))
 
 	def finish_progress(self):
 		if not ('noclean' in self.settings and self.settings['noclean']):
 			self.cleanup_extra_output()
-		progress_filename = os.path.join(self.settings['cacheDir'], 'progress')
+		progress_filename = os.path.join(self.cache_dir, 'progress')
 		if os.path.isfile(progress_filename):
 			os.unlink(progress_filename)
 
@@ -225,7 +226,7 @@ class OrganizeSet(object):
 		# any other directories we need, and should not delete
 		extra_paths = []
 		extra_paths.append(self.settings['sourceDir'])
-		extra_paths.append(self.settings['cacheDir'])
+		extra_paths.append(self.cache_dir)
 		extra_paths.extend([o['dest'] for o in self.settings['output']])
 
 		# load the list of proper files in this dir
