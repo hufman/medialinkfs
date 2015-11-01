@@ -20,16 +20,28 @@ class Module(object):
 		self.parser_options = parser_options
 
 	def get_metadata(self, metadata):
+		""" Search for an item's metadata
+		    Returns the best match, or None
+		"""
+		(result, otherresults) = self.search_metadata(metadata)
+		return result
+
+	def search_metadata(self, metadata):
+		""" Search for an item's metadata
+		    Returns a tuple of:
+		      closest match, if any
+		      all other close matches, sorted by descending closeness
+		"""
 		path = metadata['path']
 		if 'name' in metadata:
 			name = metadata['name']
 		else:
 			name = os.path.basename(path)
 		logger.debug("Loading metadata for %s"%name)
-		result = self.search_for_album(name)
+		(result, otherresults) = self.search_for_album(name)
 		if not result:
 			logger.debug("Found no metadata for %s"%name)
-			return None	# couldn't find a match
+			return (result, otherresults)	# couldn't find a match
 		album_data = self.load_json_data(result['link'])
 		franchises = self.load_album_franchises(album_data)
 		data = {}
@@ -46,7 +58,7 @@ class Module(object):
 		if len(franchises) > 0:
 			data['franchise'] = franchises[0]['name']
 			data['franchises'] = [x['name'] for x in franchises]
-		return data
+		return (data, otherresults)
 
 	def search_for_album(self, name):
 		name = Module.squash(name)
@@ -57,8 +69,8 @@ class Module(object):
 		text_data = raw_data.decode('utf-8')
 		data = json.loads(text_data)
 		results = data['results']['albums']
-		result = self.find_match(name, results)
-		return result
+		(result, otherresults) = self.find_match(name, results)
+		return (result, otherresults)
 
 	@staticmethod
 	def squash(s):
@@ -67,13 +79,23 @@ class Module(object):
 	def find_match(self, name, results):
 		best = 0
 		bestresult = None
+		otherresults = []
 		for result in results:
 			score = Module.score_best_match(name, result['titles'].values())
 			logger.debug("Search result %s scored %s"%(result['titles']['en'], score))
 			if score > best and score > MATCH_THRESHOLD:
 				best = score
 				bestresult = result
-		return bestresult
+			# todo
+			#if score == best and score > MATCH_THRESHOLD:
+			#	# older albums win
+			#	if result['release_date'] < bestresult['release_date']:
+			#		best = score
+			#		bestresult = result
+		otherresults = list(results)
+		if bestresult:
+			otherresults.remove(bestresult)
+		return (bestresult, otherresults)
 
 	@staticmethod
 	def score_best_match(name, matches):

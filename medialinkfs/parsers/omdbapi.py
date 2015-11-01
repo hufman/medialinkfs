@@ -21,6 +21,18 @@ class Module(object):
 		self.parser_options = parser_options
 
 	def get_metadata(self, metadata):
+		""" Search for an item's metadata
+		    Returns the best match, or None
+		"""
+		(result, otherresults) = self.search_metadata(metadata)
+		return result
+
+	def search_metadata(self, metadata):
+		""" Search for an item's metadata
+		    Returns a tuple of:
+		      closest match, if any
+		      all other close matches, sorted by descending closeness
+		"""
 		path = metadata['path']
 		if 'name' in metadata:
 			name = metadata['name']
@@ -33,12 +45,12 @@ class Module(object):
 				name = Module.yearfinder.sub('',name).strip()
 				year = yearfound.group(1)
 		logger.debug("Loading metadata for %s"%name)
-		result = self.load_title(name, year)
+		(result, otherresults) = self.load_title(name, year)
 		if not result:
-			result = self.search_title(name, year)
+			(result, otherresults) = self.search_title(name, year)
 			if not result:
 				logger.debug("Found no metadata for %s"%name)
-		return result
+		return (result, otherresults)
 
 	def load_by_id(self, tt):
 		url = API_BASE+"?f=json&i="+urllib.parse.quote(tt)
@@ -58,9 +70,9 @@ class Module(object):
 		text_data = raw_data.decode('utf-8')
 		data = json.loads(text_data)
 		if 'Response' in data and data['Response']=='True':
-			return self.parse_response(data)
+			result = (self.parse_response(data), [])
 		else:
-			result = None
+			result = (None, [])
 		return result
 
 	@staticmethod
@@ -74,6 +86,7 @@ class Module(object):
 	def find_best_match(self, name, results):
 		best = 0
 		bestresult = None
+		otherresults = []
 		for result in results:
 			s = difflib.SequenceMatcher(None, Module.squash(name), Module.squash(result['Title']))
 			score = s.ratio()
@@ -81,7 +94,10 @@ class Module(object):
 			if score > best and score > Module.MATCH_THRESHOLD:
 				best = score
 				bestresult = result
-		return bestresult
+		otherresults = list(results)
+		if bestresult:
+			otherresults.remove(bestresult)
+		return (bestresult, otherresults)
 
 	def search_title(self, name, year=None):
 		url = API_BASE+"?f=json&s="+urllib.parse.quote(Module.squash(name))
@@ -93,11 +109,12 @@ class Module(object):
 		text_data = raw_data.decode('utf-8')
 		data = json.loads(text_data)
 		if not "Response" in data or data['Response']!="False":
-			result = self.find_best_match(name, data['Search'])
+			(result, otherresults) = self.find_best_match(name, data['Search'])
 			if result:
 				id = result['imdbID']
-				return self.parse_response(self.load_by_id(id))
-		return None
+				result = self.parse_response(self.load_by_id(id))
+			return (result, otherresults)
+		return (None, [])
 
 	def parse_response(self, data):
 		logger.debug("Found %s (%s)"%(data['Title'],data['imdbID']))

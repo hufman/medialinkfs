@@ -22,22 +22,29 @@ class TestMetadata(unittest.TestCase):
 		self.assertEqual(0, len(self.metadata))
 
 	def test_single(self):
-		self.metadata.add_source("base", {"name": "Test"})
+		self.metadata.add_source("base", {"name": "Test"}, None)
 		self.assertTrue('name' in self.metadata)
 		self.assertEqual('Test', self.metadata['name'])
 	def test_separate(self):
-		self.metadata.add_source("base", {"name": "Test"})
-		self.metadata.add_source("next", {"value": "Value"})
+		self.metadata.add_source("base", {"name": "Test"}, None)
+		self.metadata.add_source("next", {"value": "Value"}, None)
 		self.assertTrue('name' in self.metadata)
 		self.assertEqual('Test', self.metadata['name'])
 		self.assertTrue('value' in self.metadata)
 		self.assertEqual('Value', self.metadata['value'])
 	def test_override(self):
-		self.metadata.add_source("base", {"name": "Test"})
-		self.metadata.add_source("next", {"name": "Value"})
+		self.metadata.add_source("base", {"name": "Test"}, None)
+		self.metadata.add_source("next", {"name": "Value"}, None)
 		self.assertTrue('name' in self.metadata)
 		self.assertEqual('Value', self.metadata['name'])
 		self.assertFalse('value' in self.metadata)
+	def test_results(self):
+		self.metadata.add_source("base", {"name": "Test"}, [{"result":False}])
+		self.metadata.add_source("next", {"name": "Value"}, None)
+		self.assertTrue('name' in self.metadata)
+		self.assertEqual('Value', self.metadata['name'])
+		self.assertFalse('value' in self.metadata)
+		self.assertEqual(1, len(self.metadata.results['base']))
 
 class TestDeepMerge(unittest.TestCase):
 	def setUp(self):

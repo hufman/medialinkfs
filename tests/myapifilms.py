@@ -35,3 +35,13 @@ class Testmyapifilms(_utils.TestAPI):
 		res = self.parser.get_metadata({"path":"/Star Trek: The Next Generation","type":"tv series"})
 		self.assertNotEqual(None, res)
 		self.assertEqual(1987, res['year'])
+
+	def test_goodwillhunting_list(self):
+		res = self.parser.search_metadata({"path":"/Good Will Hunting (1997)"})
+		self.assertNotEqual(None, res)
+		self.assertEqual(2, len(res))
+		self.assertEqual(0, len(res[1]))
+		result = res[0]
+		self.assertEqual(1997, result['year'])
+		self.assertEqual(8.3, result['rating'])
+		self.assertIn('Matt Damon', result['actors'])

@@ -24,6 +24,18 @@ class Module(object):
 		self.parser_options = parser_options
 
 	def get_metadata(self, metadata):
+		""" Search for an item's metadata
+		    Returns the best match, or None
+		"""
+		(result, otherresults) = self.search_metadata(metadata)
+		return result
+
+	def search_metadata(self, metadata):
+		""" Search for an item's metadata
+		    Returns a tuple of:
+		      closest match, if any
+		      all other close matches, sorted by descending closeness
+		"""
 		path = metadata['path']
 		if 'name' in metadata:
 			name = metadata['name']
@@ -36,10 +48,10 @@ class Module(object):
 				name = Module.yearfinder.sub('',name).strip()
 				year = yearfound.group(1)
 		logger.debug("Loading metadata for %s from MyApiFilms"%name)
-		result = self.search_title(name, year)
+		(result, otherresults) = self.search_title(name, year)
 		if not result:
 			logger.debug("Found no metadata for %s from MyApiFilms"%name)
-		return result
+		return (result, otherresults)
 
 	@staticmethod
 	def squash(s):
@@ -85,10 +97,9 @@ class Module(object):
 		text_data = raw_data.decode('utf-8')
 		data = json.loads(text_data)
 		if isinstance(data, list):	# results
-			result = data[0];
-			if result:
-				return Module.parse_response(result)
-		return None
+			results = [Module.parse_response(result) for result in data]
+			return results[0], results[1:]
+		return None, []
 
 	@staticmethod
 	def parse_response(data):

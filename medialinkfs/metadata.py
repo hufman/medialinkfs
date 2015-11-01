@@ -12,20 +12,22 @@ logger = logging.getLogger(__name__)
 class Metadata(object):
 	""" A smart object to combine metadata from several plugins """
 	def __init__(self):
-		self.metadata = {}
-		self.sources = []
-		self.view = {}
+		self.sources = []	# the order of plugins
+		self.metadata = {}	# primary metadata
+		self.results = {}	# other results from search plugin
+		self.view = {}		# the combined view
 
 	# Add a new set of data to this metadata
-	def add_source(self, name, metadata):
+	def add_source(self, name, metadata, results):
 		""" Adds a new source of metadata, and update the view """
-		self._add_source(name, metadata)
+		self._add_source(name, metadata, results)
 		self._update_view(name)
 
-	def _add_source(self, name, metadata):
+	def _add_source(self, name, metadata, results):
 		""" Adds a new source of metadata, without updating the view """
 		self.sources.append(name)
 		self.metadata[name] = metadata
+		self.results[name] = results
 
 	# Maintain the simple key access data
 	def _rebuild_view(self):
@@ -61,15 +63,17 @@ class Metadata(object):
 		""" Save this object to be stored to cache """
 		return {'sources': self.sources,
 		        'metadata': self.metadata,
+		        'results': self.results,
 		        'itemname': self['itemname']}
 	@staticmethod
 	def deserialize(serialized):
 		""" Loads a metadata object from a cache serialization """
 		order = serialized.get('order', [])
 		raw_metadata = serialized.get('metadata', {})
+		results = serialized.get('results', {})
 		metadata = Metadata()
 		for name in serialized.get('sources', []):
-			metadata._add_source(name, raw_metadata.get(name, {}))
+			metadata._add_source(name, raw_metadata.get(name, {}), results.get(name, {}))
 		metadata._rebuild_view()
 		return metadata
 
@@ -99,11 +103,16 @@ class MetadataLoader(object):
 	def fetch_item(self, path, name):
 		logger.debug("Fetching metadata for %s"%(name,))
 		new_metadata = Metadata()
-		new_metadata.add_source('name', {"itemname":name, "path":path})
+		new_metadata.add_source('name', {"itemname":name, "path":path}, None)
 		for parser_name in self.settings['parsers']:
 			parser = self.parsers[parser_name]
 			try:
-				item_metadata = parser.get_metadata(dict(new_metadata))
+				item_metadata = None
+				other_results = None
+				if hasattr(parser, 'search_metadata'):
+					(item_metadata, other_results) = parser.search_metadata(dict(new_metadata))
+				else:
+					item_metadata = parser.get_metadata(dict(new_metadata))
 				if item_metadata == None:
 					self.log_unknown_item(parser_name, name)
 					continue
@@ -112,7 +121,7 @@ class MetadataLoader(object):
 			except:
 				self.log_crashed_parser(parser_name, name)
 				continue
-			new_metadata.add_source(parser_name, item_metadata)
+			new_metadata.add_source(parser_name, item_metadata, other_results)
 		self.cache.save(new_metadata.serialize())
 		return new_metadata
 

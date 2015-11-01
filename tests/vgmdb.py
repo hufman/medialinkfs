@@ -45,3 +45,40 @@ class TestVGMDB(_utils.TestAPI):
 		self.assertEqual(1, len(res['franchises']))
 		self.assertEqual('Ace Attorney', res['franchise'])
 		self.assertEqual('Ace Attorney', res['franchises'][0])
+
+	def test_album_list(self):
+		res = self.parser.search_metadata({"path":"/Suteki Da Ne featured in Final Fantasy X"})
+		self.assertNotEqual(None, res)
+		self.assertEqual(1, len(res[1]))	# one other result
+		result = res[0]
+		self.assertEqual(2, len(result['artists']))
+		self.assertEqual(2, len(result['composers']))
+		self.assertEqual(10, len(result['performers']))
+		self.assertEqual('Nobuo Uematsu', result['artist'])
+		self.assertEqual('Nobuo Uematsu', result['artists'][0])
+		self.assertEqual('Nobuo Uematsu', result['composers'][0])
+		self.assertEqual('RIKKI', result['performers'][0])
+		self.assertTrue('Shiro Hamaguchi' in result['arrangers'])
+		self.assertTrue('Final Fantasy X' in result['games'])
+		self.assertEqual('2004', result['year'])
+		result = res[1][0]
+		self.assertEqual('2001-07-18', result['release_date'])
+		self.assertEqual('SSCX-10053', result['catalog'])
+
+	def test_album_series_list(self):
+		res = self.parser.search_metadata({"path":"/Gyakuten Saiban 4 Original Soundtrack"})
+		self.assertNotEqual(None, res)
+		self.assertEqual(7, len(res[1]))
+		result = res[0]
+		self.assertEqual(4, len(result['artists']))
+		self.assertEqual(4, len(result['composers']))
+		self.assertEqual('Toshihiko Horiyama', result['artist'])
+		self.assertEqual('Toshihiko Horiyama', result['artists'][0])
+		self.assertEqual('Akemi Kimura', result['artists'][3])
+		self.assertEqual('Toshihiko Horiyama', result['composers'][0])
+		self.assertEqual('Akemi Kimura', result['composers'][3])
+		self.assertEqual(1, len(result['franchises']))
+		self.assertEqual('Ace Attorney', result['franchise'])
+		self.assertEqual('Ace Attorney', result['franchises'][0])
+		result = sorted(res[1], key=lambda x: x['catalog'])[0]
+		self.assertEqual('Gyakuten Saiban Yomigaeru Gyakuten Original Soundtrack', result['titles']['en'])
