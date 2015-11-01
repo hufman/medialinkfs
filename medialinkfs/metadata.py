@@ -13,6 +13,7 @@ class Metadata(object):
 	def __init__(self, settings):
 		self.settings = settings
 		self.cache_dir = self.settings['cacheDir']
+		self.cache = cache.Cache(self.settings)
 		self.parsers = {}
 		self.load_parsers()
 
@@ -26,7 +27,7 @@ class Metadata(object):
 
 	def load_item(self, name):
 		logger.debug("Loading metadata for %s from cache"%(name,))
-		cached_metadata = cache.load(self.settings, name)
+		cached_metadata = self.cache.load(name)
 		return cached_metadata
 
 	def fetch_item(self, name):
@@ -46,7 +47,7 @@ class Metadata(object):
 				self.log_crashed_parser(parser_name, name)
 				continue
 			deep_merge(new_metadata, item_metadata)
-		cache.save(self.settings, new_metadata)
+		self.cache.save(new_metadata)
 		return new_metadata
 
 	# Logging
