@@ -37,7 +37,7 @@ class OrganizeSet(object):
 		self.source_list = sourcelist.SourceItems(self.settings)
 		self.source_dir = self.source_list.get_source_dir()
 		self.validate_settings()
-		self.metadata = metadata.Metadata(settings)
+		self.metadata = metadata.MetadataLoader(settings)
 		self.cache_dir = self.metadata.cache.get_cache_dir()
 
 	def fetch_set(self):

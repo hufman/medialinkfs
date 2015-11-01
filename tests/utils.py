@@ -8,11 +8,38 @@ import logging
 logging.basicConfig(level=logging.DEBUG, filename='tests.log')
 
 import medialinkfs
+import medialinkfs.metadata as metadata
 import medialinkfs.deepmerge as deepmerge
 
 base = os.path.dirname(__file__)
 
-class TestUtils(unittest.TestCase):
+class TestMetadata(unittest.TestCase):
+	def setUp(self):
+		logging.debug("Initializing unittest %s"%(self.id(),))
+		self.metadata = metadata.Metadata()
+
+	def test_empty(self):
+		self.assertEqual(0, len(self.metadata))
+
+	def test_single(self):
+		self.metadata.add_source("base", {"name": "Test"})
+		self.assertTrue('name' in self.metadata)
+		self.assertEqual('Test', self.metadata['name'])
+	def test_separate(self):
+		self.metadata.add_source("base", {"name": "Test"})
+		self.metadata.add_source("next", {"value": "Value"})
+		self.assertTrue('name' in self.metadata)
+		self.assertEqual('Test', self.metadata['name'])
+		self.assertTrue('value' in self.metadata)
+		self.assertEqual('Value', self.metadata['value'])
+	def test_override(self):
+		self.metadata.add_source("base", {"name": "Test"})
+		self.metadata.add_source("next", {"name": "Value"})
+		self.assertTrue('name' in self.metadata)
+		self.assertEqual('Value', self.metadata['name'])
+		self.assertFalse('value' in self.metadata)
+
+class TestDeepMerge(unittest.TestCase):
 	def setUp(self):
 		logging.debug("Initializing unittest %s"%(self.id(),))
 
