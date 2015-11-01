@@ -5,6 +5,7 @@ import re
 class SourceItems(object):
 	def __init__(self, settings):
 		self.settings = settings
+		self.source_dir = self.get_source_dir()
 		self._cache = None
 
 	def __iter__(self):
@@ -16,16 +17,20 @@ class SourceItems(object):
 		if self._cache is None:
 			self._cache = self.load_items()
 		return self._cache
+
+	def get_source_dir(self):
+		return self.settings['sourceDir']
+
 	def load_items(self):
 		regex = None
 		if 'regex' in self.settings:
 			regex = re.compile(self.settings['regex'])
 		omitted_dirs = self._generate_omitted_dirs()
-		files = os.listdir(self.settings['sourceDir'])
+		files = os.listdir(self.source_dir)
 		files = sorted(files)
 		if self.settings['scanMode'] in ['directories', 'files', 'toplevel']:
 			for name in files:
-				path = os.path.join(self.settings['sourceDir'], name)
+				path = os.path.join(self.source_dir, name)
 				if path in omitted_dirs:
 					continue
 				if self.settings['scanMode'] != 'toplevel':

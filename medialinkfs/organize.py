@@ -34,6 +34,8 @@ class OrganizeSet(object):
 	def __init__(self, options, settings):
 		self.options = options
 		self.settings = settings
+		self.source_list = sourcelist.SourceItems(self.settings)
+		self.source_dir = self.source_list.get_source_dir()
 		self.validate_settings()
 		self.metadata = metadata.Metadata(settings)
 		self.cache_dir = self.metadata.cache.get_cache_dir()
@@ -46,8 +48,7 @@ class OrganizeSet(object):
 		else:
 			logger.info("Resuming progress after %s items"%(len(processed_files)))
 
-		items = sourcelist.SourceItems(self.settings)
-		for name in items:
+		for name in self.source_list:
 			if name in processed_files:
 				continue
 			self.fetch_item_metadata(name)
@@ -63,8 +64,7 @@ class OrganizeSet(object):
 		else:
 			logger.info("Resuming progress after %s items"%(len(processed_files)))
 
-		items = sourcelist.SourceItems(self.settings)
-		for name in items:
+		for name in self.source_list:
 			if name in processed_files:
 				continue
 			self.organize_item(name)
@@ -76,12 +76,12 @@ class OrganizeSet(object):
 		output.do_output(self.options, self.settings, metadata)
 
 	def fetch_item_metadata(self, name):
-		fresh_metadata = self.metadata.fetch_item(name)
+		path = os.path.join(self.source_dir, name)
+		fresh_metadata = self.metadata.fetch_item(path, name)
 		return fresh_metadata
 
 	def load_item_metadata(self, name):
 		logger.debug("Loading metadata for %s"%(name,))
-		path = os.path.join(self.settings['sourceDir'], name)
 		if not self.options.get('ignore_cache', False):	# if the user didn't say to ignore the cache
 			cached_metadata = self.metadata.load_item(name)
 			if 'itemname' in cached_metadata:	# valid cached data
@@ -99,10 +99,10 @@ class OrganizeSet(object):
 			if not parser:
 				raise errors.MissingParser("Set %s can't load parser %s"%(self.settings['name'], parser_name))
 		# check that we have a source dir
-		if not os.path.isdir(self.settings['sourceDir']):
-			raise errors.MissingSourceDir("Set %s has an invalid sourceDir %s"%(self.settings['name'], self.settings['sourceDir']))
+		if not os.path.isdir(self.source_dir):
+			raise errors.MissingSourceDir("Set %s has an invalid sourceDir %s"%(self.settings['name'], self.source_dir))
 		if 'cacheDir' not in self.settings:
-			self.settings['cacheDir'] = os.path.join(self.settings['sourceDir'], '.cache')
+			self.settings['cacheDir'] = os.path.join(self.source_dir, '.cache')
 		# check that we have an output dir
 		if 'output' in self.settings:
 			for output_dir in self.settings['output']:
@@ -225,7 +225,7 @@ class OrganizeSet(object):
 
 		# any other directories we need, and should not delete
 		extra_paths = []
-		extra_paths.append(self.settings['sourceDir'])
+		extra_paths.append(self.source_dir)
 		extra_paths.append(self.cache_dir)
 		extra_paths.extend([o['dest'] for o in self.settings['output']])
 

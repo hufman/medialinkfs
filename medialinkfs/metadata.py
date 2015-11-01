@@ -30,9 +30,8 @@ class Metadata(object):
 		cached_metadata = self.cache.load(name)
 		return cached_metadata
 
-	def fetch_item(self, name):
+	def fetch_item(self, path, name):
 		logger.debug("Fetching metadata for %s"%(name,))
-		path = os.path.join(self.settings['sourceDir'], name)
 		new_metadata = {"itemname":name, "path":path}
 		for parser_name in self.settings['parsers']:
 			parser = self.parsers[parser_name]
