@@ -13,6 +13,16 @@ class Metadata(object):
 	def __init__(self, settings):
 		self.settings = settings
 		self.cache_dir = self.settings['cacheDir']
+		self.parsers = {}
+		self.load_parsers()
+
+	def load_parsers(self):
+		""" Pre-load parser objects """
+		for parser_name in self.settings['parsers']:
+			all_parser_options = self.settings.get('parser_options', {})
+			parser_options = all_parser_options.get(parser_name, {})
+			parser = load_parser(parser_name, parser_options)
+			self.parsers[parser_name] = parser
 
 	def load_item(self, name):
 		logger.debug("Loading metadata for %s from cache"%(name,))
@@ -24,9 +34,7 @@ class Metadata(object):
 		path = os.path.join(self.settings['sourceDir'], name)
 		new_metadata = {"itemname":name, "path":path}
 		for parser_name in self.settings['parsers']:
-			all_parser_options = self.settings.get('parser_options', {})
-			parser_options = all_parser_options.get(parser_name, {})
-			parser = load_parser(parser_name, parser_options)
+			parser = self.parsers[parser_name]
 			try:
 				item_metadata = parser.get_metadata(dict(new_metadata))
 				if item_metadata == None:
