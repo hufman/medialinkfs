@@ -14,14 +14,14 @@ def get_output_links(options, settings, metadata):
 	itempath = metadata['path']
 	for group in settings['output']:
 		destdir = group['dest']
-		if isinstance(group['groupBy'], str):
-			groupsBy = [group['groupBy']]
+		if isinstance(group['group_by'], str):
+			groups_by = [group['group_by']]
 		else:
-			groupsBy = group['groupBy']
-		for groupBy in groupsBy:
-			if not groupBy in metadata:
+			groups_by = group['group_by']
+		for group_by in groups_by:
+			if not group_by in metadata:
 				continue
-			value = metadata[groupBy]
+			value = metadata[group_by]
 			if isinstance(value,str):
 				values = [value]
 			else:

@@ -6,32 +6,32 @@ default_settings:
 sets:
   - name: GameMusic
     parsers: [vgmdb]
-    scanMode: directories
-    sourceDir: /media/music/Game Music/Mp3/Albums
-    cacheDir: /media/music/Game Music/Mp3/Albums/.cache
+    scan_mode: directories
+    source_dir: /media/music/Game Music/Mp3/Albums
+    cache_dir: /media/music/Game Music/Mp3/Albums/.cache
     output:
        - dest: /media/music/Game Music/Mp3/Artists
-         groupBy: [artists, arrangers]
+         group_by: [artists, arrangers]
        - dest: /media/music/Game Music/Mp3/Series
-         groupBy: franchise
+         group_by: franchise
   - name: TV
     #fakeclean: true
     parsers: [freebase,quantizer]
     parser_options:
       freebase:
         type: /tv/tv_program
-    scanMode: directories
-    sourceDir: /media/video/tv/All
-    cacheDir: /media/video/tv/.cache
+    scan_mode: directories
+    source_dir: /media/video/tv/All
+    cache_dir: /media/video/tv/.cache
     output:
       - dest: /media/video/tv/Genres
-        groupBy: genres
+        group_by: genres
       - dest: /media/video/tv/Decades
-        groupBy: decades
+        group_by: decades
       - dest: /media/video/tv/Writers
-        groupBy: writers
+        group_by: writers
       - dest: /media/video/actors
-        groupBy: actors
+        group_by: actors
 
   - name: Movies
     #fakeclean: true
@@ -39,29 +39,29 @@ sets:
     parser_options:
       freebase:
         type: /film/film
-    scanMode: directories
-    sourceDir: /media/video/movies/All
-    cacheDir: /media/video/movies/.cache
+    scan_mode: directories
+    source_dir: /media/video/movies/All
+    cache_dir: /media/video/movies/.cache
     output:
       - dest: /media/video/movies/Genres
-        groupBy: genres
+        group_by: genres
       - dest: /media/video/movies/Composers
-        groupBy: composers
+        group_by: composers
       - dest: /media/video/movies/Directors
-        groupBy: directors
+        group_by: directors
       - dest: /media/video/movies/Decades
-        groupBy: decades
+        group_by: decades
       - dest: /media/video/movies/Series
-        groupBy: series
+        group_by: series
       - dest: /media/video/actors
-        groupBy: actors
+        group_by: actors
 
   - name: Songs
     parsers: [id3]
-    scanMode: files
-    sourceDir: /media/music/Songs
-    cacheDir: /tmp/songcache
+    scan_mode: files
+    source_dir: /media/music/Songs
+    cache_dir: /tmp/songcache
     regex: \.mp3$
     output:
       - dest: /tmp/songs
-        groupBy: album
+        group_by: album

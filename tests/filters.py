@@ -24,18 +24,18 @@ class TestFilters(unittest.TestCase):
 		self.settings = {
 			"name": "test",
 			"parsers": ["dummy","quantizer"],
-			"scanMode": "directories",
-			"sourceDir": os.path.join(self.tmpdir, "All"),
-			"cacheDir": os.path.join(self.tmpdir, ".cache"),
+			"scan_mode": "directories",
+			"source_dir": os.path.join(self.tmpdir, "All"),
+			"cache_dir": os.path.join(self.tmpdir, ".cache"),
 			"output": [{
 				"dest": os.path.join(self.tmpdir, "Year"),
-				"groupBy": "year"
+				"group_by": "year"
 			},{
 				"dest": os.path.join(self.tmpdir, "Decade"),
-				"groupBy": "decade"
+				"group_by": "decade"
 			},{
 				"dest": os.path.join(self.tmpdir, "Decades"),
-				"groupBy": "decades"
+				"group_by": "decades"
 			}]
 		}
 		os.mkdir(os.path.join(self.tmpdir, "All"))

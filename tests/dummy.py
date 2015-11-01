@@ -37,12 +37,12 @@ class TestDummy(_utils.TestAPI):
 			    "data": self.dummy_data_2
 			  }
 			},
-			"scanMode": "directories",
-			"sourceDir": os.path.join(self.tmpdir, "All"),
-			"cacheDir": os.path.join(self.tmpdir, ".cache"),
+			"scan_mode": "directories",
+			"source_dir": os.path.join(self.tmpdir, "All"),
+			"cache_dir": os.path.join(self.tmpdir, ".cache"),
 			"output": [{
 				"dest": os.path.join(self.tmpdir, "Actors"),
-				"groupBy": "actors"
+				"group_by": "actors"
 			}]
 		}
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
@@ -83,7 +83,7 @@ class TestDummy(_utils.TestAPI):
 		os.mkdir(os.path.join(self.tmpdir, "All", 'test2'))
 		self.dummy_data['test2'] = self.dummy_data['test']
 		del(self.dummy_data['test'])
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
@@ -93,7 +93,7 @@ class TestDummy(_utils.TestAPI):
 
 		# does it change the link if the metadata changes
 		self.dummy_data['test2']['actors'][0] = 'Sir Phil'
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
@@ -140,7 +140,7 @@ class TestDummy(_utils.TestAPI):
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test")))
 
 		# now clear the cache and make sure it updates
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
@@ -149,7 +149,7 @@ class TestDummy(_utils.TestAPI):
 	def test_dummy_nocachedir(self):
 		# does it create the link
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "All", ".cache")))
-		del self.secret_settings['cacheDir']
+		del self.secret_settings['cache_dir']
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "All", ".cache")))
@@ -166,7 +166,7 @@ class TestDummy(_utils.TestAPI):
 		self.secret_settings['fakeclean'] = False
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		self.dummy_data['test']['actors'] = ['Sir Phil']
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
@@ -177,7 +177,7 @@ class TestDummy(_utils.TestAPI):
 		self.secret_settings['fakeclean'] = True
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		self.dummy_data['test']['actors'] = []
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
@@ -189,7 +189,7 @@ class TestDummy(_utils.TestAPI):
 		self.secret_settings['noclean'] = False
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		self.dummy_data['test']['actors'] = ['Sir Harry']
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test")))
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
@@ -200,7 +200,7 @@ class TestDummy(_utils.TestAPI):
 		self.secret_settings['noclean'] = True
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		self.dummy_data['test']['actors'] = []
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertFalse(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir Phil", "test")))
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir Phil")))
@@ -209,8 +209,8 @@ class TestDummy(_utils.TestAPI):
 
 	def test_dummy_deepmerge(self):
 		# does it create the link
-		os.rmdir(os.path.join(self.settings['sourceDir'], 'test'))
-		os.mkdir(os.path.join(self.settings['sourceDir'], 'Dynomutt Dog Wonder'))
+		os.rmdir(os.path.join(self.settings['source_dir'], 'test'))
+		os.mkdir(os.path.join(self.settings['source_dir'], 'Dynomutt Dog Wonder'))
 		self.dummy_data['Dynomutt Dog Wonder'] = {}
 		self.dummy_data['Dynomutt Dog Wonder']['actors'] = ['Sir George']
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
@@ -230,7 +230,7 @@ class TestDummy(_utils.TestAPI):
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Frank Welker")))
 
 		# Try it the other way
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		self.secret_settings['parsers'] = ['dummy.2', 'dummy']
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
@@ -246,13 +246,13 @@ class TestDummy(_utils.TestAPI):
 
 		# create the extra bits
 		george = os.path.join(self.tmpdir, 'Actors', 'Sir George')
-		os.symlink(os.path.join(self.settings['sourceDir'], 'test'),\
+		os.symlink(os.path.join(self.settings['source_dir'], 'test'),\
 		        os.path.join(george, 'test.extra'))
 		with open(os.path.join(george, '.toc.extra'), 'w') as extra:
 			extra.write("test.extra\n")
 
 		# run the organization again, make sure it didn't delete our extra
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		self.dummy_data['test']['actors'][0] = 'Sir Phil'
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isfile(os.path.join(george, '.toc.extra')))
@@ -279,7 +279,7 @@ class TestDummy(_utils.TestAPI):
 			output.write("test file\n")
 
 		# run the organization again, make sure it doesn't delete our file
-		shutil.rmtree(self.settings['cacheDir'])
+		shutil.rmtree(self.settings['cache_dir'])
 		self.dummy_data['test']['actors'][0] = 'Sir Phil'
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
@@ -302,12 +302,12 @@ class TestDummy(_utils.TestAPI):
 				"parser_options": {"dummy": {
 					"data": self.dummy_data
 				}},
-				"scanMode": "directories",
-				"sourceDir": os.path.join(newtmp),
-				"cacheDir": os.path.join(newtmp, ".cache"),
+				"scan_mode": "directories",
+				"source_dir": os.path.join(newtmp),
+				"cache_dir": os.path.join(newtmp, ".cache"),
 				"output": [{
 					"dest": os.path.join(self.tmpdir, "Actors"),
-					"groupBy": "actors"
+					"group_by": "actors"
 				}]
 			}
 			os.mkdir(os.path.join(newtmp, 'test2'))
@@ -323,7 +323,7 @@ class TestDummy(_utils.TestAPI):
 			# try it with the old .toc.done file
 			os.rename(os.path.join(self.tmpdir, "Actors", "Sir George", ".toc.done-test"), \
 			          os.path.join(self.tmpdir, "Actors", "Sir George", ".toc.done"))
-			shutil.rmtree(settings['cacheDir'])
+			shutil.rmtree(settings['cache_dir'])
 			medialinkfs.organize.OrganizeSet({}, settings).process_all()
 			self.assertTrue(os.path.isdir(os.path.join(self.tmpdir, "Actors", "Sir George")))
 			self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
@@ -346,7 +346,7 @@ class TestDummy(_utils.TestAPI):
 		    }
 		  }}
 		}
-		self.secret_settings['output'][0]['groupBy'] = 'should_exist'
+		self.secret_settings['output'][0]['group_by'] = 'should_exist'
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		medialinkfs.organize.OrganizeSet({}, self.settings).process_all()
 		self.assertFalse(os.path.isdir(os.path.join(self.tmpdir, "Actors", "False")))
@@ -364,7 +364,7 @@ class TestDummy(_utils.TestAPI):
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test.tst")))
 
 	def test_dummy_multiple_groups(self):
-		self.secret_settings['output'][0]['groupBy'] = ['actors', 'extras']
+		self.secret_settings['output'][0]['group_by'] = ['actors', 'extras']
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		self.dummy_data['test2'] = {"extras": ["Sir George"]}
 		os.mkdir(os.path.join(self.tmpdir, 'All', 'test2'))
@@ -373,7 +373,7 @@ class TestDummy(_utils.TestAPI):
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test")))
 		self.assertTrue(os.path.islink(os.path.join(self.tmpdir, "Actors", "Sir George", "test2")))
 	def test_dummy_multiple_identical_groups(self):
-		self.secret_settings['output'][0]['groupBy'] = ['actors', 'extras']
+		self.secret_settings['output'][0]['group_by'] = ['actors', 'extras']
 		self.settings = medialinkfs.config.ConfigSet(self.secret_settings)
 		self.dummy_data['test'] = {"actors": ["Sir George"], "extras": ["Sir George"]}
 		os.mkdir(os.path.join(self.tmpdir, 'All', 'test2'))

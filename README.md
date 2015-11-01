@@ -145,12 +145,12 @@ At the root of the YAML document is a single item, sets. This is a list of set c
 - `name`: The name of this set, used in logging and in state retention
 - `parsers`: A list of parser modules to use when loading metadata for these items
 - `parser_options`: A mapping of parser modules to any custom options specific to that parser module
-- `scanMode`: The method used to find media items in this collection, which must be one of the following:
-  - `toplevel` - Use any file or directory directly underneath the sourceDir
-  - `directories` - Use any directories directly underneath the sourceDir
-  - `files` - Use any files directly underneath the sourceDir
-- `sourceDir`: The full path to the media directory
-- `cacheDir`: The full path to the directory where MediaLinkFS should store any temporary state specific to this set. Defaults to the .cache directory directly under sourceDir
+- `scan_mode`: The method used to find media items in this collection, which must be one of the following:
+  - `toplevel` - Use any file or directory directly underneath the source\_dir
+  - `directories` - Use any directories directly underneath the source\_dir
+  - `files` - Use any files directly underneath the source\_dir
+- `source_dir`: The full path to the media directory
+- `cache_dir`: The full path to the directory where MediaLinkFS should store any temporary state specific to this set. Defaults to the .cache directory directly under source\_dir
 - `regex`: An optional regex that will be searched for in each item's path. If this setting exists, it will only organize items that match.
 - `noclean`: Don't delete any extra files from the output directories
 - `fakeclean`: Indicate what directories and files would be cleaned out at the end of a run, but don't actually clean them
@@ -159,7 +159,7 @@ At the root of the YAML document is a single item, sets. This is a list of set c
 ### Output Configuration
 
 - `dest`: The full path to the directory to make the group directories
-- `groupBy`: The metadata key of each item to use as the basis for grouping. This can also be an array of keys
+- `group_by`: The metadata key of each item to use as the basis for grouping. This can also be an array of keys
 
 Example Config
 --------------
@@ -167,26 +167,26 @@ Example Config
     sets:
       - name: TV
         parsers: [omdb,freebase]
-        scanMode: directories
-        sourceDir: /media/tv/All
-        cacheDir: /media/tv/.cache
+        scan_mode: directories
+        source_dir: /media/tv/All
+        cache_dir: /media/tv/.cache
         fakeclean: false
         parser_options:
           freebase:
             type: /tv/tv_program
         output:
           - dest: /media/tv/Actors
-            groupBy: actors
+            group_by: actors
 
 Extra Details
 -------------
 
-As the program runs through a set, it adds every processed item into a .progress file in the set's cacheDir. This file is used to resume a set's progress the next time it is run. When the set is complete, it will remove this progress file so that it will rescan everything on the next run.
+As the program runs through a set, it adds every processed item into a .progress file in the set's cache\_dir. This file is used to resume a set's progress the next time it is run. When the set is complete, it will remove this progress file so that it will rescan everything on the next run.
 
 Every output directory will have a .toc file that represents what contents have been added to the directory during that run. After a completed run, the program will go through every managed directory and remove any symlink and empty directory that is not mentioned in the .toc file. When complete, it will move the .toc file to .toc.done, to remember that it has finished cleaning the directory and to skip cleaning it if the program doesn't successfully finish the entire cleaning process. Any previous .toc.done files are renamed to .toc.old, and any previous .toc.old files are deleted.
 
-During the cleanup process, it will not remove any links that are mentioned in .toc.extra, any real files, or any non-empty directories. This allows the user to manually create links and add their names to .toc.extra to prevent MediaLinkFS from removing them. It will also not delete a directory if it is the sourceDir, allowing the sourceDir to safely be a subdirectory of an output directory.
+During the cleanup process, it will not remove any links that are mentioned in .toc.extra, any real files, or any non-empty directories. This allows the user to manually create links and add their names to .toc.extra to prevent MediaLinkFS from removing them. It will also not delete a directory if it is the source\_dir, allowing the source\_dir to safely be a subdirectory of an output directory.
 
 The .toc files are suffixed by the set name, which is used to allow multiple sets to use the same output directories. However, once a media item has been mentioned in .toc.done, MediaLinkFS will not clean it from that directory. If an old set should no longer be in an output directory, remove all .toc.done files for that set in the directory.
 
-In the set's cacheDir, several files that start with .cache- will show up after a run. These files contain all of the cached metadata for each media item. These files can be removed to clear the cache. Each file's modification date indicates the last time a metadata search has been run, which can be used to implement an external cache cleaning policy.
+In the set's cache\_dir, several files that start with .cache- will show up after a run. These files contain all of the cached metadata for each media item. These files can be removed to clear the cache. Each file's modification date indicates the last time a metadata search has been run, which can be used to implement an external cache cleaning policy.

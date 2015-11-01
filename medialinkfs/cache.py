@@ -16,7 +16,7 @@ class Cache(object):
 		self.settings = settings
 
 	def get_cache_dir(self):
-		return self.settings['cacheDir']
+		return self.settings['cache_dir']
 
 	def get_cache_key(self, name):
 		h = hashlib.new('md5')

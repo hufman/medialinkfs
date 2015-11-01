@@ -19,7 +19,7 @@ class SourceItems(object):
 		return self._cache
 
 	def get_source_dir(self):
-		return self.settings['sourceDir']
+		return self.settings['source_dir']
 
 	def load_items(self):
 		regex = None
@@ -28,16 +28,16 @@ class SourceItems(object):
 		omitted_dirs = self._generate_omitted_dirs()
 		files = os.listdir(self.source_dir)
 		files = sorted(files)
-		if self.settings['scanMode'] in ['directories', 'files', 'toplevel']:
+		if self.settings['scan_mode'] in ['directories', 'files', 'toplevel']:
 			for name in files:
 				path = os.path.join(self.source_dir, name)
 				if path in omitted_dirs:
 					continue
-				if self.settings['scanMode'] != 'toplevel':
-					if self.settings['scanMode'] == 'directories' and \
+				if self.settings['scan_mode'] != 'toplevel':
+					if self.settings['scan_mode'] == 'directories' and \
 					   not os.path.isdir(path):
 						continue
-					if self.settings['scanMode'] == 'files' and \
+					if self.settings['scan_mode'] == 'files' and \
 					   not os.path.isfile(path):
 						continue
 				if regex and not regex.search(path):
@@ -46,7 +46,7 @@ class SourceItems(object):
 
 	def _generate_omitted_dirs(self):
 		dirs = []
-		dirs.append(os.path.join(self.settings['cacheDir']))
+		dirs.append(os.path.join(self.settings['cache_dir']))
 		dirs.extend([o['dest'] for o in self.settings['output']])
 		return dirs
 

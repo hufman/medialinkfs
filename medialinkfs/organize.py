@@ -101,8 +101,8 @@ class OrganizeSet(object):
 		# check that we have a source dir
 		if not os.path.isdir(self.source_dir):
 			raise errors.MissingSourceDir("Set %s has an invalid sourceDir %s"%(self.settings['name'], self.source_dir))
-		if 'cacheDir' not in self.settings:
-			self.settings['cacheDir'] = os.path.join(self.source_dir, '.cache')
+		if 'cache_dir' not in self.settings:
+			self.settings['cache_dir'] = os.path.join(self.source_dir, '.cache')
 		# check that we have an output dir
 		if 'output' in self.settings:
 			for output_dir in self.settings['output']:
