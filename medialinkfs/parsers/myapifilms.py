@@ -13,6 +13,7 @@ import time
 logger = logging.getLogger(__name__)
 
 _last_time = 0	# enforce a sleep of 2 seconds between calls
+DELAY = 2
 
 class Module(object):
 	splitter = re.compile('\s*,\s*')
@@ -75,7 +76,7 @@ class Module(object):
 
 		# api rate limit
 		global _last_time
-		delay = _last_time + 2 - time.time()
+		delay = _last_time + DELAY - time.time()
 		if delay > 0: time.sleep(delay)
 		_last_time = time.time()
 

@@ -12,6 +12,8 @@ import tests._utils as _utils
 
 base = os.path.dirname(__file__)
 
+myapifilms.DELAY = 0	# disable api delay
+
 class Testmyapifilms(_utils.TestAPI):
 	def setUp(self):
 		super().setUp()
