@@ -35,6 +35,7 @@ class OrganizeSet(object):
 		self.options = options
 		self.settings = settings
 		self.validate_settings()
+		self.metadata = metadata.Metadata(settings)
 
 	def fetch_set(self):
 		logger.info("Beginning to fetch metadata for %s"%(self.settings['name'],))
@@ -74,14 +75,14 @@ class OrganizeSet(object):
 		output.do_output(self.options, self.settings, metadata)
 
 	def fetch_item_metadata(self, name):
-		fresh_metadata = metadata.fetch_item(self.settings, name)
+		fresh_metadata = self.metadata.fetch_item(name)
 		return fresh_metadata
 
 	def load_item_metadata(self, name):
 		logger.debug("Loading metadata for %s"%(name,))
 		path = os.path.join(self.settings['sourceDir'], name)
 		if not self.options.get('ignore_cache', False):	# if the user didn't say to ignore the cache
-			cached_metadata = metadata.load_item(self.settings, name)
+			cached_metadata = self.metadata.load_item(name)
 			if 'itemname' in cached_metadata:	# valid cached data
 				return cached_metadata
 		# manually ignoring cache, or doesn't have it cached
